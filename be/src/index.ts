@@ -10,8 +10,17 @@ import swaggerJsdoc from "swagger-jsdoc";
 
 dotenv.config();
 
-const app = express();
 const port = Number(process.env.PORT) || 3001;
+const NEWS_API_KEY = process.env.NEWS_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+
+if (!NEWS_API_KEY || !GEMINI_API_KEY) {
+    console.error("CRITICAL ERROR: Missing required environment variables.");
+    console.error("Please ensure NEWS_API_KEY and GEMINI_API_KEY are set in your .env file.");
+    process.exit(1);
+}
+
+const app = express();
 
 // Swagger configuration
 const swaggerOptions = {
@@ -30,12 +39,11 @@ const swaggerOptions = {
     },
     apis: ["./src/routes/*.ts"],
 };
-
 const swaggerDocs = swaggerJsdoc(swaggerOptions);
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 app.use(cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:8100",
+    origin: process.env.FRONTEND_URL,
     credentials: true
 }));
 

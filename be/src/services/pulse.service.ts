@@ -1,8 +1,6 @@
 import axios from "axios";
-import { Mastra, Agent } from "@mastra/core";
-import { createGoogleGenerativeAI } from "@ai-sdk/google";
+import { Agent } from "@mastra/core/agent";
 import { prisma } from "../lib/prisma";
-import { GoogleGenerativeAI } from "@google/generative-ai";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -20,13 +18,7 @@ export class PulseService {
 
   async extractNews(): Promise<any[]> {
     if (!NEWS_API_KEY) {
-      console.warn("NEWS_API_KEY not set, using mock headlines");
-      return Array(20).fill(null).map((_, i) => ({
-        title: `Mock Headline ${i + 1}`,
-        description: `Description for mock headline ${i + 1}`,
-        url: `https://example.com/${i}`,
-        source: { name: "Mock News" }
-      }));
+      throw new Error("NEWS_API_KEY is not defined");
     }
 
     try {
@@ -46,18 +38,10 @@ export class PulseService {
 
   async analyzePulse(headlines: any[]): Promise<{ status: "Good" | "Bad"; rationale: string }> {
     if (!GEMINI_API_KEY) {
-      console.warn("GEMINI_API_KEY not set, using mock analysis");
-      return {
-        status: Math.random() > 0.5 ? "Good" : "Bad",
-        rationale: "This is a mock analysis because GEMINI_API_KEY is missing. Human well-being seems stable in this simulated environment.",
-      };
+      throw new Error("GEMINI_API_KEY is not defined");
     }
 
-    const google = createGoogleGenerativeAI({
-      apiKey: GEMINI_API_KEY,
-    });
 
-    const mastra = new Mastra();
     const agent = new Agent({
       name: "Global Analyst",
       instructions: `You are a Global Analyst evaluating the net impact of the day's events on human well-being.
@@ -65,7 +49,11 @@ export class PulseService {
       "Good" (Steady): Progress, peace, stability, scientific breakthroughs, or positive economic news.
       "Bad" (Arrythmia): Conflict, crisis, natural disasters, major economic downturns, or humanitarian setbacks.
       Provide the result in a structured format: { "status": "Good" | "Bad", "rationale": "Detailed explanation" }.`,
-      model: google("gemini-1.5-flash"),
+      
+      model: {
+        id: "google/gemini-flash-lite-latest",
+        apiKey: process.env.GEMINI_API_KEY,
+      },
     });
 
     const prompt = `Analyze these 20 headlines from today:\n${headlines
@@ -223,9 +211,11 @@ export class PulseService {
     console.log(`Running Daily Pulse Check for ${normalizedDate.toISOString()}...`);
     
     const headlines = await this.extractNews();
+    console.log(`Extracted ${headlines.length} headlines...`);  
     const { status, rationale } = await this.analyzePulse(headlines);
-    
+    console.log(`Analyzed pulse...`);  
     await this.savePulse(normalizedDate, status, headlines, rationale);
+    console.log(`Saved pulse...`);  
     const staticPath = await this.generateStaticPage(normalizedDate, status, headlines, rationale);
     
     console.log(`Pulse Check Complete: ${status}. Static page at ${staticPath}`);
