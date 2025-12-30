@@ -7,6 +7,7 @@ import Handlebars from "handlebars";
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GNEWS_API_KEY = process.env.GNEWS_API_KEY;
 
 export class PulseService {
   private static STATIC_DIR = path.join(process.cwd(), "..", "fe", "public", "pulse");
@@ -40,7 +41,35 @@ export class PulseService {
   }
 
   async extractHistoricalNews(date: Date): Promise<any[]> {
-    throw new Error(`Historical news extraction for ${date.toISOString().split("T")[0]} is not supported with the current provider.`);
+    if (!GNEWS_API_KEY) {
+      throw new Error("GNEWS_API_KEY is not defined");
+    }
+
+    // Set from/to to the target date (start and end of day)
+    const dateStr = date.toISOString().split("T")[0];
+    const from = `${dateStr}T00:00:00Z`;
+    const to = `${dateStr}T23:59:59Z`;
+
+    try {
+      const response = await axios.get("https://gnews.io/api/v4/search", {
+        params: {
+          q: "world OR news OR humanity OR progress",
+          token: GNEWS_API_KEY,
+          from,
+          to,
+          lang: "en",
+          max: 20,
+          sortby: "relevance"
+        },
+      });
+
+      // GNews returns 'articles' with structure: { title, description, url, source: { name, url } }
+      // This matches the NewsAPI structure closely enough for our template/analysis
+      return response.data.articles || [];
+    } catch (error) {
+      console.error("Error fetching historical news from GNews:", error);
+      throw error;
+    }
   }
 
   async extractNews(date: Date): Promise<any[]> {

@@ -13,10 +13,11 @@ dotenv.config();
 const port = Number(process.env.PORT) || 3001;
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GNEWS_API_KEY = process.env.GNEWS_API_KEY;
 
-if (!NEWS_API_KEY || !GEMINI_API_KEY) {
+if (!NEWS_API_KEY || !GEMINI_API_KEY || !GNEWS_API_KEY) {
     console.error("CRITICAL ERROR: Missing required environment variables.");
-    console.error("Please ensure NEWS_API_KEY and GEMINI_API_KEY are set in your .env file.");
+    console.error("Please ensure NEWS_API_KEY, GEMINI_API_KEY, and GNEWS_API_KEY are set in your .env file.");
     process.exit(1);
 }
 
