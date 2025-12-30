@@ -53,9 +53,6 @@ app.use(cookieParser());
 // Pulse routes
 app.use("/api/pulse", pulseRoutes);
 
-// Serve static pulse pages
-app.use("/pulse", express.static(path.join(process.cwd(), "static", "pulse")));
-
 // Healthcheck endpoint
 app.get("/api/health", (req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });

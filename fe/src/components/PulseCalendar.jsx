@@ -72,7 +72,8 @@ const PulseCalendar = () => {
             <div className="grid grid-cols-7 sm:grid-cols-10 md:grid-cols-15 lg:grid-cols-20 gap-3">
                 {dates.map((dateStr) => {
                     const status = pulseMap[dateStr];
-                    const url = `${import.meta.env.VITE_API_URL}/pulse/${dateStr}.html`;
+                    const [year, month] = dateStr.split("-");
+                    const url = `/pulse/${year}/${month}/${dateStr}.html`;
 
                     return (
                         <a

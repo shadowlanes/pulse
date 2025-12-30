@@ -3,7 +3,7 @@ import PulseMetrics from "./components/PulseMetrics";
 
 function App() {
     return (
-        <div className="min-h-screen bg-neutral-950 text-neutral-50 selection:bg-primary/30 font-sans">
+        <div className="min-h-screen bg-neutral-950 text-neutral-50 selection:bg-primary/30">
             <nav className="border-b border-white/5 bg-black/40 backdrop-blur-xl sticky top-0 z-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
                     <div className="flex items-center gap-2">

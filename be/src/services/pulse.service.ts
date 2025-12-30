@@ -3,12 +3,14 @@ import { Agent } from "@mastra/core/agent";
 import { prisma } from "../lib/prisma";
 import * as fs from "fs";
 import * as path from "path";
+import Handlebars from "handlebars";
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
 export class PulseService {
-  private static STATIC_DIR = path.join(process.cwd(), "static", "pulse");
+  private static STATIC_DIR = path.join(process.cwd(), "..", "fe", "public", "pulse");
+  private static TEMPLATE_PATH = path.join(process.cwd(), "..", "fe", "src", "templates", "pulse-report.hbs");
 
   constructor() {
     if (!fs.existsSync(PulseService.STATIC_DIR)) {
@@ -16,7 +18,7 @@ export class PulseService {
     }
   }
 
-  async extractNews(): Promise<any[]> {
+  async extractTodayNews(): Promise<any[]> {
     if (!NEWS_API_KEY) {
       throw new Error("NEWS_API_KEY is not defined");
     }
@@ -27,12 +29,28 @@ export class PulseService {
           language: "en",
           pageSize: 20,
           apiKey: NEWS_API_KEY,
+          category: "general"
         },
       });
       return response.data.articles;
     } catch (error) {
-      console.error("Error fetching news:", error);
+      console.error("Error fetching today's news:", error);
       throw error;
+    }
+  }
+
+  async extractHistoricalNews(date: Date): Promise<any[]> {
+    throw new Error(`Historical news extraction for ${date.toISOString().split("T")[0]} is not supported with the current provider.`);
+  }
+
+  async extractNews(date: Date): Promise<any[]> {
+    const today = new Date();
+    const isToday = date.toISOString().split("T")[0] === today.toISOString().split("T")[0];
+
+    if (isToday) {
+      return this.extractTodayNews();
+    } else {
+      return this.extractHistoricalNews(date);
     }
   }
 
@@ -92,125 +110,66 @@ export class PulseService {
   }
 
   async generateStaticPage(date: Date, status: "Good" | "Bad", headlines: any[], rationale: string) {
+    const year = date.getFullYear().toString();
+    const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const dateStr = date.toISOString().split("T")[0];
     const fileName = `${dateStr}.html`;
-    const filePath = path.join(PulseService.STATIC_DIR, fileName);
+    
+    const targetDir = path.join(PulseService.STATIC_DIR, year, month);
+    if (!fs.existsSync(targetDir)) {
+      fs.mkdirSync(targetDir, { recursive: true });
+    }
+    
+    const filePath = path.join(targetDir, fileName);
 
-    const htmlContent = `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pulse - ${dateStr}</title>
-    <style>
-        :root {
-            --bg: #0a0a0a;
-            --text: #ededed;
-            --good: #22c55e;
-            --bad: #ef4444;
-            --card: #171717;
-        }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', -apple-system, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .verdict {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-top: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        .verdict.good { color: var(--good); }
-        .verdict.bad { color: var(--bad); }
-        .rationale {
-            background: var(--card);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            border: 1px solid #333;
-        }
-        .headlines-list {
-            list-style: none;
-            padding: 0;
-        }
-        .headline-item {
-            background: var(--card);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid #333;
-        }
-        .headline-item span {
-            display: block;
-            font-size: 0.8rem;
-            color: #888;
-            margin-bottom: 0.5rem;
-        }
-        a { color: var(--good); text-decoration: none; font-size: 0.9rem; }
-        .back-link { margin-bottom: 2rem; display: inline-block; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <a href="/" class="back-link">← Back to Pulse Dashboard</a>
-        <div class="header">
-            <span>THE PULSE OF HUMANITY</span>
-            <h1>${dateStr}</h1>
-            <div class="verdict ${status.toLowerCase()}">${status}</div>
-        </div>
-        
-        <div class="section">
-            <h2>The Pulse Analysis</h2>
-            <div class="rationale">
-                ${rationale.replace(/\n/g, '<br>')}
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>Headlines Ledger</h2>
-            <ul class="headlines-list">
-                ${headlines.map(h => `
-                    <li class="headline-item">
-                        <span>${h.source.name}</span>
-                        <strong>${h.title}</strong>
-                        <p>${h.description || ""}</p>
-                        <a href="${h.url}" target="_blank">Read more</a>
-                    </li>
-                `).join('')}
-            </ul>
-        </div>
-    </div>
-</body>
-</html>
-    `;
+    // Read and compile template
+    if (!fs.existsSync(PulseService.TEMPLATE_PATH)) {
+      throw new Error(`Template not found at ${PulseService.TEMPLATE_PATH}`);
+    }
+    
+    const templateSource = fs.readFileSync(PulseService.TEMPLATE_PATH, "utf-8");
+    const template = Handlebars.compile(templateSource);
+    
+    const htmlContent = template({
+      dateStr,
+      year,
+      status,
+      isGood: status === "Good",
+      rationale,
+      headlines
+    });
 
     fs.writeFileSync(filePath, htmlContent);
-    return `/pulse/${fileName}`;
+    return `/pulse/${year}/${month}/${fileName}`;
   }
 
   async runDailyCheck(date: Date = new Date()) {
     // Set to 23:50 UTC or similar as per PRD if needed, but for manual triggers it's flexible
     const normalizedDate = new Date(date.toISOString().split("T")[0]);
     
+    const existing = await prisma.pulse.findUnique({
+      where: { date: normalizedDate }
+    });
+
+    if (existing) {
+      console.log(`Pulse entry exists for ${normalizedDate.toISOString().split("T")[0]}. Re-generating static page...`);
+      const staticPath = await this.generateStaticPage(
+        normalizedDate, 
+        existing.status as "Good" | "Bad", 
+        existing.headlines as any[], 
+        existing.rationale
+      );
+      
+      return { 
+        status: existing.status, 
+        staticPath,
+        message: "Entry already exists, static page regenerated"
+      };
+    }
+
     console.log(`Running Daily Pulse Check for ${normalizedDate.toISOString()}...`);
     
-    const headlines = await this.extractNews();
+    const headlines = await this.extractNews(normalizedDate);
     console.log(`Extracted ${headlines.length} headlines...`);  
     const { status, rationale } = await this.analyzePulse(headlines);
     console.log(`Analyzed pulse...`);  
