@@ -5,7 +5,49 @@ import { PulseService } from "../services/pulse.service";
 const router = Router();
 const pulseService = new PulseService();
 
-// GET /api/pulse/history?start=YYYY-MM-DD&end=YYYY-MM-DD
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     PulseStatus:
+ *       type: object
+ *       properties:
+ *         date:
+ *           type: string
+ *           format: date-time
+ *         status:
+ *           type: string
+ *           enum: [Good, Bad]
+ */
+
+/**
+ * @swagger
+ * /api/pulse/history:
+ *   get:
+ *     summary: Get pulse history for a date range
+ *     parameters:
+ *       - in: query
+ *         name: start
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: Start date (YYYY-MM-DD)
+ *       - in: query
+ *         name: end
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: End date (YYYY-MM-DD)
+ *     responses:
+ *       200:
+ *         description: A list of pulse statuses
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/PulseStatus'
+ */
 router.get("/history", async (req, res) => {
   const { start, end } = req.query;
   
@@ -29,7 +71,32 @@ router.get("/history", async (req, res) => {
   }
 });
 
-// GET /api/pulse/metrics
+/**
+ * @swagger
+ * /api/pulse/metrics:
+ *   get:
+ *     summary: Get weekly and monthly health metrics
+ *     responses:
+ *       200:
+ *         description: Pulse metrics
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 last7:
+ *                   type: object
+ *                   properties:
+ *                     steady: { type: integer }
+ *                     distressed: { type: integer }
+ *                     percentage: { type: integer }
+ *                 last30:
+ *                   type: object
+ *                   properties:
+ *                     steady: { type: integer }
+ *                     distressed: { type: integer }
+ *                     percentage: { type: integer }
+ */
 router.get("/metrics", async (req, res) => {
   try {
     const today = new Date();
@@ -60,7 +127,25 @@ router.get("/metrics", async (req, res) => {
   }
 });
 
-// GET /api/pulse/details/:date
+/**
+ * @swagger
+ * /api/pulse/details/{date}:
+ *   get:
+ *     summary: Get full pulse details for a specific date
+ *     parameters:
+ *       - in: path
+ *         name: date
+ *         required: true
+ *         schema:
+ *           type: string
+ *           format: date
+ *         description: Date (YYYY-MM-DD)
+ *     responses:
+ *       200:
+ *         description: Pulse data including headlines and rationale
+ *       404:
+ *         description: Pulse not found
+ */
 router.get("/details/:date", async (req, res) => {
   const { date } = req.params;
   try {
@@ -74,7 +159,25 @@ router.get("/details/:date", async (req, res) => {
   }
 });
 
-// POST /api/pulse/trigger-check (Manual trigger)
+/**
+ * @swagger
+ * /api/pulse/trigger-check:
+ *   post:
+ *     summary: Manually trigger a pulse check
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               date:
+ *                 type: string
+ *                 format: date
+ *                 description: Optional date to check (defaults to today)
+ *     responses:
+ *       200:
+ *         description: Pulse check result
+ */
 router.post("/trigger-check", async (req, res) => {
   const { date } = req.body;
   try {
