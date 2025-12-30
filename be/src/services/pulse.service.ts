@@ -11,6 +11,7 @@ const GNEWS_API_KEY = process.env.GNEWS_API_KEY;
 
 export class PulseService {
   private static STATIC_DIR = path.join(process.cwd(), "..", "fe", "public", "pulse");
+  private static DATA_JSON_PATH = path.join(process.cwd(), "..", "fe", "public", "pulse-history.json");
   private static TEMPLATE_PATH = path.join(process.cwd(), "..", "fe", "src", "templates", "pulse-report.hbs");
 
   constructor() {
@@ -178,6 +179,30 @@ export class PulseService {
     return `/pulse/${year}/${month}/${fileName}`;
   }
 
+  async generatePulseDataJson() {
+    try {
+      const today = new Date();
+      const last7Days = new Date(today);
+      last7Days.setDate(today.getDate() - 7);
+
+      const pulses = await prisma.pulse.findMany({
+        where: {
+          date: {
+            gte: last7Days,
+          },
+        },
+        orderBy: { date: "asc" },
+      });
+
+      fs.writeFileSync(PulseService.DATA_JSON_PATH, JSON.stringify(pulses, null, 2));
+      console.log(`Generated static JSON data at ${PulseService.DATA_JSON_PATH}`);
+      return pulses;
+    } catch (error) {
+      console.error("Error generating pulse data JSON:", error);
+      throw error;
+    }
+  }
+
   async runDailyCheck(date: Date = new Date()) {
     // Set to 23:50 UTC or similar as per PRD if needed, but for manual triggers it's flexible
     const normalizedDate = new Date(date.toISOString().split("T")[0]);
@@ -195,6 +220,8 @@ export class PulseService {
         existing.rationale
       );
       
+      await this.generatePulseDataJson();
+
       return { 
         status: existing.status, 
         score: existing.score,
@@ -212,6 +239,7 @@ export class PulseService {
     await this.savePulse(normalizedDate, status, score, headlines, rationale);
     console.log(`Saved pulse...`);  
     const staticPath = await this.generateStaticPage(normalizedDate, status, headlines, rationale);
+    await this.generatePulseDataJson();
     
     console.log(`Pulse Check Complete: ${status} (${score}). Static page at ${staticPath}`);
     return { status, score, staticPath };

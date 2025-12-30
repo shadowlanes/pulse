@@ -194,4 +194,22 @@ router.post("/trigger-check", async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /api/pulse/generate-json:
+ *   post:
+ *     summary: Manually generate static JSON data
+ *     responses:
+ *       200:
+ *         description: JSON generation result
+ */
+router.post("/generate-json", async (req, res) => {
+  try {
+    const result = await pulseService.generatePulseDataJson();
+    res.json({ message: "JSON generated successfully", count: result.length });
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 export default router;
