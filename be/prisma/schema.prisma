@@ -66,3 +66,15 @@ model Verification {
 
   @@map("verification")
 }
+
+model Pulse {
+  id        String   @id @default(cuid())
+  date      DateTime @unique
+  status    String   // "Good" or "Bad"
+  headlines Json     // Array of top 20 headlines
+  rationale String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("pulse")
+}

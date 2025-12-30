@@ -4,6 +4,9 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth";
+import pulseRoutes from "./routes/pulse.routes";
+import { setupCronJobs } from "./cron/pulse.cron";
+import path from "path";
 
 dotenv.config();
 
@@ -21,6 +24,12 @@ app.use(cookieParser());
 // Better Auth handler
 app.use("/api/auth", toNodeHandler(auth));
 
+// Pulse routes
+app.use("/api/pulse", pulseRoutes);
+
+// Serve static pulse pages
+app.use("/pulse", express.static(path.join(process.cwd(), "static", "pulse")));
+
 // Healthcheck endpoint
 app.get("/api/health", (req, res) => {
     res.json({ status: "ok", timestamp: new Date().toISOString() });
@@ -28,7 +37,7 @@ app.get("/api/health", (req, res) => {
 
 // Example protected route
 app.get("/api/protected", async (req, res) => {
-    const session = await auth.api.getSession({ headers: req.headers });
+    const session = await auth.api.getSession({ headers: req.headers as any });
     if (!session) {
         return res.status(401).json({ error: "Unauthorized" });
     }
@@ -37,4 +46,5 @@ app.get("/api/protected", async (req, res) => {
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server running at http://0.0.0.0:${port}`);
+    setupCronJobs();
 });
