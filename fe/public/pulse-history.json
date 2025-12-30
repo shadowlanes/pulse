@@ -1,5 +1,518 @@
 [
   {
+    "id": "cmjsvo59n00027k1v0s7mc5y1",
+    "date": "2025-12-24T00:00:00.000Z",
+    "status": "Good",
+    "score": 7.2,
+    "headlines": [
+      {
+        "id": "4f53a219bfc2cb974485a5e512846201",
+        "url": "https://www.mid-day.com/news/world-news/photo/in-photos-christmas-2025-take-a-look-at-the-celebrations-from-across-the-world-108858",
+        "lang": "en",
+        "image": "https://images.mid-day.com/images/images/2025/dec/Philippines_d.jpg",
+        "title": "World News, Latest World News, Breaking News and Headlines Today",
+        "source": {
+          "id": "189fbafb09ebfd21b3d4eda343f00fb1",
+          "url": "https://www.mid-day.com",
+          "name": "Mid Day",
+          "country": "in"
+        },
+        "content": "Philippine Cardinal Jose Advincula carries a figure of Baby Jesus at the start of the Christmas Eve Mass at Manila Cathedral on Wednesday. PIC/AFP\nPriests celebrate the Christmas Eve Mass at the Church of Saint Peter in Antakya in Turkey. Considered ... [770 chars]",
+        "description": "Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.",
+        "publishedAt": "2025-12-24T20:33:00Z"
+      },
+      {
+        "id": "3128dc73fa9577412e8b2e18371760fa",
+        "url": "https://www.timesnownews.com/world/world-ending-on-december-25-viral-ghanaian-prophet-ebo-noah-builds-modern-noahs-ark-for-doomsday-article-153344658",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153344658,width-1280,height-720,resizemode-75/153344658.jpg",
+        "title": "World Ending On December 25? Viral Ghanaian ‘Prophet’ Ebo Noah Builds Modern Noah’s Ark For Biblical Christmas Flood",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "A Ghanaian man known as Ebo Jesus, who also goes by Ebo Noah, has gone viral on social media after claiming the world will face a catastrophic flood beginning on Christmas Day, December 25. The 30-year-old self-proclaimed prophet says he has received... [2391 chars]",
+        "description": "Ghanaian self-proclaimed prophet Ebo Noah has gone viral for claiming that a global flood will begin on Christmas Day. He is building modern-day Noah’s Arks to survive what he says will be a three-year deluge. While some followers support his efforts, critics point to biblical texts and practical flaws., World News, Times Now",
+        "publishedAt": "2025-12-24T20:32:30Z"
+      },
+      {
+        "id": "e97e91d27ea87298b99a96ee80db6b23",
+        "url": "https://www.express.co.uk/sport/othersport/2150029/World-Darts-Championship-LIVE-Luke-Littler-Michael-van-Gerwen-schedule-results-highlights",
+        "lang": "en",
+        "image": "https://cdn.images.express.co.uk/img/dynamic/4/1200x630/6633599.jpg",
+        "title": "World Darts Championship news: Star suffers tragedy as Luke Littler sends message",
+        "source": {
+          "id": "c97ef3cad273a1993c998ca7ddcc5212",
+          "url": "https://www.express.co.uk",
+          "name": "Daily Express",
+          "country": "gb"
+        },
+        "content": "Alexandra Palace debutant Arno Merk has admitting his Christmas plans have changed after he beat Peter Wright. The German whitewashed the two-time World Championship winner in their second round clash.\nHis 3-1 victory over Kim Huybrechts was shocking... [7798 chars]",
+        "description": "Express Sport brings you the latest news from the World Darts Championship.",
+        "publishedAt": "2025-12-24T18:04:00Z"
+      },
+      {
+        "id": "3dbaa52be1997ba0e0ee5b443314592f",
+        "url": "https://www.timesnownews.com/mumbai/mumbai-world-record-in-dombivli-2-5-lakh-coloured-diyas-create-grand-bharat-mata-mosaic-for-150-years-of-vande-mataram-article-153343416",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153343416,width-1280,height-720,resizemode-75/153343416.jpg",
+        "title": "World Record in Dombivli: 2.5 Lakh Coloured Diyas Create Grand Bharat Mata Mosaic",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "2.5 Lakh Coloured Diyas Create Grand Bharat Mata Mosaic for 150 Years of ‘Vande Mataram’\nPhoto : Times Now\nDombivli, Thane: A striking blend of art, devotion and patriotism unfolded near Mumbai as over 2.5 lakh coloured diyas were arranged to form a ... [2518 chars]",
+        "description": "In Dombivli, near Mumbai, over 250,000 colored diyas were arranged to create a stunning mosaic of Bharat Mata, setting a new world record recognized by World Records India. This monumental installation celebrates the 150th anniversary of 'Vande Mataram' and has drawn large crowds to the Dombivli Gymkhana Ground. , Mumbai News, Times Now",
+        "publishedAt": "2025-12-24T14:15:06Z"
+      },
+      {
+        "id": "6186a8a016d78c6b1a05688aeb55eaa5",
+        "url": "https://www.breakingnews.ie/ireland/santa-tracker-2025-watch-santas-progress-as-he-delivers-gifts-around-the-world-1845285.html",
+        "lang": "en",
+        "image": "https://img.resized.co/breaking-news/eyJkYXRhIjoie1widXJsXCI6XCJodHRwczpcXFwvXFxcL2ltYWdlcy5icmVha2luZ25ld3MuaWVcXFwvcHJvZFxcXC91cGxvYWRzXFxcLzIwMjVcXFwvMTJcXFwvMjQxMTM5MjhcXFwvc2FudGEtdHJhY2tlci1waWMucG5nXCIsXCJ3aWR0aFwiOjEyMDAsXCJoZWlnaHRcIjo2MjcsXCJkZWZhdWx0XCI6XCJodHRwczpcXFwvXFxcL3d3dy5icmVha2luZ25ld3MuaWVcXFwvaVxcXC9ibi1ub2ltYWdlLnBuZ1wiLFwib3B0aW9uc1wiOltdfSIsImhhc2giOiI2ODFlMjM4NmQxMWI3NjI1MGFmYzViYjkzMWE0OTJmYjlkNWVlNGU5In0=/santa-tracker-2025-watch-santa-s-progress-as-he-delivers-gifts-around-the-world.png",
+        "title": "Santa Tracker 2025: Watch Santa's progress as he delivers gifts around the world",
+        "source": {
+          "id": "a6eca0d46b8950e7f02b79d1f1477607",
+          "url": "https://www.breakingnews.ie",
+          "name": "BreakingNews.ie",
+          "country": "ie"
+        },
+        "content": "As children across Ireland and the world count down the hours to Christmas morning, Santa has already started his journey delivering presents to children elsewhere in the world.\nAccording to our sources, Santa's sleigh is expected to enter Irish airs... [971 chars]",
+        "description": "Wondering when to leave out the milk and biscuits? Follow Santa’s progress live with Norad's Santa tracker to see when he will approach Ireland.",
+        "publishedAt": "2025-12-24T14:08:48Z"
+      },
+      {
+        "id": "356c9fa12867043a06c13cf48945b6ac",
+        "url": "https://www.ndtv.com/education/school-assembly-news-headlines-december-25-top-national-world-sports-business-news-9934632",
+        "lang": "en",
+        "image": "https://c.ndtvimg.com/2019-05/o5lslqjo_cbse-board-result_625x300_04_May_19.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=738",
+        "title": "School Assembly News Headlines (December 25): Top National, World, Sports, Business News",
+        "source": {
+          "id": "7daf04fa6272ed0a29583b211dcfe1d4",
+          "url": "https://www.ndtv.com",
+          "name": "NDTV.com",
+          "country": "in"
+        },
+        "content": "School Assembly News Headlines Today (December 24): Staying informed about national, international, sports and education news sharpens your thinking and helps you become an aware and responsible citizen.\nSchool Assembly News Headlines: State That Has... [2055 chars]",
+        "description": "School Assembly News Headlines Today (December 24): Staying informed about national, international, sports and education news sharpens your thinking and helps you become an aware and responsible citizen.",
+        "publishedAt": "2025-12-24T13:17:37Z"
+      },
+      {
+        "id": "8d607ea9a4fce2fd8ff81fb3740a5248",
+        "url": "https://www.dailyrecord.co.uk/news/scottish-news/norad-santa-tracker-2025-live-36450598",
+        "lang": "en",
+        "image": "https://i2-prod.dailyrecord.co.uk/incoming/article36450614.ece/ALTERNATES/s1200/2_CapturePNG.png",
+        "title": "follow Father Christmas on his sleigh around the world",
+        "source": {
+          "id": "70f0e86899d38a3c4301bfc5b89b2ff4",
+          "url": "https://www.dailyrecord.co.uk",
+          "name": "Daily Record",
+          "country": "gb"
+        },
+        "content": "Christmas Day is just a matter of hours away and anticipations around the world for festive cheer are high.\nThanks to cutting-edge technology, you'll soon be able to follow Father Christmas as he drops off gifts to children across the globe.\nCurrentl... [2374 chars]",
+        "description": "Father Christmas is preparing to set off on his annual journey around the world to deliver presents to children - and you can track his progress with the NORAD Santa Tracker.",
+        "publishedAt": "2025-12-24T08:55:32Z"
+      },
+      {
+        "id": "e196a5360b924ae905d7afd19ad36123",
+        "url": "https://www.lokmattimes.com/business/from-heart-to-humanity-prof-dr-parin-somanis-christmas-message-of-love-peace-and-purpose/",
+        "lang": "en",
+        "image": "https://d3pc1xvrcw35tl.cloudfront.net/ln/primeximages/1200x900/1-29_202512.jpg",
+        "title": "From Heart to Humanity: Prof. Dr. Parin Somani’s Christmas Message of Love, Peace, and Purpose",
+        "source": {
+          "id": "f2ddccedc9e60d844e7a1045928cad48",
+          "url": "https://www.lokmattimes.com",
+          "name": "Lokmat Times",
+          "country": "in"
+        },
+        "content": "New Delhi [India], December 24: As the season of Christmas gently embraces the world, it arrives with a timeless message of love, compassion, and selfless service. Christmas is not only a celebration of festivity and joy; it is a moment that calls up... [3877 chars]",
+        "description": "From Heart to Humanity: Prof. Dr. Parin Somani’s Christmas Message of Love, Peace, and Purpose - New Delhi [India], December 24: As the season of Christmas gently embraces the world, it arrives with a timeless ... Get Latest News on Business only on lokmattimes.com",
+        "publishedAt": "2025-12-24T08:36:39Z"
+      },
+      {
+        "id": "8caaf50f5f8cd5e5ef37bb4d12dbbb06",
+        "url": "https://www.deseret.com/opinion/2025/12/23/deseret-news-top-opinion-perspective-stories-2025/",
+        "lang": "en",
+        "image": "https://www.deseret.com/resizer/v2/ROP65OOCRBCNZNTSNS2Z7EWJDY.jpg?focal=1493%2C977&auth=10775804363e697c0294da50011958d95783c657618112d3b1bfa9777dd08d71&width=630",
+        "title": "2025 in review: Deseret News' top Opinion articles",
+        "source": {
+          "id": "aaa6f2928e430ec2ed450ed89cc822f5",
+          "url": "https://www.deseret.com",
+          "name": "Salt Lake City Deseret News",
+          "country": "us"
+        },
+        "content": "The year 2025 presented moments of great chaos and confusion, and it remains important, perhaps now more than ever, to respond with faith and reason.\nUtah has set the stage for national conversations this year regarding political violence, artificial... [11511 chars]",
+        "description": "Here are the top 10 articles published by the Deseret News this year that analyze complex issues facing our nation — and world — today.",
+        "publishedAt": "2025-12-24T04:06:26Z"
+      },
+      {
+        "id": "a8ab2b1b8e171c4011d7acd97c15c0f6",
+        "url": "https://www.tribuneindia.com/news/world/mansoor-bin-mohammed-reviews-preparations-for-inaugural-world-sports-summit-during-dsc-board-meeting/",
+        "lang": "en",
+        "image": "https://www.tribuneindia.com/sortd-service/imaginary/v22-01/jpg/large/high?url=dGhldHJpYnVuZS1zb3J0ZC1wcm8tcHJvZC1zb3J0ZC9tZWRpYTUwMjMxMzAwLWUwNjUtMTFmMC05ZjdmLWQ5NWI0NWYwMWMxNi5qcGc=",
+        "title": "Mansoor bin Mohammed reviews preparations for inaugural World Sports Summit during DSC Board meeting",
+        "source": {
+          "id": "c5725557f39c24c8b029ee39900a8406",
+          "url": "https://www.tribuneindia.com",
+          "name": "The Tribune",
+          "country": "in"
+        },
+        "content": "Dubai [UAE], December 24 (ANI/WAM): Sheikh Mansoor bin Mohammed bin Rashid Al Maktoum, Chairman of the Dubai Sports Council, has affirmed that the World Sports Summit being organised by the Dubai Sports Council adds a new page to Dubai's sporting cal... [4044 chars]",
+        "description": "Sheikh Mansoor bin Mohammed bin Rashid Al Maktoum, Chairman of the Dubai Sports Council, has affirmed that the World Sports Summit being organised by the Dubai Sports Council adds a new page to Dubai's sporting calendar that embodies the emirate's unwavering commitment to helping build a better future for humanity.",
+        "publishedAt": "2025-12-24T01:10:13Z"
+      }
+    ],
+    "rationale": "The day shows strong positive indicators centered around cultural celebration (world record diya mosaic), global shared tradition (Santa tracking), and explicit messaging promoting peace and humanity's future (Prof. Somani's message and the World Sports Summit). While there is a localized tragedy mentioned (Headline 3) and an instance of fear-mongering regarding a predicted flood (Headline 2), the volume and significance of the constructive and unifying events push the score into the 'Steady Progress' range. The collective positive cultural output outweighs the negative noise.",
+    "createdAt": "2025-12-30T17:45:22.088Z",
+    "updatedAt": "2025-12-30T17:45:22.088Z"
+  },
+  {
+    "id": "cmjsvo1cf00017k1vr3di4hn2",
+    "date": "2025-12-25T00:00:00.000Z",
+    "status": "Bad",
+    "score": 4.5,
+    "headlines": [
+      {
+        "id": "37b9be5ec61626cf4234ca15b6443283",
+        "url": "https://www.nugget.ca/opinion/a-christmas-wish-healing-humanity-wriggling-in-darkness",
+        "lang": "en",
+        "image": "https://smartcdn.gprod.postmedia.digital/nexus/wp-content/uploads/2023/01/ki.505082987.jpg",
+        "title": "A Christmas wish: Healing humanity wriggling in darkness",
+        "source": {
+          "id": "74373d37da4d4a3faf05b8b7af0eafd7",
+          "url": "https://www.nugget.ca",
+          "name": "The North Bay Nugget",
+          "country": "ca"
+        },
+        "content": "Christmas is not a season to make bonkers demands for things one could live without. Instead, we must fill the world with joy and caring\nArticle content\nBy Rev. Dr. John T. Mathew\nAdvertisement 2\nStory continues below\nThis advertisement has not loade... [14919 chars]",
+        "description": "Christmas is not a season to make bonkers demands for things one could live without. Instead, we must fill the world with joy and caring.",
+        "publishedAt": "2025-12-25T17:47:09Z"
+      },
+      {
+        "id": "4ca7a85997ae5819e5bd50602981473c",
+        "url": "https://www.hindustantimes.com/world-news/from-saudi-arabia-to-the-vatican-how-the-world-is-celebrating-christmas-2025-101766675162495.html",
+        "lang": "en",
+        "image": "https://www.hindustantimes.com/ht-img/img/2025/12/25/1600x900/logo/PTI12-25-2025-000507B-0_1766682048660_1766682063170.jpg",
+        "title": "From Saudi Arabia to the Vatican: How the world is celebrating Christmas 2025",
+        "source": {
+          "id": "21468bec836de1ebb209ff6f78fbfe3e",
+          "url": "https://www.hindustantimes.com",
+          "name": "Hindustan Times",
+          "country": "in"
+        },
+        "content": "From the Vatican City to Saudi Arabia, here's a look at how the world is celebrating Christmas.\nVatican City\nPope Leo XIV delivered his first Christmas message from the main balcony of St. Peter's Basilica the Urbi et Orbi. The American Pope, who was... [4450 chars]",
+        "description": "From the Vatican City to Saudi Arabia, here's a look at how the world is celebrating Christmas. | World News",
+        "publishedAt": "2025-12-25T17:08:47Z"
+      },
+      {
+        "id": "3d50c5c7fdf6c4e142676463d59d3ecf",
+        "url": "https://www.devdiscourse.com/article/law-order/3741682-current-world-news-highlights-royal-appearances-international-tensions-and-natural-disasters",
+        "lang": "en",
+        "image": "https://www.devdiscourse.com/remote.axd?https://devdiscourse.blob.core.windows.net/aiimagegallery/28_06_2025_16_32_34_38853.png?width=920&format=jpeg",
+        "title": "Current World News Highlights: Royal Appearances, International Tensions, and Natural Disasters",
+        "source": {
+          "id": "c6a01ba91c1a2bc3f53f4707110bfee5",
+          "url": "https://www.devdiscourse.com",
+          "name": "Devdiscourse",
+          "country": "in"
+        },
+        "content": "Princesses Beatrice and Eugenie, daughters of King Charles' brother Andrew, attended the royal Christmas Day church service in Sandringham, though Andrew himself was absent following his ties to Jeffrey Epstein. King Charles led the royal family thro... [628 chars]",
+        "description": "This summary covers significant world news, including royal appearances by King Charles' family, ongoing political campaigns, a helicopter crash in Tanzania, intercepts over the Baltic, new discoveries in the Epstein case, and severe weather in California. Each story reflects current global dynamics and challenges.",
+        "publishedAt": "2025-12-25T12:58:40Z"
+      },
+      {
+        "id": "c3476fd53e8b941deee571d8ed0c634b",
+        "url": "https://www.bollywoodhungama.com/news/features/janhvi-kapoor-calls-dipu-chandra-das-lynching-bangladesh-barbaric-demands-accountability-condemned-forget-humanity/",
+        "lang": "en",
+        "image": "https://stat5.bollywoodhungama.in/wp-content/uploads/2025/12/Janhvi-Kapoor-REACTS-to-Dipu-Chandra-Das-murder.jpg",
+        "title": "Janhvi Kapoor calls Dipu Chandra Das’ lynching in Bangladesh “barbaric”, demands accountability: “Condemned before we forget our humanity”",
+        "source": {
+          "id": "5667d1dee9db93320594683816f8dcd0",
+          "url": "https://www.bollywoodhungama.com",
+          "name": "Bollywood Hungama",
+          "country": "in"
+        },
+        "content": "Actor Janhvi Kapoor has spoken out against the brutal lynching of Dipu Chandra Das in Bangladesh, calling the incident “barbaric” and urging people not to remain silent in the face of such violence. The actor shared a strongly worded note on her Inst... [1871 chars]",
+        "description": "Janhvi Kapoor calls Dipu Chandra Das’ lynching in Bangladesh “barbaric”, demands accountability: “Condemned before we forget our humanity” Bollywood News: Latest Bollywood News, Bollywood News Today, Bollywood Celebrity News, Breaking News, Celeb News, Celebrities News, Bollywood News Hindi, Hindi Bollywood News at Bollywood Hungama.com.",
+        "publishedAt": "2025-12-25T12:41:11Z"
+      },
+      {
+        "id": "06b8a14f2635ff12db8364c21d1cfd22",
+        "url": "https://www.tribuneindia.com/news/business/16th-world-confluence-of-humanity-power-spirituality-to-spotlight-spiritual-intelligence-in-an-age-of-artificial-intelligence/",
+        "lang": "en",
+        "image": "https://www.tribuneindia.com/sortd-service/imaginary/v22-01/jpg/large/high?url=dGhldHJpYnVuZS1zb3J0ZC1wcm8tcHJvZC1zb3J0ZC9tZWRpYWI1ZjVkZTAwLWUxODMtMTFmMC05ZjdmLWQ5NWI0NWYwMWMxNi5qcGc=",
+        "title": "16th World Confluence of Humanity, Power & Spirituality to Spotlight 'Spiritual Intelligence' in an Age of Artificial Intelligence",
+        "source": {
+          "id": "c5725557f39c24c8b029ee39900a8406",
+          "url": "https://www.tribuneindia.com",
+          "name": "The Tribune",
+          "country": "in"
+        },
+        "content": "BusinessWire India\nKolkata (West Bengal) [India], December 25: At a time when the world is grappling with rapid technological change, geopolitical uncertainty, and a growing crisis of values, the 16th World Confluence of Humanity, Power & Spiritualit... [4500 chars]",
+        "description": "Kolkata (West Bengal) [India], December 25: At a time when the world is grappling with rapid technological change, geopolitical uncertainty, and a growing crisis of values, the 16th World Confluence of Humanity, Power & Spirituality (WCHPS) returns to Kolkata with a compelling and timely theme: 'Spiritual Intelligence.' Organised by the Universal Spirituality and Humanity Foundation under the initiative of the Kanoria Foundation, the two-day Confluence will be held on 26th and 27th December 2025 in Kolkata, and will be inaugurated by CV Ananda Bose, Honourable Governor of West Bengal, bringing together an extraordinary assembly of global leaders, spiritual luminaries, policy-makers, scientists, educationists, and corporate thinkers.",
+        "publishedAt": "2025-12-25T11:20:20Z"
+      },
+      {
+        "id": "33dabc536d03bee306ca0a592c4ccbd7",
+        "url": "https://www.lokmattimes.com/business/16th-world-confluence-of-humanity-power-spirituality-to-spotlight-spiritual-intelligence-in-an-age-of-artificial-intelligence/",
+        "lang": "en",
+        "image": "https://d3pc1xvrcw35tl.cloudfront.net/ln/feedImages/1200x900/ANI-20251225111729_202512.jpg",
+        "title": "16th World Confluence of Humanity, Power & Spirituality to Spotlight 'Spiritual Intelligence' in an Age of Artificial Intelligence",
+        "source": {
+          "id": "f2ddccedc9e60d844e7a1045928cad48",
+          "url": "https://www.lokmattimes.com",
+          "name": "Lokmat Times",
+          "country": "in"
+        },
+        "content": "BusinessWire India\nKolkata (West Bengal) [India], December 25: At a time when the world is grappling with rapid technological change, geopolitical uncertainty, and a growing crisis of values, the 16th World Confluence of Humanity, Power & Spiritualit... [4466 chars]",
+        "description": "16th World Confluence of Humanity, Power & Spirituality to Spotlight 'Spiritual Intelligence' in an Age of Artificial Intelligence - BusinessWire India Kolkata (West Bengal) [India], December 25: At a time when the world is grappling with rapid technological ... Get Latest News on Business only on lokmattimes.com",
+        "publishedAt": "2025-12-25T11:17:40Z"
+      },
+      {
+        "id": "3146fcc46b042d731758658bca4c27ed",
+        "url": "https://timesofindia.indiatimes.com/world/rest-of-world/mounted-reactor-inside-north-korea-unveils-nuclear-submarine-hull-kim-jong-un-inspects-missile-capable-vessel/articleshow/126171356.cms",
+        "lang": "en",
+        "image": "https://static.toiimg.com/thumb/msid-126171376,width-1070,height-580,imgsize-1003569,resizemode-75,overlay-toi_sw,pt-32,y_pad-500/photo.jpg",
+        "title": "‘Mounted reactor inside’: North Korea unveils nuclear submarine hull; Kim Jong Un inspects missile",
+        "source": {
+          "id": "9a9a0fb79c70bbf499d39baca94921ae",
+          "url": "https://timesofindia.indiatimes.com",
+          "name": "Times of India",
+          "country": "in"
+        },
+        "content": "North Korea on Thursday unveiled the completed hull of what it described as a nuclear-powered submarine, signalling progress in one of leader Kim Jong Un’s top weapons projects, even as Pyongyang condemned South Korea’s plans to build a similar vesse... [4065 chars]",
+        "description": "Rest of World News: North Korea on Thursday unveiled the completed hull of what it described as a nuclear-powered submarine, signalling progress in one of leader Kim Jong.",
+        "publishedAt": "2025-12-25T07:50:00Z"
+      },
+      {
+        "id": "653398fa3645aa69e175ac5128e54359",
+        "url": "https://www.freepressjournal.in/viral/god-has-given-us-time-ghanaian-self-proclaimed-prophet-who-predicted-worlds-end-on-december-25-says-its-now-postponed",
+        "lang": "en",
+        "image": "https://media.assettype.com/freepressjournal/2025-12-25/4fzhtw1f/Rutunjay-2025-12-25T122233.494.png",
+        "title": "'God Has Given Us Time...': Ghanaian Self-Proclaimed Prophet Who Predicted World's End On December 25, Says '...It's Now Postponed'",
+        "source": {
+          "id": "7eeaf9a839918543cc708f2d331c3be4",
+          "url": "https://www.freepressjournal.in",
+          "name": "Free Press Journal",
+          "country": "in"
+        },
+        "content": "A Ghanaian man who went viral for predicting the end of the world on Christmas Day has now claimed that the apocalypse has been postponed. The self-proclaimed prophet, known online as Ebo Jesus or Ebo Noah, said in a fresh video that God has granted ... [2021 chars]",
+        "description": "A Ghanaian man who went viral for predicting the end of the world on Christmas Day has now claimed that the apocalypse has been postponed. The self-proclaimed prophet, known online as Ebo Jesus or Ebo Noah, said in a fresh video that God has granted humanity more time and instructed him to expand his preparations for salvation.",
+        "publishedAt": "2025-12-25T06:55:38Z"
+      },
+      {
+        "id": "aa8ba12a4bed588db5dbcaa27685b036",
+        "url": "https://economictimes.indiatimes.com/news/new-updates/christmas-quote-of-the-day-by-pope-francis-a-little-bit-of-mercy-makes-the-world-less-cold-and-more-just/articleshow/126169740.cms",
+        "lang": "en",
+        "image": "https://img.etimg.com/thumb/msid-126169795,width-1200,height-630,imgsize-48792,overlay-economictimes/articleshow.jpg",
+        "title": "Christmas quote of the day by Pope Francis: ‘A little bit of mercy makes the world less cold and more just’",
+        "source": {
+          "id": "5464668c1f0466950a0b2fab5249ec6c",
+          "url": "https://economictimes.indiatimes.com",
+          "name": "The Economic Times",
+          "country": "in"
+        },
+        "content": "Synopsis\nOn Christmas, let's remember Pope Francis's enduring message, \"A little bit of mercy makes the world less cold and more just,\" which emphasizes that small acts of compassion and understanding are crucial for building a more just society. His... [3315 chars]",
+        "description": "On Christmas, let's remember Pope Francis's enduring message, \"A little bit of mercy makes the world less cold and more just,\" which emphasizes that small acts of compassion and understanding are crucial for building a more just society. His quote transcends religious boundaries, highlighting how everyday kindness can reduce conflict and foster shared humanity, proving mercy is a quiet strength.",
+        "publishedAt": "2025-12-25T03:36:00Z"
+      },
+      {
+        "id": "e9bff2390922ba58238a6f2dc01e33ff",
+        "url": "https://www.indiatoday.in/education-today/gk-current-affairs/story/christmas-truce-of-1914-world-war-1-stopped-enemy-soldiers-played-football-2841289-2025-12-25",
+        "lang": "en",
+        "image": "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202512/the-christmas-truce-of-1914-when-enemy-soldiers-stopped-a-war-to-play-football-242804963-16x9_0.jpg?VersionId=SX2_ufCuAtAZhXAQpcE8gwWBbvKi2ffO",
+        "title": "When World War I paused for Christmas, and enemy soldiers played football",
+        "source": {
+          "id": "c73686fdf0e30639d57eddaf7a77236e",
+          "url": "https://www.indiatoday.in",
+          "name": "India Today",
+          "country": "in"
+        },
+        "content": "On Christmas Eve, 1914, the Western Front was supposed to be silent only because of exhaustion.\nInstead, something far stranger happened.\nIn the freezing trenches of northern France and Belgium, British and German soldiers — sworn enemies locked in t... [4209 chars]",
+        "description": "In December 1914, British and German soldiers fighting World War I unofficially stopped combat to celebrate Christmas. Known as the Christmas Truce, the moment saw enemies sing carols, exchange gifts, bury the dead, and even play football—creating one of history’s most powerful reminders of shared humanity during war.",
+        "publishedAt": "2025-12-25T03:30:00Z"
+      }
+    ],
+    "rationale": "The day presents a sharp dichotomy. Positive elements include global calls for mercy, spiritual dialogue on AI ethics, and reminders of historical peace (Christmas Truce). However, these are severely undermined by critical negative events: the unveiling of a North Korean nuclear submarine hull (a major geopolitical threat) and the barbaric lynching of an individual in Bangladesh (a severe human rights failure). The presence of both nuclear proliferation risk and extreme violence prevents the score from being neutral, placing it slightly below the midpoint (4.0-5.9 range) due to the high severity of the negative events.",
+    "createdAt": "2025-12-30T17:45:17.007Z",
+    "updatedAt": "2025-12-30T17:45:17.007Z"
+  },
+  {
+    "id": "cmjsvnvvl00007k1vl09mj1jn",
+    "date": "2025-12-26T00:00:00.000Z",
+    "status": "Good",
+    "score": 6.8,
+    "headlines": [
+      {
+        "id": "730ce2d376e8ac4ebd412bbad54b3e35",
+        "url": "https://www.foxnews.com/tech/ai-newsletter-how-we-can-live-ai-without-losing-our-humanity",
+        "lang": "en",
+        "image": "https://static.foxnews.com/foxnews.com/content/uploads/2025/12/woman-types-on-desktop-computer.jpg",
+        "title": "Fox News AI Newsletter: Living with AI without losing our humanity",
+        "source": {
+          "id": "8da923084554b2821233d6c5c5f02c97",
+          "url": "https://www.foxnews.com",
+          "name": "Fox News",
+          "country": "us"
+        },
+        "content": "Welcome to Fox News’ Artificial Intelligence newsletter with the latest AI technology advancements.\nIN TODAY'S NEWSLETTER:\n- Here's how we can live and work with artificial intelligence without losing our humanity\n- Amazon adds controversial AI facia... [3365 chars]",
+        "description": "A new op-ed explores how we can live and work with artificial intelligence without losing our humanity, which is featured atop the Fox News AI Newsletter.",
+        "publishedAt": "2025-12-26T14:33:28Z"
+      },
+      {
+        "id": "160bdcc752516152f70150a3bc5a3750",
+        "url": "https://www.ndtv.com/education/school-assembly-news-headlines-december-27-top-national-world-education-updates-9989634",
+        "lang": "en",
+        "image": "https://c.ndtvimg.com/2019-05/o5lslqjo_cbse-board-result_625x300_04_May_19.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=738",
+        "title": "Top National, World, Education Updates",
+        "source": {
+          "id": "7daf04fa6272ed0a29583b211dcfe1d4",
+          "url": "https://www.ndtv.com",
+          "name": "NDTV.com",
+          "country": "in"
+        },
+        "content": "School Assembly News Headlines Today (December 27): Staying informed about national, international, sports, and education news sharpens your thinking and helps you become an aware and responsible citizen.\nSchool Assembly News Headlines Today (Dec 27)... [2205 chars]",
+        "description": "School Assembly News Headlines Today (December 27): Staying informed about national, international, sports, and education news sharpens your thinking and helps you become an aware and responsible citizen.",
+        "publishedAt": "2025-12-26T14:24:21Z"
+      },
+      {
+        "id": "446ed555403ba64ccbe709d06e4774e4",
+        "url": "https://www.timesnownews.com/world/china-world-longest-tunnel-opens-in-xinjiang-province-watch-how-tianshan-shengli-tunnel-reduces-hours-of-travel-to-minutes-u-images-uygur-article-153353715",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153353715,width-1280,height-720,resizemode-75/153353715.jpg",
+        "title": "China Opens World's Longest Tunnel in Xinjiang Province - See How It Reduces Hours of Travel to Minutes",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "China opens world's longest tunnel in Xinjiang province\nNew Delhi: China has unveiled world's longest Tianshan Shengli tunnel and opened it for traffic in the Xinjiang province. The tunnel is 22.13-km-long and traverses through the central Tianshan M... [2461 chars]",
+        "description": "China has inaugurated the world's longest Tianshan Shengli tunnel, measuring 22.13 kilometers, in Xinjiang province, which cuts through the Tianshan Mountains. Let's check how it will reduce travel time and make commute easier., World News, Times Now",
+        "publishedAt": "2025-12-26T14:06:16Z"
+      },
+      {
+        "id": "98c07a1d978516366c3d546bfd5db94c",
+        "url": "https://economictimes.indiatimes.com/news/new-updates/quote-of-the-day-by-marie-curie-i-was-taught-that-the-way-of-progress-was-neither-/articleshow/126191436.cms",
+        "lang": "en",
+        "image": "https://img.etimg.com/thumb/msid-126191444,width-1200,height-630,imgsize-596891,overlay-economictimes/articleshow.jpg",
+        "title": "Quote of the day by Marie Curie: 'I was taught that the way of progress was neither...'",
+        "source": {
+          "id": "5464668c1f0466950a0b2fab5249ec6c",
+          "url": "https://economictimes.indiatimes.com",
+          "name": "The Economic Times",
+          "country": "in"
+        },
+        "content": "Synopsis\nMarie Curie's words offer a vital perspective on achievement. Her life demonstrates that significant accomplishments require patience and persistence. In today's fast-paced world, her message encourages embracing the journey. Slow progress i... [3185 chars]",
+        "description": "Marie Curie's words offer a vital perspective on achievement. Her life demonstrates that significant accomplishments require patience and persistence. In today's fast-paced world, her message encourages embracing the journey. Slow progress is still progress. This quote reminds us that effort and consistency build meaningful success over time.",
+        "publishedAt": "2025-12-26T14:03:00Z"
+      },
+      {
+        "id": "219e1f576506a470098403336f433c84",
+        "url": "https://techbullion.com/7m-and-growing-tatakai-signals-a-shift-toward-gameplay-first-open-world-web3-games/",
+        "lang": "en",
+        "image": "https://techbullion.com/wp-content/uploads/2025/12/Tataki-1000x600.png",
+        "title": "$7M and Growing: Tatakai Signals a Shift Toward Gameplay-First Open-World Web3 Games",
+        "source": {
+          "id": "c45dc51281d68ce51bff0cc4fe959bbf",
+          "url": "https://techbullion.com",
+          "name": "TechBullion",
+          "country": "gb"
+        },
+        "content": "Share\nShare\nShare\nShare\nEmail\nHongkong, 26th December 2025, ZEX PR WIRE, As Web3 gaming continues to recalibrate after years of incentive-heavy experimentation, a smaller group of projects is beginning to stand out. Tatakai, as an open-world Web3 RPG... [3655 chars]",
+        "description": "Hongkong, 26th December 2025, ZEX PR WIRE, As Web3 gaming continues to recalibrate after years of incentive-heavy experimentation, a smaller group of projects is beginning to stand out. Tatakai, as an open-world Web3 RPG, has gained increasing attention by making progress across multiple areas that rarely align at the same time: credible capital backing, real gameplay development, and […]",
+        "publishedAt": "2025-12-26T12:49:06Z"
+      },
+      {
+        "id": "58c7e7b91d1adb9af5cafdf891158515",
+        "url": "https://www.lokmattimes.com/national/unparalleled-sacrifice-of-younger-sahibzadas-inspires-humanity-punjab-cm-mann/",
+        "lang": "en",
+        "image": "https://d3pc1xvrcw35tl.cloudfront.net/ln/feedImages/1200x900/202512263619874_202512.jpg",
+        "title": "Unparalleled sacrifice of younger Sahibzadas inspires humanity: Punjab CM Mann",
+        "source": {
+          "id": "f2ddccedc9e60d844e7a1045928cad48",
+          "url": "https://www.lokmattimes.com",
+          "name": "Lokmat Times",
+          "country": "in"
+        },
+        "content": "Fatehgarh Sahib, Dec 26 Punjab Chief Minister Bhagwant Mann on Friday paid obeisance at the historic Gurdwara Sri Fatehgarh Sahib, paying homage to Mata Gujri and the younger Sahibzadas -- Baba Zorawar Singh and Baba Fateh Singh for the supreme sacri... [2786 chars]",
+        "description": "Unparalleled sacrifice of younger Sahibzadas inspires humanity: Punjab CM Mann - Fatehgarh Sahib, Dec 26 Punjab Chief Minister Bhagwant Mann on Friday paid obeisance at the historic Gurdwara Sri ... Get Latest News on National only on lokmattimes.com",
+        "publishedAt": "2025-12-26T11:36:56Z"
+      },
+      {
+        "id": "b94c46ccc0ac6cf32cccaddb64382348",
+        "url": "https://www.timesnownews.com/world/gen-z-uprisings-global-instability-hotspot-predictions-for-civil-unrest-in-2026-report-article-153351544",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153351544,width-1280,height-720,resizemode-75/153351544.jpg",
+        "title": "Gen-Z Uprisings & Global Instability: HOTSPOT Predictions For Civil Unrest in 2026 - Report",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "As liberal democracies face this 'crisis,' as Nobel laureate Daron Acemoglu describes it, the world braces for more waves of dissent.\nIn 2025, we saw a remarkable surge of youth-led movements that overthrew governments and challenged established powe... [6770 chars]",
+        "description": "In 2025, youth-led movements surged globally, challenging governments amid rising living costs, job insecurity, and corruption. , World News, Times Now",
+        "publishedAt": "2025-12-26T09:09:12Z"
+      },
+      {
+        "id": "c5e1ac1104a077324dca0172001da8c0",
+        "url": "https://timesofindia.indiatimes.com/life-style/events/event-alert-kolkata-16th-world-confluence-on-spirituality/articleshow/126185776.cms",
+        "lang": "en",
+        "image": "https://static.toiimg.com/thumb/msid-126185839,width-1070,height-580,imgsize-76490,resizemode-75,overlay-toi_sw,pt-32,y_pad-500/photo.jpg",
+        "title": "Event alert, Kolkata: 16th World Confluence on Spirituality",
+        "source": {
+          "id": "9a9a0fb79c70bbf499d39baca94921ae",
+          "url": "https://timesofindia.indiatimes.com",
+          "name": "Times of India",
+          "country": "in"
+        },
+        "content": "West Bengal Governor C V Ananda Bose is set to inaugurate the 16th World Confluence of Humanity, Power and Spirituality in Kolkata on December 26. India’s Chief Imam and president of the All India Imam Organisation, Imam Umer Ahmed Ilyasi, will be am... [2188 chars]",
+        "description": "West Bengal Governor C V Ananda Bose is set to inaugurate the 16th World Confluence of Humanity, Power and Spirituality in Kolkata on December 26. Ind.",
+        "publishedAt": "2025-12-26T07:32:00Z"
+      },
+      {
+        "id": "8d57b21d29762801aae34723cb2bcfb5",
+        "url": "https://www.mid-day.com/news/world-news/photo/in-photos-blast-at-mosque-in-nigeria-kills-5-over-30-injured-in-suspected-suicide-attack-108866",
+        "lang": "en",
+        "image": "https://images.mid-day.com/images/images/2025/dec/NigeriaBlast1_d.jpg",
+        "title": "World News, Latest World News, Breaking News and Headlines Today",
+        "source": {
+          "id": "189fbafb09ebfd21b3d4eda343f00fb1",
+          "url": "https://www.mid-day.com",
+          "name": "Mid Day",
+          "country": "in"
+        },
+        "content": "Pic/AFP\nPolice added that 35 people were injured in the attack, which it said is likely a suicide attack\n\"Preliminary investigations further suggest that the incident may have been a suicide bombing, based on the recovery of fragments of a suspected ... [915 chars]",
+        "description": "Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.",
+        "publishedAt": "2025-12-26T05:23:00Z"
+      },
+      {
+        "id": "fd9339adf80a5a6383efe4cf42f6d804",
+        "url": "https://zeenews.india.com/education/school-assembly-news-headlines-today-dec-26-top-7-india-world-weather-updates-thought-of-the-day-2999939.html",
+        "lang": "en",
+        "image": "https://english.cdn.zeenews.com/sites/default/files/2025/12/25/1882837-newyear-23.jpg",
+        "title": "School Assembly News Headlines Today (Dec 26): Top 7 India, World & Weather Updates + Thought of the Day",
+        "source": {
+          "id": "e743cde6ee986921721e83d3957862dc",
+          "url": "https://zeenews.india.com",
+          "name": "Zee News",
+          "country": "in"
+        },
+        "content": "School Assembly News Headlines Today (Dec 26): Students preparing for the 24 December 2025 school assembly can find below a clear and easy-to-read list of today’s most important headlines from India and around the world. These updates cover National,... [4048 chars]",
+        "description": "School Assembly News Headlines Today (Dec 26): Here are the key national, international, sports, and weather updates for December 26, 2025. These headlines are ideal for school assembly presentations and help students stay informed about important events happening across India and the world. Scroll down to read the headlines.",
+        "publishedAt": "2025-12-26T00:30:00Z"
+      }
+    ],
+    "rationale": "The day shows tangible positive developments, most notably the inauguration of the world's longest tunnel, which directly improves human efficiency and connectivity. Furthermore, there are strong thematic elements promoting reflection, persistence (Marie Curie quote), and spiritual confluence. These gains are tempered by a significant warning regarding potential Gen-Z uprisings driven by economic insecurity and corruption, indicating underlying societal fragility. Overall, the concrete progress and focus on ethical engagement push the score into the 'Steady progress' range, though not high enough to ignore the looming instability.",
+    "createdAt": "2025-12-30T17:45:09.921Z",
+    "updatedAt": "2025-12-30T17:45:09.921Z"
+  },
+  {
     "id": "cmjsukyc400017kf5b9a9s32u",
     "date": "2025-12-27T00:00:00.000Z",
     "status": "Bad",
