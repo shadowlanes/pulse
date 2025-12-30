@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | 2025-12-29</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #ededed;
+            --muted: #888888;
+
+            --accent: {
+                    {
+                    #if isGood
+                }
+            }
+
+            #22c55e {
+                    {
+                    else
+                }
+            }
+
+            #ef4444 {
+                    {
+                    /if
+                }
+            }
+
+            ;
+
+            --accent-glow: {
+                    {
+                    #if isGood
+                }
+            }
+
+            rgba(34, 197, 94, 0.2) {
+                    {
+                    else
+                }
+            }
+
+            rgba(239, 68, 68, 0.2) {
+                    {
+                    /if
+                }
+            }
+
+            ;
+            --card: rgba(23, 23, 23, 0.6);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            letter-spacing: -0.01em;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav {
+            margin-bottom: 3rem;
+        }
+
+        .back-link {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .header-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        .verdict-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--accent-glow);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .rationale-card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-bottom: 4rem;
+            font-size: 1.15rem;
+            color: #d1d1d1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            white-space: pre-wrap;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .ledger {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .headline-card {
+            background: var(--card);
+            backdrop-filter: blur(8px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .headline-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .headline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+        }
+
+        .source-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .headline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .headline-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            align-self: flex-start;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .read-more:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            margin-top: 6rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+            padding-bottom: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/" class="back-link">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
+                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+                BACK TO OVERVIEW
+            </a>
+        </div>
+
+        <div class="header">
+            <span class="header-subtitle">DAILY ARCHIVE</span>
+            <h1 class="title">2025-12-29</h1>
+            <div class="verdict-badge">Arrythmia</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Analysis</h2>
+            <div class="rationale-card">The day is marked by a significant negative event: a mass stabbing in Suriname resulting in the death of nine people, including five children (Headline 4). This severe loss of life constitutes a major setback for human well-being. Other headlines cover routine political discussions (US-Israel relations, distant Ukraine peace prospects) and sports updates, which are neutral or mildly positive but insufficient to counteract the impact of the tragedy.</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Headlines Ledger</h2>
+            <div class="ledger">
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Mid Day</span>
+                    </div>
+                    <h3 class="headline-title">World News, Latest World News, Breaking News and Headlines Today</h3>
+                    <p class="headline-desc">Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.</p>
+                    <a href="https://www.mid-day.com/news/world-news/photo/in-photos-donald-trump-meets-benjamin-netanyahu-at-mar-a-lago-108918" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Hindustan Times</span>
+                    </div>
+                    <h3 class="headline-title">‘We made a lot of progress’: President Trump as he holds talks with Israeli PM Netanyahu</h3>
+                    <p class="headline-desc">Trump met Israeli PM Netanyahu at Mar-a-Lago and expressed strong support for Netanyahu, emphasizing the importance of his leadership for Israel&#x27;s existence. | World News</p>
+                    <a href="https://www.hindustantimes.com/world-news/we-made-a-lot-of-progress-president-trump-as-he-holds-talks-with-israeli-pm-netanyahu-101767035258719.html" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Daily Express</span>
+                    </div>
+                    <h3 class="headline-title">Darts LIVE: Littler apologises as World Championship rival complains</h3>
+                    <p class="headline-desc">Express Sport is on hand to bring you the latest news from the World Darts Championship.</p>
+                    <a href="https://www.express.co.uk/sport/othersport/2151051/Darts-LIVE-Luke-Littler-World-Championship-latest-scores-highlights-schedule" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Times of India</span>
+                    </div>
+                    <h3 class="headline-title">Suriname stabbing: Suspect dies by suicide in custody; had killed 9 people including children</h3>
+                    <p class="headline-desc">Rest of World News: A man suspected of fatally stabbing nine people, including five children, in Suriname’s capital died by suicide in police custody, authorities said on.</p>
+                    <a href="https://timesofindia.indiatimes.com/world/rest-of-world/suriname-stabbing-suspect-dies-by-suicide-in-custody-had-killed-9-people-including-children/articleshow/126233702.cms" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Firstpost</span>
+                    </div>
+                    <h3 class="headline-title">&#x27;Till we are closer to qualification, I’m not thinking about squash at the LA Olympics&#x27;: World Cup winning captain Abhay</h3>
+                    <p class="headline-desc">Indian squash star and World Cup-winning captain Abhay Singh recently spoke about squash’s Olympic debut at LA 2028, India’s historic achievement, his personal goals, and what lies ahead for him and the national team in an exclusive in-depth interview.</p>
+                    <a href="https://www.firstpost.com/sports/abhay-singh-exclusive-interview-india-squash-olympics-2028-13963683.html" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">The Cricket Times</span>
+                    </div>
+                    <h3 class="headline-title">Focused Ashleigh Gardner sets her sights on glory for Australia at Women’s T20 World Cup 2026</h3>
+                    <p class="headline-desc">Ashleigh Gardner affirmed Australia&#x27;s status as the world&#x27;s top team, targeting redemption at the 2026 Women&#x27;s T20 World Cup Australia will step up their preparations with a multi-format home series against India in February–March 2026.</p>
+                    <a href="https://crickettimes.com/2025/12/focused-ashleigh-gardner-sets-her-sights-on-glory-for-australia-at-womens-t20-world-cup-2026/" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Times of India</span>
+                    </div>
+                    <h3 class="headline-title">Watch: Russia shares AI video of world leaders receiving Christmas gifts from Putin - what PM Modi &amp; Trump got</h3>
+                    <p class="headline-desc">Rest of World News: An AI-generated video posted by the Russian Embassy in Kenya has gone viral for showing President Vladimir Putin dressed as Santa Claus and distributi.</p>
+                    <a href="https://timesofindia.indiatimes.com/world/rest-of-world/watch-russia-shares-ai-video-of-world-leaders-receiving-christmas-gifts-from-putin-what-pm-modi-trump-got/articleshow/126225854.cms" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Sky Sports</span>
+                    </div>
+                    <h3 class="headline-title">Michael van Gerwen vs Gary Anderson: MVG says &#x27;room for fireworks&#x27; in eagerly anticipated fourth-round clash at World Darts Championship</h3>
+                    <p class="headline-desc">Michael van Gerwen and Gary Anderson are both looking forward to facing each other at the World Darts Championship for the first time in seven years; watch Mondays sessions at the World Darts Championship at 12.30pm and 7pm, live on Sky Sports Darts and Main Event</p>
+                    <a href="https://www.skysports.com/darts/news/12288/13488085/michael-van-gerwen-vs-gary-anderson-mvg-says-room-for-fireworks-in-eagerly-anticipated-fourth-round-clash-at-world-darts-championship" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Lokmat Times</span>
+                    </div>
+                    <h3 class="headline-title">Palghar Police Officer Manjusha Shirsat Wins Bronze at West India Classic Powerlifting Championship 2025 - World News Network</h3>
+                    <p class="headline-desc">Palghar Police Officer Manjusha Shirsat Wins Bronze at West India Classic Powerlifting Championship 2025 – World News Network - Palghar (Maharashtra) [India], December 27: Mrs. Manjusha Sukhdev Shirsat, Assistant Police Inspector with the Economic Offences Wing (EOW) of ... Get Latest News on Business only on lokmattimes.com</p>
+                    <a href="https://www.lokmattimes.com/business/palghar-police-officer-manjusha-shirsat-wins-bronze-at-west-india-classic-powerlifting-championship-2025-world-news-network/" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Lokmat Times</span>
+                    </div>
+                    <h3 class="headline-title">Progress on Ukraine was possible, but deal remained distant: US media</h3>
+                    <p class="headline-desc">Progress on Ukraine was possible, but deal remained distant: US media - Washington, Dec 29 US media did not appear to be convinced of a successful Ukrainian peace following the ... Get Latest News on International only on lokmattimes.com</p>
+                    <a href="https://www.lokmattimes.com/international/progress-on-ukraine-was-possible-but-deal-remained-distant-us-media/" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            THE PULSE &copy; 2025 | Human collective status record
+        </footer>
+    </div>
+</body>
+
+</html>

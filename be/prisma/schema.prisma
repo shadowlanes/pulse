@@ -11,6 +11,7 @@ model Pulse {
   id        String   @id @default(cuid())
   date      DateTime @unique
   status    String   // "Good" or "Bad"
+  score     Float    @default(5.0)
   headlines Json     // Array of headlines
   rationale String   @db.Text
   createdAt DateTime @default(now())

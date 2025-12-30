@@ -83,7 +83,7 @@ export class PulseService {
     }
   }
 
-  async analyzePulse(headlines: any[]): Promise<{ status: "Good" | "Bad"; rationale: string }> {
+  async analyzePulse(headlines: any[]): Promise<{ status: "Good" | "Bad"; score: number; rationale: string }> {
     if (!GEMINI_API_KEY) {
       throw new Error("GEMINI_API_KEY is not defined");
     }
@@ -93,9 +93,13 @@ export class PulseService {
       name: "Global Analyst",
       instructions: `You are a Global Analyst evaluating the net impact of the day's events on human well-being.
       Analyze the provided headlines and determine if the day was "Good" or "Bad" for humanity.
-      "Good" (Steady): Progress, peace, stability, scientific breakthroughs, or positive economic news.
-      "Bad" (Arrythmia): Conflict, crisis, natural disasters, major economic downturns, or humanitarian setbacks.
-      Provide the result in a structured format: { "status": "Good" | "Bad", "rationale": "Detailed explanation" }.`,
+      Also provide a numerical score from 0.0 to 10.0, where:
+      0-1.9: Chaos/Catastrophe
+      2-3.9: Major setbacks
+      4-5.9: Mixed/Neutral
+      6-7.9: Steady progress
+      8-10.0: Peak humanity (Scientific breakthroughs, global peace, etc.)
+      Provide the result in a structured JSON format: { "status": "Good" | "Bad", "score": number, "rationale": "Detailed explanation" }.`,
       
       model: {
         id: "google/gemini-flash-lite-latest",
@@ -119,8 +123,10 @@ export class PulseService {
       }
       
       // Fallback if not JSON
+      const isGood = text.toLowerCase().includes("good");
       return {
-        status: text.toLowerCase().includes("good") ? "Good" : "Bad",
+        status: isGood ? "Good" : "Bad",
+        score: isGood ? 7.0 : 3.0,
         rationale: text,
       };
     } catch (error) {
@@ -129,11 +135,11 @@ export class PulseService {
     }
   }
 
-  async savePulse(date: Date, status: "Good" | "Bad", headlines: any[], rationale: string) {
+  async savePulse(date: Date, status: "Good" | "Bad", score: number, headlines: any[], rationale: string) {
     const pulse = await prisma.pulse.upsert({
       where: { date },
-      update: { status, headlines, rationale },
-      create: { date, status, headlines, rationale },
+      update: { status, score, headlines, rationale },
+      create: { date, status, score, headlines, rationale },
     });
     return pulse;
   }
@@ -191,6 +197,7 @@ export class PulseService {
       
       return { 
         status: existing.status, 
+        score: existing.score,
         staticPath,
         message: "Entry already exists, static page regenerated"
       };
@@ -200,13 +207,13 @@ export class PulseService {
     
     const headlines = await this.extractNews(normalizedDate);
     console.log(`Extracted ${headlines.length} headlines...`);  
-    const { status, rationale } = await this.analyzePulse(headlines);
-    console.log(`Analyzed pulse...`);  
-    await this.savePulse(normalizedDate, status, headlines, rationale);
+    const { status, score, rationale } = await this.analyzePulse(headlines);
+    console.log(`Analyzed pulse: ${status} (${score})`);  
+    await this.savePulse(normalizedDate, status, score, headlines, rationale);
     console.log(`Saved pulse...`);  
     const staticPath = await this.generateStaticPage(normalizedDate, status, headlines, rationale);
     
-    console.log(`Pulse Check Complete: ${status}. Static page at ${staticPath}`);
-    return { status, staticPath };
+    console.log(`Pulse Check Complete: ${status} (${score}). Static page at ${staticPath}`);
+    return { status, score, staticPath };
   }
 }

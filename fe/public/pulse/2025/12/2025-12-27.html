@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | 2025-12-27</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #ededed;
+            --muted: #888888;
+
+            --accent: {
+                    {
+                    #if isGood
+                }
+            }
+
+            #22c55e {
+                    {
+                    else
+                }
+            }
+
+            #ef4444 {
+                    {
+                    /if
+                }
+            }
+
+            ;
+
+            --accent-glow: {
+                    {
+                    #if isGood
+                }
+            }
+
+            rgba(34, 197, 94, 0.2) {
+                    {
+                    else
+                }
+            }
+
+            rgba(239, 68, 68, 0.2) {
+                    {
+                    /if
+                }
+            }
+
+            ;
+            --card: rgba(23, 23, 23, 0.6);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            letter-spacing: -0.01em;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav {
+            margin-bottom: 3rem;
+        }
+
+        .back-link {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .header-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        .verdict-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--accent-glow);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .rationale-card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-bottom: 4rem;
+            font-size: 1.15rem;
+            color: #d1d1d1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            white-space: pre-wrap;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .ledger {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .headline-card {
+            background: var(--card);
+            backdrop-filter: blur(8px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .headline-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .headline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+        }
+
+        .source-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .headline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .headline-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            align-self: flex-start;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .read-more:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            margin-top: 6rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+            padding-bottom: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/" class="back-link">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
+                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+                BACK TO OVERVIEW
+            </a>
+        </div>
+
+        <div class="header">
+            <span class="header-subtitle">DAILY ARCHIVE</span>
+            <h1 class="title">2025-12-27</h1>
+            <div class="verdict-badge">Arrythmia</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Analysis</h2>
+            <div class="rationale-card">The day presents a stark contrast between significant technological advancement and ongoing geopolitical conflict and humanitarian suffering. On the positive side, there are multiple reports (Headlines 6, 7, 8) highlighting China&#x27;s impressive breakthrough in Maglev train technology, setting new world speed records. This represents tangible progress in engineering and potentially future sustainable transport. Headline 10 offers a positive cultural/political note from India.
+
+However, the negative impacts are severe and widespread. The ongoing war in Ukraine dominates the news (Headlines 1, 2), with renewed Russian strikes on Kyiv, despite global calls for peace. This signifies continued violence and instability. Furthermore, the humanitarian crisis in Gaza is highlighted (Headline 3), where displaced populations face harsh winter conditions while awaiting ceasefire progress, indicating severe ongoing suffering. Headline 5 points to the massive economic and human cost of climate disasters in 2025. The general global news roundup (Headline 1) also notes arrests related to Hamas funding and ongoing international tensions.
+
+Overall, while technological progress is notable, the persistence of major armed conflict, humanitarian crises, and climate disaster impacts weighs heavily on the assessment. The day leans towards &#x27;Mixed/Neutral&#x27; but slightly negative due to the severity of the ongoing conflicts and suffering, resulting in a score just above the midpoint.</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Headlines Ledger</h2>
+            <div class="ledger">
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Devdiscourse</span>
+                    </div>
+                    <h3 class="headline-title">World News Roundup: Highlights from Global Headlines</h3>
+                    <p class="headline-desc">A snapshot of the latest global news includes Putin&#x27;s stance on Ukraine&#x27;s peace efforts, reopening of Polish airports post-Russian strikes, a missing Spanish family in Indonesia, Italy&#x27;s arrest over Hamas funding, Canada&#x27;s aid to Ukraine, and Israel recognizing Somaliland.</p>
+                    <a href="https://www.devdiscourse.com/article/law-order/3743303-world-news-roundup-highlights-from-global-headlines" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Hindustan Times</span>
+                    </div>
+                    <h3 class="headline-title">As Russia strikes Kyiv, world leaders call for peace and support for Ukraine</h3>
+                    <p class="headline-desc">Global leaders, including Emmanuel Macron and Mark Carney, condemned the attack and emphasised the need for a willing Russia to achieve lasting peace in Ukraine | World News</p>
+                    <a href="https://www.hindustantimes.com/world-news/as-russia-strikes-kyiv-world-leaders-call-for-peace-and-support-for-ukraine-101766864514497.html" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">The Canberra Times</span>
+                    </div>
+                    <h3 class="headline-title">Wintry, wet Gaza awaits ceasefire progress</h3>
+                    <p class="headline-desc">As thousands of displaced people prepared threadbare tents for another round of winter rain, Gazans await news of...</p>
+                    <a href="https://www.canberratimes.com.au/story/9142208/wintry-wet-gaza-awaits-ceasefire-progress/" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">TechBullion</span>
+                    </div>
+                    <h3 class="headline-title">Best Tech News Websites to Follow in 2026</h3>
+                    <p class="headline-desc">Staying updated with technology news has become more important than ever. Whether you’re a tech professional, enthusiast, or just someone who wants to keep up with the digital world, finding reliable sources matters. The internet is packed with tech websites, but not all of them deliver quality content. Some focus on breaking news, others dive […]</p>
+                    <a href="https://techbullion.com/best-tech-news-websites-to-follow-in-2026/" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">The Province</span>
+                    </div>
+                    <h3 class="headline-title">B.C. climate news: Wildfires, floods and cyclones among world&#x27;s costliest climate breakdown disasters of 2025</h3>
+                    <p class="headline-desc">Here&#x27;s all the latest local and international news concerning climate change for the week of Dec. 22 to Dec. 28, 2025.</p>
+                    <a href="https://theprovince.com/news/climate-change-update-to-dec-28-25/wcm/1c1f3720-f73d-45df-8984-6b2d79b2280c" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Indiatimes</span>
+                    </div>
+                    <h3 class="headline-title">Watch: Maglev Train hits 700 km/h in just 2 seconds in China, sets a new world record</h3>
+                    <p class="headline-desc">China has set a new world record after a Maglev Train reached 700 km/h in just two seconds, showing major progress in high speed train technology. This breakthrough places China at the front of ultra-fast rail research worldwide.</p>
+                    <a href="https://www.indiatimes.com/trending/watch-maglev-train-hits-700-km/h-in-just-2-seconds-in-china-sets-a-new-world-record/articleshow/126205410.html" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Times Now</span>
+                    </div>
+                    <h3 class="headline-title">China&#x27;s Maglev Train Hits 800 kmph in Just 5 Seconds, Video Shows Loco Vanish Before Eyes, Sets New World Record</h3>
+                    <p class="headline-desc">China has set a new benchmark in high-speed rail technology, with a Maglev prototype reaching 800 km/h in just 5.3 seconds, outpacing previous Japanese advancements., World News, Times Now</p>
+                    <a href="https://www.timesnownews.com/world/china-maglev-train-hits-800-kmph-in-just-5-seconds-new-world-record-watch-video-hubei-east-lake-laboratory-national-university-of-defence-technology-article-153357465" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Hindustan Times</span>
+                    </div>
+                    <h3 class="headline-title">700 kmph in just 2 seconds: China&#x27;s fastest maglev train sets world record | Video</h3>
+                    <p class="headline-desc">The maglev train was tested on a 400 metre (1,310-foot) magnetic levitation (maglev) test line, and safely brought to a stop afterwards. | World News</p>
+                    <a href="https://www.hindustantimes.com/world-news/china-sets-record-with-worlds-fastest-maglev-train-hits-700-km-h-in-2-seconds-101766830670454.html" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Zee News</span>
+                    </div>
+                    <h3 class="headline-title">School Assembly News Headlines Today (Dec 27): Top 7 India, World &amp; Weather Updates + Thought of the Day</h3>
+                    <p class="headline-desc">School Assembly News Headlines Today (Dec 27): Here are the key national, international, sports, and weather updates for December 27, 2025. These headlines are ideal for school assembly presentations and help students stay informed about important events happening across India and the world. Scroll down to read the headlines.</p>
+                    <a href="https://zeenews.india.com/education/school-assembly-news-headlines-today-dec-27-top-7-india-world-weather-updates-thought-of-the-day-3000483.html" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Times of India</span>
+                    </div>
+                    <h3 class="headline-title">CM: Sikh gurus’ legacy continues to guide India’s path of progress</h3>
+                    <p class="headline-desc">India News: Lucknow: Chief Minister Yogi Adityanath on Friday said the legacy of Sikh gurus, who gave everything for faith, nation and humanity, continues to guid.</p>
+                    <a href="https://timesofindia.indiatimes.com/india/cm-sikh-gurus-legacy-continues-to-guide-indias-path-of-progress/articleshow/126195643.cms" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            THE PULSE &copy; 2025 | Human collective status record
+        </footer>
+    </div>
+</body>
+
+</html>

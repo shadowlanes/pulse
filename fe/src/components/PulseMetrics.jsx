@@ -1,43 +1,55 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
-const PulseMetrics = () => {
-    const [metrics, setMetrics] = useState({
-        last7: { steady: '?', distressed: '?', percentage: 0 },
-        last30: { steady: '?', distressed: '?', percentage: 0 }
-    });
+const PulseMetrics = ({ score }) => {
+    const getVibe = (s) => {
+        if (s >= 8.0) return { label: "Peak Humanity", color: "text-emerald-400" };
+        if (s >= 6.0) return { label: "Steady & Calm", color: "text-sky-400" };
+        if (s >= 4.0) return { label: "Mixed Bag", color: "text-amber-400" };
+        if (s >= 2.0) return { label: "Rough Patch", color: "text-slate-400" };
+        return { label: "Chaos Theory", color: "text-red-500" };
+    };
 
-    useEffect(() => {
-        fetch(`${import.meta.env.VITE_API_URL}/api/pulse/metrics`)
-            .then((res) => res.json())
-            .then((data) => setMetrics(data))
-            .catch((err) => console.error("Error fetching metrics:", err));
-    }, []);
+    const vibe = getVibe(score);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-            <div className="bg-card border border-border p-6 rounded-xl shadow-sm">
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">Weekly Rhythm</h3>
-                <div className="flex items-end gap-2">
-                    <span className="text-4xl font-bold">{metrics.last7.steady}</span>
-                    <span className="text-muted-foreground mb-1">Steady</span>
-                    <span className="text-4xl font-bold ml-4">{metrics.last7.distressed}</span>
-                    <span className="text-muted-foreground mb-1">Distressed</span>
-                </div>
-                <p className="text-xs text-muted-foreground mt-4 italic">"Last 7 days behavior"</p>
-            </div>
+        <div className="flex flex-col items-center text-center">
+            <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-2"
+            >
+                <span className="text-[10px] font-bold tracking-[0.4em] text-neutral-500 uppercase">Current Climate</span>
+            </motion.div>
 
-            <div className="bg-card border border-border p-6 rounded-xl shadow-sm">
-                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">Monthly Trend</h3>
-                <div className="flex items-center gap-4">
-                    <div className="text-4xl font-bold text-primary">{metrics.last30.percentage}%</div>
-                    <div className="flex-1 h-3 bg-secondary rounded-full overflow-hidden">
-                        <div
-                            className="h-full bg-primary transition-all duration-1000"
-                            style={{ width: `${metrics.last30.percentage}%` }}
-                        ></div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-2 mb-8">
+                <motion.div
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    className="text-8xl sm:text-9xl font-black tracking-tighter leading-none"
+                    style={{ fontFamily: "'Outfit', sans-serif" }}
+                >
+                    {score.toFixed(1)}
+                </motion.div>
+
+                <div className="flex flex-col items-center sm:items-start">
+                    <motion.div
+                        key={vibe.label}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        className={`text-6xl sm:text-7xl font-black tracking-tighter leading-none italic ${vibe.color}`}
+                        style={{ fontFamily: "'Outfit', sans-serif" }}
+                    >
+                        {vibe.label}
+                    </motion.div>
+                    <div className="text-[10px] font-bold tracking-[0.2em] text-neutral-500 uppercase mt-2">
+                        7-Day Rolling Average
                     </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-4 italic">"Cumulative health score for the last 30 days"</p>
+            </div>
+
+            <div className="max-w-xl text-neutral-400 text-lg leading-relaxed opacity-80">
+                Analyzing the world’s most significant headlines every 24 hours to track the rhythm of our civilization.
             </div>
         </div>
     );

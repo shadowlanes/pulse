@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "pulse" ADD COLUMN     "score" DOUBLE PRECISION NOT NULL DEFAULT 5.0;

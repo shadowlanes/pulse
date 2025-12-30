@@ -18,6 +18,8 @@ const pulseService = new PulseService();
  *         status:
  *           type: string
  *           enum: [Good, Bad]
+ *         score:
+ *           type: number
  */
 
 /**
@@ -62,6 +64,7 @@ router.get("/history", async (req, res) => {
       select: {
         date: true,
         status: true,
+        score: true,
       },
       orderBy: { date: "asc" },
     });
@@ -115,7 +118,10 @@ router.get("/metrics", async (req, res) => {
       const steady = pulses.filter(p => p.status === "Good").length;
       const distressed = pulses.filter(p => p.status === "Bad").length;
       const percentage = pulses.length > 0 ? Math.round((steady / pulses.length) * 100) : 0;
-      return { steady, distressed, percentage };
+      const averageScore = pulses.length > 0 
+        ? Number((pulses.reduce((acc, p) => acc + p.score, 0) / pulses.length).toFixed(1))
+        : 0;
+      return { steady, distressed, percentage, averageScore };
     };
 
     res.json({

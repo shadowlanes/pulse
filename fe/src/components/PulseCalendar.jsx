@@ -1,104 +1,90 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
-const PulseCalendar = () => {
-    const [pulses, setPulses] = useState([]);
-    const [loading, setLoading] = useState(true);
+const PulseCalendar = ({ history, selectedDate, onSelect }) => {
+    // history is already limited to last 7 days from App.jsx
 
-    useEffect(() => {
-        // Fetch last 90 days for the grid
-        const end = new Date();
-        const start = new Date();
-        start.setDate(end.getDate() - 90);
-
-        fetch(`${import.meta.env.VITE_API_URL}/api/pulse/history?start=${start.toISOString()}&end=${end.toISOString()}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setPulses(data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                console.error("Error fetching pulse history:", err);
-                setLoading(false);
-            });
-    }, []);
-
-    if (loading) return (
-        <div className="bg-card border border-border p-8 rounded-xl shadow-sm h-64 flex items-center justify-center">
-            <div className="flex flex-col items-center gap-4">
-                <div className="w-8 h-8 border-t-2 border-primary rounded-full animate-spin"></div>
-                <div className="text-muted-foreground text-sm font-medium tracking-wide">Connecting to Pulse...</div>
-            </div>
-        </div>
-    );
-
-    // Helper to get color based on status
-    const getStatusColor = (status) => {
-        if (status === "Good") return "bg-green-500 hover:bg-green-400 shadow-[0_0_10px_rgba(34,197,94,0.3)]";
-        if (status === "Bad") return "bg-red-500 hover:bg-red-400 shadow-[0_0_10px_rgba(239,68,68,0.3)]";
-        return "bg-neutral-800"; // No data
-    };
-
-    // Generate a mapping of date strings to statuses
-    const pulseMap = pulses.reduce((acc, p) => {
-        const dateStr = new Date(p.date).toISOString().split("T")[0];
-        acc[dateStr] = p.status;
-        return acc;
-    }, {});
-
-    // Generate last 90 days of dates
+    // Generate last 7 days of dates for the grid if history is sparse
     const dates = [];
-    for (let i = 89; i >= 0; i--) {
+    for (let i = 6; i >= 0; i--) {
         const d = new Date();
         d.setDate(d.getDate() - i);
         dates.push(d.toISOString().split("T")[0]);
     }
 
+    const historyMap = history.reduce((acc, p) => {
+        const dateStr = p.date.split("T")[0];
+        acc[dateStr] = p;
+        return acc;
+    }, {});
+
+    const getScoreColor = (score) => {
+        if (score === undefined) return "bg-white/5";
+        if (score >= 8.0) return "bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.4)]";
+        if (score >= 6.0) return "bg-sky-500 shadow-[0_0_15px_rgba(14,165,233,0.4)]";
+        if (score >= 4.0) return "bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.4)]";
+        if (score >= 2.0) return "bg-slate-500 shadow-[0_0_15px_rgba(100,116,139,0.4)]";
+        return "bg-rose-600 shadow-[0_0_15px_rgba(225,29,72,0.4)]";
+    };
+
+    const getTint = (index) => {
+        // Just a fun way to tint inactive squares based on their position if no data
+        const tints = ["bg-emerald-500/10", "bg-sky-500/10", "bg-amber-500/10", "bg-slate-500/10", "bg-rose-600/10"];
+        return tints[index % tints.length];
+    };
+
     return (
-        <div className="bg-card border border-border p-8 rounded-xl shadow-sm">
-            <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-bold tracking-tight">The Pulse Calendar</h2>
-                <div className="flex gap-4 text-xs">
-                    <div className="flex items-center gap-1">
-                        <div className="w-3 h-3 bg-green-500 rounded-sm"></div>
-                        <span className="text-muted-foreground">Steady</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                        <div className="w-3 h-3 bg-red-500 rounded-sm"></div>
-                        <span className="text-muted-foreground">Arrythmia</span>
-                    </div>
-                </div>
+        <div className="bg-black/20 backdrop-blur-xl border border-white/10 p-8 rounded-2xl">
+            <div className="mb-6">
+                <h2 className="text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">Week View</h2>
             </div>
 
-            <div className="grid grid-cols-7 sm:grid-cols-10 md:grid-cols-15 lg:grid-cols-20 gap-3">
+            <div className="grid grid-cols-7 gap-4">
                 {dates.map((dateStr) => {
-                    const status = pulseMap[dateStr];
-                    const [year, month] = dateStr.split("-");
-                    const url = `/pulse/${year}/${month}/${dateStr}.html`;
+                    const data = historyMap[dateStr];
+                    const isSelected = selectedDate && selectedDate.startsWith(dateStr);
 
                     return (
-                        <a
-                            key={dateStr}
-                            href={status ? url : "#"}
-                            target={status ? "_blank" : "_self"}
-                            rel="noreferrer"
-                            className={`
-                aspect-square rounded-md transition-all duration-300 transform hover:scale-110 cursor-pointer
-                ${getStatusColor(status)}
-                relative group
-              `}
-                            title={dateStr}
-                        >
-                            <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-neutral-900 border border-border text-[10px] rounded opacity-0 group-hover:opacity-100 whitespace-nowrap z-10 transition-opacity pointer-events-none">
-                                {dateStr}: {status || "No Data"}
-                            </div>
-                        </a>
+                        <div key={dateStr} className="flex flex-col items-center gap-3">
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={() => data && onSelect(data.date)}
+                                className={`
+                                    w-full aspect-square rounded-lg transition-all duration-300
+                                    ${data ? getScoreColor(data.score) : getTint(dates.indexOf(dateStr))}
+                                    ${isSelected ? 'ring-2 ring-white ring-offset-4 ring-offset-black/50' : 'opacity-80 hover:opacity-100'}
+                                    ${!data ? 'cursor-not-allowed' : 'cursor-pointer'}
+                                `}
+                            >
+                                {isSelected && (
+                                    <motion.div
+                                        layoutId="active"
+                                        className="absolute inset-0 rounded-lg border-2 border-white pointer-events-none"
+                                    />
+                                )}
+                            </motion.button>
+                            <span className="text-[10px] font-bold text-neutral-600 uppercase">
+                                {new Date(dateStr).toLocaleDateString('en-US', { weekday: 'short' })}
+                            </span>
+                        </div>
                     );
                 })}
             </div>
 
-            <p className="mt-8 text-center text-sm text-muted-foreground italic">
-                "Visualizing the heartbeat of humanity, day by day."
-            </p>
+            <div className="mt-8 pt-6 border-t border-white/5">
+                <div className="flex justify-between items-center text-[8px] font-bold text-neutral-500 tracking-widest uppercase">
+                    <span>Chaos</span>
+                    <div className="flex gap-1 px-4">
+                        <div className="w-2 h-2 rounded-full bg-rose-600"></div>
+                        <div className="w-2 h-2 rounded-full bg-slate-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-amber-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-sky-500"></div>
+                        <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                    </div>
+                    <span>Peak</span>
+                </div>
+            </div>
         </div>
     );
 };
