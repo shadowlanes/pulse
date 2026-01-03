@@ -1,347 +1,5 @@
 [
   {
-    "id": "cmjsvnvvl00007k1vl09mj1jn",
-    "date": "2025-12-26T00:00:00.000Z",
-    "status": "Good",
-    "score": 6.8,
-    "headlines": [
-      {
-        "id": "730ce2d376e8ac4ebd412bbad54b3e35",
-        "url": "https://www.foxnews.com/tech/ai-newsletter-how-we-can-live-ai-without-losing-our-humanity",
-        "lang": "en",
-        "image": "https://static.foxnews.com/foxnews.com/content/uploads/2025/12/woman-types-on-desktop-computer.jpg",
-        "title": "Fox News AI Newsletter: Living with AI without losing our humanity",
-        "source": {
-          "id": "8da923084554b2821233d6c5c5f02c97",
-          "url": "https://www.foxnews.com",
-          "name": "Fox News",
-          "country": "us"
-        },
-        "content": "Welcome to Fox News’ Artificial Intelligence newsletter with the latest AI technology advancements.\nIN TODAY'S NEWSLETTER:\n- Here's how we can live and work with artificial intelligence without losing our humanity\n- Amazon adds controversial AI facia... [3365 chars]",
-        "description": "A new op-ed explores how we can live and work with artificial intelligence without losing our humanity, which is featured atop the Fox News AI Newsletter.",
-        "publishedAt": "2025-12-26T14:33:28Z"
-      },
-      {
-        "id": "160bdcc752516152f70150a3bc5a3750",
-        "url": "https://www.ndtv.com/education/school-assembly-news-headlines-december-27-top-national-world-education-updates-9989634",
-        "lang": "en",
-        "image": "https://c.ndtvimg.com/2019-05/o5lslqjo_cbse-board-result_625x300_04_May_19.jpg?im=FaceCrop,algorithm=dnn,width=1200,height=738",
-        "title": "Top National, World, Education Updates",
-        "source": {
-          "id": "7daf04fa6272ed0a29583b211dcfe1d4",
-          "url": "https://www.ndtv.com",
-          "name": "NDTV.com",
-          "country": "in"
-        },
-        "content": "School Assembly News Headlines Today (December 27): Staying informed about national, international, sports, and education news sharpens your thinking and helps you become an aware and responsible citizen.\nSchool Assembly News Headlines Today (Dec 27)... [2205 chars]",
-        "description": "School Assembly News Headlines Today (December 27): Staying informed about national, international, sports, and education news sharpens your thinking and helps you become an aware and responsible citizen.",
-        "publishedAt": "2025-12-26T14:24:21Z"
-      },
-      {
-        "id": "446ed555403ba64ccbe709d06e4774e4",
-        "url": "https://www.timesnownews.com/world/china-world-longest-tunnel-opens-in-xinjiang-province-watch-how-tianshan-shengli-tunnel-reduces-hours-of-travel-to-minutes-u-images-uygur-article-153353715",
-        "lang": "en",
-        "image": "https://images.timesnownews.com/thumb/msid-153353715,width-1280,height-720,resizemode-75/153353715.jpg",
-        "title": "China Opens World's Longest Tunnel in Xinjiang Province - See How It Reduces Hours of Travel to Minutes",
-        "source": {
-          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
-          "url": "https://www.timesnownews.com",
-          "name": "Times Now",
-          "country": "in"
-        },
-        "content": "China opens world's longest tunnel in Xinjiang province\nNew Delhi: China has unveiled world's longest Tianshan Shengli tunnel and opened it for traffic in the Xinjiang province. The tunnel is 22.13-km-long and traverses through the central Tianshan M... [2461 chars]",
-        "description": "China has inaugurated the world's longest Tianshan Shengli tunnel, measuring 22.13 kilometers, in Xinjiang province, which cuts through the Tianshan Mountains. Let's check how it will reduce travel time and make commute easier., World News, Times Now",
-        "publishedAt": "2025-12-26T14:06:16Z"
-      },
-      {
-        "id": "98c07a1d978516366c3d546bfd5db94c",
-        "url": "https://economictimes.indiatimes.com/news/new-updates/quote-of-the-day-by-marie-curie-i-was-taught-that-the-way-of-progress-was-neither-/articleshow/126191436.cms",
-        "lang": "en",
-        "image": "https://img.etimg.com/thumb/msid-126191444,width-1200,height-630,imgsize-596891,overlay-economictimes/articleshow.jpg",
-        "title": "Quote of the day by Marie Curie: 'I was taught that the way of progress was neither...'",
-        "source": {
-          "id": "5464668c1f0466950a0b2fab5249ec6c",
-          "url": "https://economictimes.indiatimes.com",
-          "name": "The Economic Times",
-          "country": "in"
-        },
-        "content": "Synopsis\nMarie Curie's words offer a vital perspective on achievement. Her life demonstrates that significant accomplishments require patience and persistence. In today's fast-paced world, her message encourages embracing the journey. Slow progress i... [3185 chars]",
-        "description": "Marie Curie's words offer a vital perspective on achievement. Her life demonstrates that significant accomplishments require patience and persistence. In today's fast-paced world, her message encourages embracing the journey. Slow progress is still progress. This quote reminds us that effort and consistency build meaningful success over time.",
-        "publishedAt": "2025-12-26T14:03:00Z"
-      },
-      {
-        "id": "219e1f576506a470098403336f433c84",
-        "url": "https://techbullion.com/7m-and-growing-tatakai-signals-a-shift-toward-gameplay-first-open-world-web3-games/",
-        "lang": "en",
-        "image": "https://techbullion.com/wp-content/uploads/2025/12/Tataki-1000x600.png",
-        "title": "$7M and Growing: Tatakai Signals a Shift Toward Gameplay-First Open-World Web3 Games",
-        "source": {
-          "id": "c45dc51281d68ce51bff0cc4fe959bbf",
-          "url": "https://techbullion.com",
-          "name": "TechBullion",
-          "country": "gb"
-        },
-        "content": "Share\nShare\nShare\nShare\nEmail\nHongkong, 26th December 2025, ZEX PR WIRE, As Web3 gaming continues to recalibrate after years of incentive-heavy experimentation, a smaller group of projects is beginning to stand out. Tatakai, as an open-world Web3 RPG... [3655 chars]",
-        "description": "Hongkong, 26th December 2025, ZEX PR WIRE, As Web3 gaming continues to recalibrate after years of incentive-heavy experimentation, a smaller group of projects is beginning to stand out. Tatakai, as an open-world Web3 RPG, has gained increasing attention by making progress across multiple areas that rarely align at the same time: credible capital backing, real gameplay development, and […]",
-        "publishedAt": "2025-12-26T12:49:06Z"
-      },
-      {
-        "id": "58c7e7b91d1adb9af5cafdf891158515",
-        "url": "https://www.lokmattimes.com/national/unparalleled-sacrifice-of-younger-sahibzadas-inspires-humanity-punjab-cm-mann/",
-        "lang": "en",
-        "image": "https://d3pc1xvrcw35tl.cloudfront.net/ln/feedImages/1200x900/202512263619874_202512.jpg",
-        "title": "Unparalleled sacrifice of younger Sahibzadas inspires humanity: Punjab CM Mann",
-        "source": {
-          "id": "f2ddccedc9e60d844e7a1045928cad48",
-          "url": "https://www.lokmattimes.com",
-          "name": "Lokmat Times",
-          "country": "in"
-        },
-        "content": "Fatehgarh Sahib, Dec 26 Punjab Chief Minister Bhagwant Mann on Friday paid obeisance at the historic Gurdwara Sri Fatehgarh Sahib, paying homage to Mata Gujri and the younger Sahibzadas -- Baba Zorawar Singh and Baba Fateh Singh for the supreme sacri... [2786 chars]",
-        "description": "Unparalleled sacrifice of younger Sahibzadas inspires humanity: Punjab CM Mann - Fatehgarh Sahib, Dec 26 Punjab Chief Minister Bhagwant Mann on Friday paid obeisance at the historic Gurdwara Sri ... Get Latest News on National only on lokmattimes.com",
-        "publishedAt": "2025-12-26T11:36:56Z"
-      },
-      {
-        "id": "b94c46ccc0ac6cf32cccaddb64382348",
-        "url": "https://www.timesnownews.com/world/gen-z-uprisings-global-instability-hotspot-predictions-for-civil-unrest-in-2026-report-article-153351544",
-        "lang": "en",
-        "image": "https://images.timesnownews.com/thumb/msid-153351544,width-1280,height-720,resizemode-75/153351544.jpg",
-        "title": "Gen-Z Uprisings & Global Instability: HOTSPOT Predictions For Civil Unrest in 2026 - Report",
-        "source": {
-          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
-          "url": "https://www.timesnownews.com",
-          "name": "Times Now",
-          "country": "in"
-        },
-        "content": "As liberal democracies face this 'crisis,' as Nobel laureate Daron Acemoglu describes it, the world braces for more waves of dissent.\nIn 2025, we saw a remarkable surge of youth-led movements that overthrew governments and challenged established powe... [6770 chars]",
-        "description": "In 2025, youth-led movements surged globally, challenging governments amid rising living costs, job insecurity, and corruption. , World News, Times Now",
-        "publishedAt": "2025-12-26T09:09:12Z"
-      },
-      {
-        "id": "c5e1ac1104a077324dca0172001da8c0",
-        "url": "https://timesofindia.indiatimes.com/life-style/events/event-alert-kolkata-16th-world-confluence-on-spirituality/articleshow/126185776.cms",
-        "lang": "en",
-        "image": "https://static.toiimg.com/thumb/msid-126185839,width-1070,height-580,imgsize-76490,resizemode-75,overlay-toi_sw,pt-32,y_pad-500/photo.jpg",
-        "title": "Event alert, Kolkata: 16th World Confluence on Spirituality",
-        "source": {
-          "id": "9a9a0fb79c70bbf499d39baca94921ae",
-          "url": "https://timesofindia.indiatimes.com",
-          "name": "Times of India",
-          "country": "in"
-        },
-        "content": "West Bengal Governor C V Ananda Bose is set to inaugurate the 16th World Confluence of Humanity, Power and Spirituality in Kolkata on December 26. India’s Chief Imam and president of the All India Imam Organisation, Imam Umer Ahmed Ilyasi, will be am... [2188 chars]",
-        "description": "West Bengal Governor C V Ananda Bose is set to inaugurate the 16th World Confluence of Humanity, Power and Spirituality in Kolkata on December 26. Ind.",
-        "publishedAt": "2025-12-26T07:32:00Z"
-      },
-      {
-        "id": "8d57b21d29762801aae34723cb2bcfb5",
-        "url": "https://www.mid-day.com/news/world-news/photo/in-photos-blast-at-mosque-in-nigeria-kills-5-over-30-injured-in-suspected-suicide-attack-108866",
-        "lang": "en",
-        "image": "https://images.mid-day.com/images/images/2025/dec/NigeriaBlast1_d.jpg",
-        "title": "World News, Latest World News, Breaking News and Headlines Today",
-        "source": {
-          "id": "189fbafb09ebfd21b3d4eda343f00fb1",
-          "url": "https://www.mid-day.com",
-          "name": "Mid Day",
-          "country": "in"
-        },
-        "content": "Pic/AFP\nPolice added that 35 people were injured in the attack, which it said is likely a suicide attack\n\"Preliminary investigations further suggest that the incident may have been a suicide bombing, based on the recovery of fragments of a suspected ... [915 chars]",
-        "description": "Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.",
-        "publishedAt": "2025-12-26T05:23:00Z"
-      },
-      {
-        "id": "fd9339adf80a5a6383efe4cf42f6d804",
-        "url": "https://zeenews.india.com/education/school-assembly-news-headlines-today-dec-26-top-7-india-world-weather-updates-thought-of-the-day-2999939.html",
-        "lang": "en",
-        "image": "https://english.cdn.zeenews.com/sites/default/files/2025/12/25/1882837-newyear-23.jpg",
-        "title": "School Assembly News Headlines Today (Dec 26): Top 7 India, World & Weather Updates + Thought of the Day",
-        "source": {
-          "id": "e743cde6ee986921721e83d3957862dc",
-          "url": "https://zeenews.india.com",
-          "name": "Zee News",
-          "country": "in"
-        },
-        "content": "School Assembly News Headlines Today (Dec 26): Students preparing for the 24 December 2025 school assembly can find below a clear and easy-to-read list of today’s most important headlines from India and around the world. These updates cover National,... [4048 chars]",
-        "description": "School Assembly News Headlines Today (Dec 26): Here are the key national, international, sports, and weather updates for December 26, 2025. These headlines are ideal for school assembly presentations and help students stay informed about important events happening across India and the world. Scroll down to read the headlines.",
-        "publishedAt": "2025-12-26T00:30:00Z"
-      }
-    ],
-    "rationale": "The day shows tangible positive developments, most notably the inauguration of the world's longest tunnel, which directly improves human efficiency and connectivity. Furthermore, there are strong thematic elements promoting reflection, persistence (Marie Curie quote), and spiritual confluence. These gains are tempered by a significant warning regarding potential Gen-Z uprisings driven by economic insecurity and corruption, indicating underlying societal fragility. Overall, the concrete progress and focus on ethical engagement push the score into the 'Steady progress' range, though not high enough to ignore the looming instability.",
-    "createdAt": "2025-12-30T17:45:09.921Z",
-    "updatedAt": "2025-12-30T17:45:09.921Z"
-  },
-  {
-    "id": "cmjsukyc400017kf5b9a9s32u",
-    "date": "2025-12-27T00:00:00.000Z",
-    "status": "Bad",
-    "score": 4.2,
-    "headlines": [
-      {
-        "id": "ff0cba499fa5037d6d090af91aca60f3",
-        "url": "https://www.devdiscourse.com/article/law-order/3743303-world-news-roundup-highlights-from-global-headlines",
-        "lang": "en",
-        "image": "https://www.devdiscourse.com/remote.axd?https://devdiscourse.blob.core.windows.net/aiimagegallery/29_05_2024_15_54_24_6391789.png?width=920&format=jpeg",
-        "title": "World News Roundup: Highlights from Global Headlines",
-        "source": {
-          "id": "c6a01ba91c1a2bc3f53f4707110bfee5",
-          "url": "https://www.devdiscourse.com",
-          "name": "Devdiscourse",
-          "country": "in"
-        },
-        "content": "Russian President Vladimir Putin has claimed that Ukraine is delaying peace talks, affirming Russia's readiness to achieve its goals through continued military operations, as reported by Interfax and TASS agencies.\nFollowing military operations relat... [281 chars]",
-        "description": "A snapshot of the latest global news includes Putin's stance on Ukraine's peace efforts, reopening of Polish airports post-Russian strikes, a missing Spanish family in Indonesia, Italy's arrest over Hamas funding, Canada's aid to Ukraine, and Israel recognizing Somaliland.",
-        "publishedAt": "2025-12-27T23:51:08Z"
-      },
-      {
-        "id": "8e966fa8a372332bc2730ab663547833",
-        "url": "https://www.hindustantimes.com/world-news/as-russia-strikes-kyiv-world-leaders-call-for-peace-and-support-for-ukraine-101766864514497.html",
-        "lang": "en",
-        "image": "https://www.hindustantimes.com/ht-img/img/2025/12/27/1600x900/logo/World_leaders_call_for_peace_in_Ukraine_1766866910913_1766866911070.jpg",
-        "title": "As Russia strikes Kyiv, world leaders call for peace and support for Ukraine",
-        "source": {
-          "id": "21468bec836de1ebb209ff6f78fbfe3e",
-          "url": "https://www.hindustantimes.com",
-          "name": "Hindustan Times",
-          "country": "in"
-        },
-        "content": "Russia's recent strike on Kyiv, which caused widespread disruption across the region in the early hours of Saturday, has been largely condemned by countries including France and Canada.\nRussia dropped around 500 drones and 40 missiles that rocked the... [2452 chars]",
-        "description": "Global leaders, including Emmanuel Macron and Mark Carney, condemned the attack and emphasised the need for a willing Russia to achieve lasting peace in Ukraine | World News",
-        "publishedAt": "2025-12-27T20:31:58Z"
-      },
-      {
-        "id": "9fac1820abe19d05626f1034fcefc631",
-        "url": "https://www.canberratimes.com.au/story/9142208/wintry-wet-gaza-awaits-ceasefire-progress/",
-        "lang": "en",
-        "image": "https://www.canberratimes.com.au/images/transform/v1/crop/frm/silverstone-feed-data/ebbc7ec7-6edb-4e93-9249-8a151d9fc065.jpg/r0_90_800_510_w1200_h630_fmax.jpg",
-        "title": "Wintry, wet Gaza awaits ceasefire progress",
-        "source": {
-          "id": "92021aca7322dc2b29226023c35d9a4a",
-          "url": "https://www.canberratimes.com.au",
-          "name": "The Canberra Times",
-          "country": "au"
-        },
-        "content": "Displaced Gazans brace for more cold wet weather as negotiators discuss the second stage of peace. Photo: AP PHOTO\nBarefoot children are playing on chilly sand as Gaza 's thousands of displaced people prepare threadbare tents for another round of win... [5424 chars]",
-        "description": "As thousands of displaced people prepared threadbare tents for another round of winter rain, Gazans await news of...",
-        "publishedAt": "2025-12-27T20:02:06Z"
-      },
-      {
-        "id": "3d7d89be959c797ce625082e6c640b4c",
-        "url": "https://techbullion.com/best-tech-news-websites-to-follow-in-2026/",
-        "lang": "en",
-        "image": "https://techbullion.com/wp-content/uploads/2025/12/15tech-Banner.jpg",
-        "title": "Best Tech News Websites to Follow in 2026",
-        "source": {
-          "id": "c45dc51281d68ce51bff0cc4fe959bbf",
-          "url": "https://techbullion.com",
-          "name": "TechBullion",
-          "country": "gb"
-        },
-        "content": "Share\nShare\nShare\nShare\nEmail\nStaying updated with technology news has become more important than ever. Whether you’re a tech professional, enthusiast, or just someone who wants to keep up with the digital world, finding reliable sources matters. The... [6336 chars]",
-        "description": "Staying updated with technology news has become more important than ever. Whether you’re a tech professional, enthusiast, or just someone who wants to keep up with the digital world, finding reliable sources matters. The internet is packed with tech websites, but not all of them deliver quality content. Some focus on breaking news, others dive […]",
-        "publishedAt": "2025-12-27T19:19:42Z"
-      },
-      {
-        "id": "8b9409e196335f57c86de800ac771976",
-        "url": "https://theprovince.com/news/climate-change-update-to-dec-28-25/wcm/1c1f3720-f73d-45df-8984-6b2d79b2280c",
-        "lang": "en",
-        "image": "https://smartcdn.gprod.postmedia.digital/theprovince/wp-content/uploads/2025/12/the-week-in-news-photos.jpg",
-        "title": "B.C. climate news: Wildfires, floods and cyclones among world's costliest climate breakdown disasters of 2025",
-        "source": {
-          "id": "151e16058f3cb39651c31018593e2a50",
-          "url": "https://theprovince.com",
-          "name": "The Province",
-          "country": "ca"
-        },
-        "content": "Here's all the latest local and international news concerning climate change for the week of Dec. 22 to Dec. 28, 2025.\nArticle content\nHere’s the latest news concerning climate change and biodiversity loss in B.C. and around the world, from the steps... [12344 chars]",
-        "description": "Here's all the latest local and international news concerning climate change for the week of Dec. 22 to Dec. 28, 2025.",
-        "publishedAt": "2025-12-27T17:55:37Z"
-      },
-      {
-        "id": "806f3f50bcd6a16dec06b656a2c77786",
-        "url": "https://www.indiatimes.com/trending/watch-maglev-train-hits-700-km/h-in-just-2-seconds-in-china-sets-a-new-world-record/articleshow/126205410.html",
-        "lang": "en",
-        "image": "https://staticimg.publishstory.co/thumb/126205451.cms?imgsize=81578&width=1280&height=720&resizemode=8",
-        "title": "Watch: Maglev Train hits 700 km/h in just 2 seconds in China, sets a new world record",
-        "source": {
-          "id": "da182982e3ceb53c6eb8df72aa2030c3",
-          "url": "https://www.indiatimes.com",
-          "name": "Indiatimes",
-          "country": "in"
-        },
-        "content": "Image credit : AI generated image via ChatGPT | Maglev Train hits 700 km/h in just 2 seconds in China\nChina has set a new world record after a Maglev Train reached 700 km/h in just two seconds, showing major progress in high speed train technology. T... [3964 chars]",
-        "description": "China has set a new world record after a Maglev Train reached 700 km/h in just two seconds, showing major progress in high speed train technology. This breakthrough places China at the front of ultra-fast rail research worldwide.",
-        "publishedAt": "2025-12-27T14:03:29Z"
-      },
-      {
-        "id": "b847d687fbad09991d793eb6a2235d51",
-        "url": "https://www.timesnownews.com/world/china-maglev-train-hits-800-kmph-in-just-5-seconds-new-world-record-watch-video-hubei-east-lake-laboratory-national-university-of-defence-technology-article-153357465",
-        "lang": "en",
-        "image": "https://images.timesnownews.com/thumb/msid-153357465,width-1280,height-720,resizemode-75/153357465.jpg",
-        "title": "China's Maglev Train Hits 800 kmph in Just 5 Seconds, Video Shows Loco Vanish Before Eyes, Sets New World Record",
-        "source": {
-          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
-          "url": "https://www.timesnownews.com",
-          "name": "Times Now",
-          "country": "in"
-        },
-        "content": "China sets world record, accelerates Maglev test train prototype at 800 kmph | AI Representational image\nNew Delhi: China has achieved a new world record in high-speed train testing after a Maglev prototype hit 800 kmph in just 5.3 seconds while cros... [3592 chars]",
-        "description": "China has set a new benchmark in high-speed rail technology, with a Maglev prototype reaching 800 km/h in just 5.3 seconds, outpacing previous Japanese advancements., World News, Times Now",
-        "publishedAt": "2025-12-27T12:44:43Z"
-      },
-      {
-        "id": "304adbf922326952fb9dd2027ca98d9f",
-        "url": "https://www.hindustantimes.com/world-news/china-sets-record-with-worlds-fastest-maglev-train-hits-700-km-h-in-2-seconds-101766830670454.html",
-        "lang": "en",
-        "image": "https://www.hindustantimes.com/ht-img/img/2025/12/27/1600x900/logo/maglev_1766833564906_1766833569122.jpg",
-        "title": "700 kmph in just 2 seconds: China's fastest maglev train sets world record | Video",
-        "source": {
-          "id": "21468bec836de1ebb209ff6f78fbfe3e",
-          "url": "https://www.hindustantimes.com",
-          "name": "Hindustan Times",
-          "country": "in"
-        },
-        "content": "China has set a world record in maglev technology, testing and successfully accelerating a tonne-class vehicle to a speed of 700 km/h (435mph) in only two seconds' time.\nThe maglev train was tested on a 400 metre (1,310-foot) magnetic levitation (mag... [1429 chars]",
-        "description": "The maglev train was tested on a 400 metre (1,310-foot) magnetic levitation (maglev) test line, and safely brought to a stop afterwards. | World News",
-        "publishedAt": "2025-12-27T12:01:26Z"
-      },
-      {
-        "id": "c6449258301df24719b28502333da8bc",
-        "url": "https://zeenews.india.com/education/school-assembly-news-headlines-today-dec-27-top-7-india-world-weather-updates-thought-of-the-day-3000483.html",
-        "lang": "en",
-        "image": "https://english.cdn.zeenews.com/sites/default/files/2025/12/27/1883644-travel-5.png",
-        "title": "School Assembly News Headlines Today (Dec 27): Top 7 India, World & Weather Updates + Thought of the Day",
-        "source": {
-          "id": "e743cde6ee986921721e83d3957862dc",
-          "url": "https://zeenews.india.com",
-          "name": "Zee News",
-          "country": "in"
-        },
-        "content": "School Assembly News Headlines Today (Dec 27): Students preparing for the 27 December 2025 school assembly can find below a clear and easy-to-read list of today’s most important headlines from India and around the world. These updates cover National,... [3928 chars]",
-        "description": "School Assembly News Headlines Today (Dec 27): Here are the key national, international, sports, and weather updates for December 27, 2025. These headlines are ideal for school assembly presentations and help students stay informed about important events happening across India and the world. Scroll down to read the headlines.",
-        "publishedAt": "2025-12-27T04:19:04Z"
-      },
-      {
-        "id": "f8dc1a682717f6ce9317f6d9d03cbbe0",
-        "url": "https://timesofindia.indiatimes.com/india/cm-sikh-gurus-legacy-continues-to-guide-indias-path-of-progress/articleshow/126195643.cms",
-        "lang": "en",
-        "image": "https://static.toiimg.com/thumb/msid-126195639,width-1070,height-580,imgsize-54664,resizemode-75,overlay-toi_sw,pt-32,y_pad-500/photo.jpg",
-        "title": "CM: Sikh gurus’ legacy continues to guide India’s path of progress",
-        "source": {
-          "id": "9a9a0fb79c70bbf499d39baca94921ae",
-          "url": "https://timesofindia.indiatimes.com",
-          "name": "Times of India",
-          "country": "in"
-        },
-        "content": "Lucknow: Chief Minister Yogi Adityanath on Friday said the legacy of Sikh gurus, who gave everything for faith, nation and humanity, continues to guide India's path of progress. \"History is shaped only by those who embody sacrifice and renunciation. ... [1803 chars]",
-        "description": "India News: Lucknow: Chief Minister Yogi Adityanath on Friday said the legacy of Sikh gurus, who gave everything for faith, nation and humanity, continues to guid.",
-        "publishedAt": "2025-12-27T03:12:00Z"
-      }
-    ],
-    "rationale": "The day presents a stark contrast between significant technological advancement and ongoing geopolitical conflict and humanitarian suffering. On the positive side, there are multiple reports (Headlines 6, 7, 8) highlighting China's impressive breakthrough in Maglev train technology, setting new world speed records. This represents tangible progress in engineering and potentially future sustainable transport. Headline 10 offers a positive cultural/political note from India.\n\nHowever, the negative impacts are severe and widespread. The ongoing war in Ukraine dominates the news (Headlines 1, 2), with renewed Russian strikes on Kyiv, despite global calls for peace. This signifies continued violence and instability. Furthermore, the humanitarian crisis in Gaza is highlighted (Headline 3), where displaced populations face harsh winter conditions while awaiting ceasefire progress, indicating severe ongoing suffering. Headline 5 points to the massive economic and human cost of climate disasters in 2025. The general global news roundup (Headline 1) also notes arrests related to Hamas funding and ongoing international tensions.\n\nOverall, while technological progress is notable, the persistence of major armed conflict, humanitarian crises, and climate disaster impacts weighs heavily on the assessment. The day leans towards 'Mixed/Neutral' but slightly negative due to the severity of the ongoing conflicts and suffering, resulting in a score just above the midpoint.",
-    "createdAt": "2025-12-30T17:14:53.524Z",
-    "updatedAt": "2025-12-30T17:14:53.524Z"
-  },
-  {
     "id": "cmjsttexd00007koei6chdbdy",
     "date": "2025-12-28T00:00:00.000Z",
     "status": "Bad",
@@ -1443,5 +1101,176 @@
     "rationale": "The day presents a mixed bag, leaning toward setbacks due to significant geopolitical and social friction, despite some positive economic and scientific indicators. \n\n**Negative/Setbacks:**\n*   **Geopolitical Tension:** China's large-scale military drills around Taiwan (Headline 18) represent a major escalation of regional instability and risk of conflict. Separately, a CIA strike against alleged drug smugglers in Venezuela (Headline 7) indicates ongoing covert international conflict.\n*   **Political/Cultural Division:** The Kennedy Center exodus (Headline 2) highlights ongoing cultural and political polarization in the US. Furthermore, the Trump administration freezing child care funds to Minnesota (Headline 13) suggests punitive federal action impacting social services.\n*   **Health Concerns:** Rising cases of Flu, COVID, and Norovirus (Headline 19) indicate ongoing public health challenges.\n*   **Loss of Life/Culture:** The remembrance of artists lost in 2025 (Headline 4) and the death of Tatiana Schlossberg (Headline 16) represent cultural losses, though these are routine annual events.\n\n**Positive/Progress:**\n*   **Scientific Advancement:** NASA is weeks away from the Artemis II mission (Headline 3), a major step toward deep space exploration.\n*   **Economic Strength:** US stocks are set for a rare third year of stellar gains (Headline 6), and China's manufacturing activity is growing, ending a long slump (Headline 10), suggesting global economic stabilization.\n*   **Diplomacy:** A ceasefire between Thailand and Cambodia is holding, leading to the release of captured soldiers (Headline 12).\n*   **Cultural/Symbolic:** A new, larger Times Square ball (Headline 5) offers a minor positive symbolic moment.\n\n**Overall Assessment:** The high-stakes military tension around Taiwan and the domestic political/social friction outweigh the positive economic news and the promising space mission. The risk of conflict and the impact of political actions on social welfare push the score into the 'Major Setbacks' range, though not into 'Chaos' due to the concurrent economic stability and diplomatic success.",
     "createdAt": "2026-01-01T13:43:43.424Z",
     "updatedAt": "2026-01-01T13:43:43.424Z"
+  },
+  {
+    "id": "cmjy2p9ly00007k94qaba5hv4",
+    "date": "2026-01-02T00:00:00.000Z",
+    "status": "Bad",
+    "score": 3.5,
+    "headlines": [
+      {
+        "id": "0bd1d8040f991350d7ca13ad25002be5",
+        "url": "https://www.timesnownews.com/world/yemen-conflict-saudi-arabia-strikes-uae-backed-forces-in-yemen-article-153387576",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153387576,width-1280,height-720,resizemode-75/153387576.jpg",
+        "title": "Yemen Conflict: Saudi Arabia Carries Out Strikes On UAE-Backed Forces In Yemen, 7 Dead",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "Supporters of UAE backed Southern Transitional Council in Aden, Yemen.\nPhoto : AP\nAir strikes by a Saudi-led coalition killed seven UAE backed separatist fighters in eastern Yemen on Friday, marking the first deadly clash between the two Gulf powers'... [1884 chars]",
+        "description": "Recent air strikes by a Saudi-led coalition in eastern Yemen resulted in the deaths of seven fighters from the UAE-backed Southern Transitional Council (STC), highlighting escalating tensions between the two Gulf powers. , World News, Times Now",
+        "publishedAt": "2026-01-02T16:42:13Z"
+      },
+      {
+        "id": "2c90db7ecd33abcd8c4a125c70b5223f",
+        "url": "https://www.lokmattimes.com/national/arunachal-guv-outlines-four-pillars-driving-states-progress/",
+        "lang": "en",
+        "image": "https://d3pc1xvrcw35tl.cloudfront.net/ln/feedImages/1200x900/202601023626170_202601.jpeg",
+        "title": "Arunachal Guv outlines four pillars driving state’s progress",
+        "source": {
+          "id": "f2ddccedc9e60d844e7a1045928cad48",
+          "url": "https://www.lokmattimes.com",
+          "name": "Lokmat Times",
+          "country": "in"
+        },
+        "content": "Itanagar, Jan 2 Arunachal Pradesh Governor Lt. General K.T. Parnaik (Retd.) on Friday, during a discussion with Chief Minister Pema Khandu, highlighted education, health, hydropower and tourism as the four key pillars -- described as the “four wheels... [3068 chars]",
+        "description": "Arunachal Guv outlines four pillars driving state’s progress - Itanagar, Jan 2 Arunachal Pradesh Governor Lt. General K.T. Parnaik (Retd.) on Friday, during a discussion with Chief ... Get Latest News on National only on lokmattimes.com",
+        "publishedAt": "2026-01-02T13:37:42Z"
+      },
+      {
+        "id": "97df9b1be29bca3bb8f34fc4adaecd4d",
+        "url": "https://www.express.co.uk/sport/othersport/2151980/Darts-LIVE-Luke-Littler-World-Darts-Championship",
+        "lang": "en",
+        "image": "https://cdn.images.express.co.uk/img/dynamic/4/1200x630/6643893.jpg",
+        "title": "Darts news: Luke Littler booed before World Championship quarter-final",
+        "source": {
+          "id": "c97ef3cad273a1993c998ca7ddcc5212",
+          "url": "https://www.express.co.uk",
+          "name": "Daily Express",
+          "country": "gb"
+        },
+        "content": "Darts news: Luke Littler booed in World Championship win as Ally Pally feud takes twist\nExpress Sport brings you the latest news from the World Darts Championship.\nLuke Littler is on course to defend his World Darts Championship title after storming ... [38774 chars]",
+        "description": "Express Sport brings you the latest news from the World Darts Championship.",
+        "publishedAt": "2026-01-02T07:06:00Z"
+      },
+      {
+        "id": "fa1ebc1b69b388f08b0a9eb7092167d9",
+        "url": "https://inews.co.uk/news/science/the-health-news-that-could-improve-your-life-4113819",
+        "lang": "en",
+        "image": "https://inews.co.uk/wp-content/uploads/2025/12/SEI_278108984.jpg?w=1200&h=675&crop=1",
+        "title": "The good health news that could improve your life in 2026",
+        "source": {
+          "id": "3fd81fec6996d2b507b61bb0ac5fbca0",
+          "url": "https://inews.co.uk",
+          "name": "The i Paper",
+          "country": "gb"
+        },
+        "content": "This is Everyday Science with Clare Wilson, a subscriber-only newsletter from The i Paper. If you’d like to get this direct to your inbox every week, you can sign up here.\nHello, and welcome back to Everyday Science.\nAre you in a post-Christmas slump... [7094 chars]",
+        "description": "Medical progress has led to breakthroughs that could help people at every stage of life, from the smallest babies to the most senior of citizens",
+        "publishedAt": "2026-01-02T06:00:00Z"
+      },
+      {
+        "id": "f9f2399fdca0423e6a0799ceaf13eac4",
+        "url": "https://www.timesnownews.com/world/show-restraint-us-warns-china-to-pull-back-as-tensions-escalate-between-beijing-and-taiwan-article-153383000",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153383000,width-1280,height-720,resizemode-75/153383000.jpg",
+        "title": "'Show Restraint': US Warns China To Pull Back As Tensions Escalate Between Beijing And Taiwan",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "President Donald Trump, left, and Chinese President Xi Jinping shake hands before their meeting at Gimhae International Airport in Busan, South Korea on October 30, 2025 | Photo Credit: Mark Schiefelbein/AP\nAs tensions spike after China's live-fire m... [2721 chars]",
+        "description": "The U.S. State Department urged China to exercise restraint, halt military intimidation, and engage in meaningful dialogue. , World News, Times Now",
+        "publishedAt": "2026-01-02T05:26:07Z"
+      },
+      {
+        "id": "9e265792de7cb198106f618a6336997b",
+        "url": "https://economictimes.indiatimes.com/small-biz/trade/exports/insights/how-the-wine-world-is-set-to-change-in-2026/articleshow/126298854.cms",
+        "lang": "en",
+        "image": "https://img.etimg.com/thumb/msid-126298874,width-1200,height-630,imgsize-67606,overlay-etrise/articleshow.jpg",
+        "title": "How the wine world is set to change in 2026",
+        "source": {
+          "id": "5464668c1f0466950a0b2fab5249ec6c",
+          "url": "https://economictimes.indiatimes.com",
+          "name": "The Economic Times",
+          "country": "in"
+        },
+        "content": "Synopsis\nThe wine world in 2026 anticipates a rise in nonalcoholic and sparkling wines, with younger generations driving consumption. Wineries are focusing on adventure-driven tourism and value-oriented wines from lesser-known regions. AI is set to p... [8873 chars]",
+        "description": "The wine world in 2026 anticipates a rise in nonalcoholic and sparkling wines, with younger generations driving consumption. Wineries are focusing on adventure-driven tourism and value-oriented wines from lesser-known regions. AI is set to personalize wine experiences, while new bottle sizes offer greater affordability and convenience.",
+        "publishedAt": "2026-01-02T05:12:00Z"
+      },
+      {
+        "id": "119ae7dbc384aa3cd045a472b9b7f9ae",
+        "url": "https://timesofindia.indiatimes.com/world/rest-of-world/found-the-debris-russia-shares-evidence-of-alleged-drone-attack-on-putins-residence-claim-navigation-system-intact/articleshow/126297904.cms",
+        "lang": "en",
+        "image": "https://static.toiimg.com/thumb/msid-126297993,width-1070,height-580,imgsize-21512,resizemode-75,overlay-toi_sw,pt-32,y_pad-500/photo.jpg",
+        "title": "‘Found the debris’: Russia shares ‘evidence’ of alleged drone attack on Putin’s residence; claim navigation system intact",
+        "source": {
+          "id": "9a9a0fb79c70bbf499d39baca94921ae",
+          "url": "https://timesofindia.indiatimes.com",
+          "name": "Times of India",
+          "country": "in"
+        },
+        "content": "Putin, Trump (File photos)\nDays after Russia claimed that Ukraine tried to target President Vladimir Putin’s official residence in a drone attack, Russian authorities on Thursday said they had shared what they described as evidence linked to the inci... [2731 chars]",
+        "description": "Rest of World News: Days after Russia claimed that Ukraine tried to target President Vladimir Putin’s official residence in a drone attack, Russian authorities on Thursda.",
+        "publishedAt": "2026-01-02T03:52:00Z"
+      },
+      {
+        "id": "257e2e2a372669f616ba1904a72e09d0",
+        "url": "https://www.mid-day.com/news/world-news/photo/in-photos-ukrainian-drone-attack-on-new-year-celebrations-kills-24-in-kherson-108974",
+        "lang": "en",
+        "image": "https://images.mid-day.com/images/images/2026/jan/Kherson1_d.jpg",
+        "title": "World News, Latest World News, Breaking News and Headlines Today",
+        "source": {
+          "id": "189fbafb09ebfd21b3d4eda343f00fb1",
+          "url": "https://www.mid-day.com",
+          "name": "Mid Day",
+          "country": "in"
+        },
+        "content": "Pic/AFP\nAccording to the Russian Foreign Ministry, the attack took place in the early hours of 2026 and targeted a location where civilians had gathered to celebrate the New Year.\nThe ministry alleged that the strike was carried out using unmanned ae... [559 chars]",
+        "description": "Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.",
+        "publishedAt": "2026-01-02T02:41:00Z"
+      },
+      {
+        "id": "ea0c3e9cc9d8b81a6e9f8695e32b2757",
+        "url": "https://www.mid-day.com/news/world-news/photo/in-photos-zohran-mamdani-sworn-in-as-new-york-citys-112th-mayor-108973",
+        "lang": "en",
+        "image": "https://images.mid-day.com/images/images/2026/jan/ZohranMamdaniNYC1_d.jpg",
+        "title": "World News, Latest World News, Breaking News and Headlines Today",
+        "source": {
+          "id": "189fbafb09ebfd21b3d4eda343f00fb1",
+          "url": "https://www.mid-day.com",
+          "name": "Mid Day",
+          "country": "in"
+        },
+        "content": "Pic/AFP\nThe 34-year-old Queens state assemblyman became the first South Asian and Muslim elected to the helm of the largest city in the US\nMamdani was sworn in at the old City Hall subway station by New York Attorney General Letitia James at a privat... [1706 chars]",
+        "description": "Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.",
+        "publishedAt": "2026-01-02T02:31:00Z"
+      },
+      {
+        "id": "3b68d7addfb0748a225a3227704af3a0",
+        "url": "https://www.indiatvnews.com/lifestyle/people/world-introvert-day-7-things-people-really-need-to-stop-saying-to-introverts-2026-01-02-1024147",
+        "lang": "en",
+        "image": "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2026/01/introvert-1767320887.jpg",
+        "title": "World Introvert Day: 7 things people really need to stop saying to introverts",
+        "source": {
+          "id": "143b993b193f72147f3de29ebcfbf505",
+          "url": "https://www.indiatvnews.com",
+          "name": "India TV News",
+          "country": "in"
+        },
+        "content": "New Delhi:\nWorld Introvert Day is a gentle nudge to rethink how we talk about quiet people. Not fix them. Not push them. Just understand that introversion isn’t a problem waiting to be solved. It’s a personality type that works differently, and often... [1952 chars]",
+        "description": "On World Introvert Day, we look at some everyday phrases often said to introverts and why they miss the mark. From pushing them to talk more to mistaking quiet for insecurity, we explain why these comments create pressure instead of understanding, and why introversion doesn't need fixing.",
+        "publishedAt": "2026-01-02T02:29:49Z"
+      }
+    ],
+    "rationale": "The day is characterized by significant geopolitical instability and conflict, heavily outweighing positive or neutral developments. The most severe events are the escalation of conflict in Yemen, resulting in 7 deaths (Headline 1), and heightened military tensions between China and the US/Taiwan (Headline 5). Russia also continues to report on alleged attacks against its leadership (Headline 7), maintaining a high-tension environment. While there is positive news regarding potential long-term health breakthroughs (Headline 4) and regional development in Arunachal Pradesh (Headline 2), these are overshadowed by immediate threats to human life and international security. The cultural/lifestyle news (Headlines 3, 6, 10) is entirely neutral or trivial in the context of global well-being. Therefore, the net impact leans toward major setbacks due to active conflict and rising geopolitical risk.",
+    "createdAt": "2026-01-03T09:01:02.567Z",
+    "updatedAt": "2026-01-03T09:01:02.567Z"
   }
 ]

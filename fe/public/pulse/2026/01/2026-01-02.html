@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse | 2026-01-02</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --text: #ededed;
+            --muted: #888888;
+
+            --accent: {
+                    {
+                    #if isGood
+                }
+            }
+
+            #22c55e {
+                    {
+                    else
+                }
+            }
+
+            #ef4444 {
+                    {
+                    /if
+                }
+            }
+
+            ;
+
+            --accent-glow: {
+                    {
+                    #if isGood
+                }
+            }
+
+            rgba(34, 197, 94, 0.2) {
+                    {
+                    else
+                }
+            }
+
+            rgba(239, 68, 68, 0.2) {
+                    {
+                    /if
+                }
+            }
+
+            ;
+            --card: rgba(23, 23, 23, 0.6);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Instrument Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            letter-spacing: -0.01em;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            position: relative;
+        }
+
+        .nav {
+            margin-bottom: 3rem;
+        }
+
+        .back-link {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--text);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .header-subtitle {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            color: var(--muted);
+            text-transform: uppercase;
+        }
+
+        .title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin: 1rem 0;
+            letter-spacing: -0.02em;
+        }
+
+        .verdict-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: var(--accent-glow);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .rationale-card {
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            margin-bottom: 4rem;
+            font-size: 1.15rem;
+            color: #d1d1d1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            white-space: pre-wrap;
+            text-align: justify;
+            hyphens: auto;
+        }
+
+        .ledger {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .headline-card {
+            background: var(--card);
+            backdrop-filter: blur(8px);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .headline-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .headline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--muted);
+        }
+
+        .source-tag {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+
+        .headline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .headline-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            align-self: flex-start;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .read-more:hover {
+            opacity: 0.8;
+        }
+
+        footer {
+            margin-top: 6rem;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.8rem;
+            padding-bottom: 4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <a href="/" class="back-link">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
+                        fill="currentColor" fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+                BACK TO OVERVIEW
+            </a>
+        </div>
+
+        <div class="header">
+            <span class="header-subtitle">DAILY ARCHIVE</span>
+            <h1 class="title">2026-01-02</h1>
+            <div class="verdict-badge">Arrythmia</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Analysis</h2>
+            <div class="rationale-card">The day is characterized by significant geopolitical instability and conflict, heavily outweighing positive or neutral developments. The most severe events are the escalation of conflict in Yemen, resulting in 7 deaths (Headline 1), and heightened military tensions between China and the US/Taiwan (Headline 5). Russia also continues to report on alleged attacks against its leadership (Headline 7), maintaining a high-tension environment. While there is positive news regarding potential long-term health breakthroughs (Headline 4) and regional development in Arunachal Pradesh (Headline 2), these are overshadowed by immediate threats to human life and international security. The cultural/lifestyle news (Headlines 3, 6, 10) is entirely neutral or trivial in the context of global well-being. Therefore, the net impact leans toward major setbacks due to active conflict and rising geopolitical risk.</div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Headlines Ledger</h2>
+            <div class="ledger">
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Times Now</span>
+                    </div>
+                    <h3 class="headline-title">Yemen Conflict: Saudi Arabia Carries Out Strikes On UAE-Backed Forces In Yemen, 7 Dead</h3>
+                    <p class="headline-desc">Recent air strikes by a Saudi-led coalition in eastern Yemen resulted in the deaths of seven fighters from the UAE-backed Southern Transitional Council (STC), highlighting escalating tensions between the two Gulf powers. , World News, Times Now</p>
+                    <a href="https://www.timesnownews.com/world/yemen-conflict-saudi-arabia-strikes-uae-backed-forces-in-yemen-article-153387576" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Lokmat Times</span>
+                    </div>
+                    <h3 class="headline-title">Arunachal Guv outlines four pillars driving state’s progress</h3>
+                    <p class="headline-desc">Arunachal Guv outlines four pillars driving state’s progress - Itanagar, Jan 2 Arunachal Pradesh Governor Lt. General K.T. Parnaik (Retd.) on Friday, during a discussion with Chief ... Get Latest News on National only on lokmattimes.com</p>
+                    <a href="https://www.lokmattimes.com/national/arunachal-guv-outlines-four-pillars-driving-states-progress/" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Daily Express</span>
+                    </div>
+                    <h3 class="headline-title">Darts news: Luke Littler booed before World Championship quarter-final</h3>
+                    <p class="headline-desc">Express Sport brings you the latest news from the World Darts Championship.</p>
+                    <a href="https://www.express.co.uk/sport/othersport/2151980/Darts-LIVE-Luke-Littler-World-Darts-Championship" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">The i Paper</span>
+                    </div>
+                    <h3 class="headline-title">The good health news that could improve your life in 2026</h3>
+                    <p class="headline-desc">Medical progress has led to breakthroughs that could help people at every stage of life, from the smallest babies to the most senior of citizens</p>
+                    <a href="https://inews.co.uk/news/science/the-health-news-that-could-improve-your-life-4113819" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Times Now</span>
+                    </div>
+                    <h3 class="headline-title">&#x27;Show Restraint&#x27;: US Warns China To Pull Back As Tensions Escalate Between Beijing And Taiwan</h3>
+                    <p class="headline-desc">The U.S. State Department urged China to exercise restraint, halt military intimidation, and engage in meaningful dialogue. , World News, Times Now</p>
+                    <a href="https://www.timesnownews.com/world/show-restraint-us-warns-china-to-pull-back-as-tensions-escalate-between-beijing-and-taiwan-article-153383000" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">The Economic Times</span>
+                    </div>
+                    <h3 class="headline-title">How the wine world is set to change in 2026</h3>
+                    <p class="headline-desc">The wine world in 2026 anticipates a rise in nonalcoholic and sparkling wines, with younger generations driving consumption. Wineries are focusing on adventure-driven tourism and value-oriented wines from lesser-known regions. AI is set to personalize wine experiences, while new bottle sizes offer greater affordability and convenience.</p>
+                    <a href="https://economictimes.indiatimes.com/small-biz/trade/exports/insights/how-the-wine-world-is-set-to-change-in-2026/articleshow/126298854.cms" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Times of India</span>
+                    </div>
+                    <h3 class="headline-title">‘Found the debris’: Russia shares ‘evidence’ of alleged drone attack on Putin’s residence; claim navigation system intact</h3>
+                    <p class="headline-desc">Rest of World News: Days after Russia claimed that Ukraine tried to target President Vladimir Putin’s official residence in a drone attack, Russian authorities on Thursda.</p>
+                    <a href="https://timesofindia.indiatimes.com/world/rest-of-world/found-the-debris-russia-shares-evidence-of-alleged-drone-attack-on-putins-residence-claim-navigation-system-intact/articleshow/126297904.cms" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Mid Day</span>
+                    </div>
+                    <h3 class="headline-title">World News, Latest World News, Breaking News and Headlines Today</h3>
+                    <p class="headline-desc">Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.</p>
+                    <a href="https://www.mid-day.com/news/world-news/photo/in-photos-ukrainian-drone-attack-on-new-year-celebrations-kills-24-in-kherson-108974" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">Mid Day</span>
+                    </div>
+                    <h3 class="headline-title">World News, Latest World News, Breaking News and Headlines Today</h3>
+                    <p class="headline-desc">Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.</p>
+                    <a href="https://www.mid-day.com/news/world-news/photo/in-photos-zohran-mamdani-sworn-in-as-new-york-citys-112th-mayor-108973" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+                <div class="headline-card">
+                    <div class="headline-meta">
+                        <span class="source-tag">India TV News</span>
+                    </div>
+                    <h3 class="headline-title">World Introvert Day: 7 things people really need to stop saying to introverts</h3>
+                    <p class="headline-desc">On World Introvert Day, we look at some everyday phrases often said to introverts and why they miss the mark. From pushing them to talk more to mistaking quiet for insecurity, we explain why these comments create pressure instead of understanding, and why introversion doesn&#x27;t need fixing.</p>
+                    <a href="https://www.indiatvnews.com/lifestyle/people/world-introvert-day-7-things-people-really-need-to-stop-saying-to-introverts-2026-01-02-1024147" target="_blank" class="read-more">Read Full Story →</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            THE PULSE &copy; 2026 | Human collective status record
+        </footer>
+    </div>
+</body>
+
+</html>
