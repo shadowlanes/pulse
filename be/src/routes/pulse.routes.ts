@@ -214,7 +214,7 @@ router.get("/details/:date", async (req, res) => {
  * @swagger
  * /api/pulse/trigger-check:
  *   post:
- *     summary: Manually trigger a pulse check
+ *     summary: Manually trigger a pulse check (localhost only)
  *     requestBody:
  *       content:
  *         application/json:
@@ -228,8 +228,21 @@ router.get("/details/:date", async (req, res) => {
  *     responses:
  *       200:
  *         description: Pulse check result
+ *       403:
+ *         description: Forbidden - Only accessible from localhost
  */
 router.post("/trigger-check", async (req, res) => {
+  // Check if request is from localhost
+  const clientIp = req.ip || req.socket.remoteAddress || '';
+  const isLocalhost = clientIp === '127.0.0.1' ||
+                      clientIp === '::1' ||
+                      clientIp === '::ffff:127.0.0.1' ||
+                      clientIp === 'localhost';
+
+  if (!isLocalhost) {
+    return res.status(403).json({ error: "Forbidden: This endpoint is only accessible from localhost" });
+  }
+
   const { date } = req.body;
   try {
     const result = await pulseService.runDailyCheck(date ? new Date(date) : new Date());
