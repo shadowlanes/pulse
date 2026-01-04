@@ -1,176 +1,5 @@
 [
   {
-    "id": "cmjsttexd00007koei6chdbdy",
-    "date": "2025-12-28T00:00:00.000Z",
-    "status": "Bad",
-    "score": 3.2,
-    "headlines": [
-      {
-        "id": "306de06ed600c45e111147ce573a28e6",
-        "url": "https://www.mid-day.com/news/world-news/photo/in-photos-donald-trump-meets-with-volodymyr-zelenskyy-to-talk-peace-in-ukraine-108904",
-        "lang": "en",
-        "image": "https://images.mid-day.com/images/images/2025/dec/TrumpZelensky1_d.jpg",
-        "title": "World News, Latest World News, Breaking News and Headlines Today",
-        "source": {
-          "id": "189fbafb09ebfd21b3d4eda343f00fb1",
-          "url": "https://www.mid-day.com",
-          "name": "Mid Day",
-          "country": "in"
-        },
-        "content": "Pic/AFP\nTheir meeting on Sunday was preceded by massive air strikes by Russia on Ukraine and by Kyiv on Moscow’s oil refinery, showing how fragile Trump’s peace initiative is.\nTrump also introduced a note of caution about the prospects of peace that ... [685 chars]",
-        "description": "Get the latest news from around the world, including breaking news, politics, business, entertainment, and more. Stay up-to-date on the latest happenings in the world with our live updates.",
-        "publishedAt": "2025-12-28T20:46:00Z"
-      },
-      {
-        "id": "0a9323c8e30f6316551e6f8a1874abff",
-        "url": "https://screenrant.com/apple-tv-neuromancer-cyberpunk-ai-prediction/",
-        "lang": "en",
-        "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2025/12/129f895f-7677-49e1-91aa-828dc1593335.jpeg?w=1600&h=900&fit=crop",
-        "title": "Apple TV’s Neuromancer Will Make Humanity’s Collapse Feel Eerily Familiar",
-        "source": {
-          "id": "6b8b6fae575a37200ef9ef50109518f5",
-          "url": "https://screenrant.com",
-          "name": "Screen Rant",
-          "country": "us"
-        },
-        "content": "The world, as we know it, experiences some form of collapse or downfall in nearly all sci-fi narratives. However, humanity's fall from grace in Apple TV's Neuromancer will be very different from what we are used to seeing in TV shows and movies.\nWill... [3064 chars]",
-        "description": "Many sci-fi shows portray end-of-the-world narratives where humans deal with a massive societal collapse, but Apple TV’s new series will be different.",
-        "publishedAt": "2025-12-28T20:30:18Z"
-      },
-      {
-        "id": "33eb765d0a915a037ecc67a807989453",
-        "url": "https://www.standard.co.uk/sport/football/zimbabwe-vs-south-africa-prediction-kick-off-time-tv-live-stream-team-news-latest-h2h-results-odds-afcon-2025-preview-b1264160.html",
-        "lang": "en",
-        "image": "https://static.standard.co.uk/2025/12/28/15/34/SouthAfricaAFCON28122025.jpeg?width=1200&auto=webp&quality=75",
-        "title": "Zimbabwe vs South Africa: AFCON prediction, kick-off time, TV, live stream, team news, h2h results, odds",
-        "source": {
-          "id": "e98e9648a83f865332ab00d9eab8cf1f",
-          "url": "https://www.standard.co.uk",
-          "name": "Evening Standard",
-          "country": "gb"
-        },
-        "content": "The two nations meet just two months on from their goalless draw in World Cup qualification\nSouth Africa take on Zimbabwe in their final group fixture at the Africa Cup of Nations\nAFP via Getty Images\nTashan Deniran-Alleyne\n2 minutes ago\nCOMMENTS\nSou... [3231 chars]",
-        "description": "The two nations meet just two months on from their goalless draw in World Cup qualification",
-        "publishedAt": "2025-12-28T16:41:05Z"
-      },
-      {
-        "id": "2618c0b5433892657d13358267f6c3aa",
-        "url": "https://www.indiatvnews.com/news/india/india-must-become-vishwaguru-for-the-world-s-welfare-rss-chief-mohan-bhagwat-in-telangana-2025-12-28-1023597",
-        "lang": "en",
-        "image": "https://resize.indiatvnews.com/en/resize/newbucket/1200_-/2025/12/PTI12_18_2025_000147B.jpg",
-        "title": "India must become 'vishwaguru' for the world's welfare: Mohan Bhagwat in Telangana",
-        "source": {
-          "id": "143b993b193f72147f3de29ebcfbf505",
-          "url": "https://www.indiatvnews.com",
-          "name": "India TV News",
-          "country": "in"
-        },
-        "content": "New Delhi:\nRSS chief Mohan Bhagwat has stressed that India’s journey to becoming a “Vishwaguru” (world teacher) is not just a matter of national ambition but a global necessity. Speaking in Hyderabad, Bhagwat said that this goal will require hard wor... [2286 chars]",
-        "description": "The RSS chief also spoke about the changing landscape of technology, urging that India must take the lead in ensuring that technology serves humanity and does not become its master.",
-        "publishedAt": "2025-12-28T14:02:45Z"
-      },
-      {
-        "id": "022aeac7405f0f02768b5ef4ef5da8cf",
-        "url": "https://www.ndtv.com/education/school-assembly-news-headlines-dec-29-top-national-world-sports-education-updates-10044930",
-        "lang": "en",
-        "image": "https://c.ndtvimg.com/2025-07/4dhf0ap4_students_625x300_21_July_25.jpg?im=FeatureCrop,algorithm=dnn,width=1200,height=738",
-        "title": "Top National, World, Sports, Education Updates",
-        "source": {
-          "id": "7daf04fa6272ed0a29583b211dcfe1d4",
-          "url": "https://www.ndtv.com",
-          "name": "NDTV.com",
-          "country": "in"
-        },
-        "content": "School Assembly News Headlines Today (December 29): Staying informed about national, international, sports, and education news sharpens your thinking and helps you become an aware and responsible citizen.\nSchool Assembly News Headlines: Advised To Mo... [2293 chars]",
-        "description": "School Assembly News Headlines Today (December 29): Staying informed about national, international, sports, and education news sharpens your thinking and helps you become an aware and responsible citizen.",
-        "publishedAt": "2025-12-28T12:29:20Z"
-      },
-      {
-        "id": "2b7fd0e87d1964247d31400a9082c803",
-        "url": "https://www.timesnownews.com/world/did-osman-hadis-killers-escape-to-india-bangladesh-police-point-to-meghalaya-article-153360173",
-        "lang": "en",
-        "image": "https://images.timesnownews.com/thumb/msid-153360173,width-1280,height-720,resizemode-75/153360173.jpg",
-        "title": "Did Osman Hadi’s Killers Escape to India? Bangladesh Police Point to Meghalaya",
-        "source": {
-          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
-          "url": "https://www.timesnownews.com",
-          "name": "Times Now",
-          "country": "in"
-        },
-        "content": "Bangladesh witnessed widespread unrest following the death of student leader Sharif Osman Hadi. (Image: Protest in Bangladesh, Inset: Sharif Osman Hadi)\nThe Dhaka Metropolitan Police (DMP) has said that two key suspects in the murder of Sharif Osman ... [2866 chars]",
-        "description": "The Dhaka Metropolitan Police reported that two main suspects in the murder of Sharif Osman Hadi, which led to significant protests in Bangladesh, have escaped to India via the Haluaghat border. , World News, Times Now",
-        "publishedAt": "2025-12-28T09:41:57Z"
-      },
-      {
-        "id": "1750775bb6a44b1078ed26687e9dcec4",
-        "url": "https://www.timesnownews.com/world/could-have-stayed-in-mumbai-us-influencer-sparks-outrage-over-indian-mans-death-in-canada-article-153359738",
-        "lang": "en",
-        "image": "https://images.timesnownews.com/thumb/msid-153359738,width-1280,height-720,resizemode-75/153359738.jpg",
-        "title": "‘Could Have Stayed in Mumbai’: US Influencer Sparks Outrage Over Indian Man’s Death in Canada",
-        "source": {
-          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
-          "url": "https://www.timesnownews.com",
-          "name": "Times Now",
-          "country": "in"
-        },
-        "content": "Andrew Branca (Image: X/@TheBrancaShow), Deceased Prashant Sreekumar (R) (Image: X)\nA controversy has erupted over American influencer Andrew Branca’s offensive comment regarding the death of Prashant Sreekumar, an Indian-origin man who died in Canad... [2761 chars]",
-        "description": "American influencer Andrew Branca sparked outrage with his derogatory remarks about Prashant Sreekumar, an Indian-origin man who died in a Canadian hospital after being neglected for over eight hours., World News, Times Now",
-        "publishedAt": "2025-12-28T07:47:49Z"
-      },
-      {
-        "id": "3f14c5e3ff28c8e9f37925323a0bc6a8",
-        "url": "https://www.lokmattimes.com/national/pm-modi-says-traditional-arts-empowering-society-becoming-vehicle-for-economic-progress/",
-        "lang": "en",
-        "image": "https://d3pc1xvrcw35tl.cloudfront.net/ln/feedImages/1200x900/202512283621347_202512.jpg",
-        "title": "PM Modi says traditional arts empowering society, becoming vehicle for economic progress",
-        "source": {
-          "id": "f2ddccedc9e60d844e7a1045928cad48",
-          "url": "https://www.lokmattimes.com",
-          "name": "Lokmat Times",
-          "country": "in"
-        },
-        "content": "New Delhi, Dec 28 Prime Minister Narendra Modi on Sunday said that India's traditional arts are empowering society and emerging as a major vehicle for people's economic progress, citing inspiring examples from Andhra Pradesh and Manipur while highlig... [3894 chars]",
-        "description": "PM Modi says traditional arts empowering society, becoming vehicle for economic progress - New Delhi, Dec 28 Prime Minister Narendra Modi on Sunday said that India's traditional arts are empowering society ... Get Latest News on National only on lokmattimes.com",
-        "publishedAt": "2025-12-28T07:17:54Z"
-      },
-      {
-        "id": "b31bc58177c8874d31015f85be3a18a6",
-        "url": "https://www.hindustantimes.com/world-news/could-have-stayed-in-mumbai-row-over-us-influencer-mocking-indian-man-prashant-sreekumar-death-in-canada-101766895325790.html",
-        "lang": "en",
-        "image": "https://www.hindustantimes.com/ht-img/img/2025/12/28/1600x900/logo/branca_1766895772445_1766895779361.png",
-        "title": "‘Could have stayed in Mumbai’: Row over US influencer mocking death of Indian man in Canada",
-        "source": {
-          "id": "21468bec836de1ebb209ff6f78fbfe3e",
-          "url": "https://www.hindustantimes.com",
-          "name": "Hindustan Times",
-          "country": "in"
-        },
-        "content": "The influencer’s X profile describes him as an attorney “providing pro-America, pro-Constitution, pro-Western civilisation political and legal analysis”. However, his anti-India content has often sparked controversy, as he mocks Indians by calling th... [2586 chars]",
-        "description": "Prashant Sreekumar, a 44-year-old Indian man, died in Canada's Edmonton after being left unattended at a hospital for over eight hours. | World News",
-        "publishedAt": "2025-12-28T04:39:41Z"
-      },
-      {
-        "id": "29a86f6c2345791b0201e4308595a78c",
-        "url": "https://7news.com.au/sport/athletics/teenage-middle-distance-superstar-cameron-myers-out-of-australias-world-cross-country-mixed-relay-team-c-21138569",
-        "lang": "en",
-        "image": "https://images.7news.com.au/publication/C-21138569/b3c57fcb60fb6c5f272b3d0663856be352ccf756-16x9-x0y0w1304h734.jpg?imwidth=1200",
-        "title": "Teenage middle-distance superstar Cameron Myers out of Australia’s world cross country mixed-relay team",
-        "source": {
-          "id": "e0c33fc9d04ac3cbaad8f31915a02767",
-          "url": "https://7news.com.au",
-          "name": "7NEWS Australia",
-          "country": "au"
-        },
-        "content": "Emerging middle-distance superstar Cameron Myers is out of Australia’s mixed-relay team that will be running in next January’s world cross country titles in Tallahassee, Florida.\nIn a short statement on Sunday, Myers said he had to pull out of the st... [2791 chars]",
-        "description": "The sad news is a bitter blow for the group that had high hopes of a rare and hard-to-win medal.",
-        "publishedAt": "2025-12-28T01:49:41Z"
-      }
-    ],
-    "rationale": "The day is characterized by several significant negative events impacting human well-being. Specifically, headlines 7 and 9 detail the tragic death of an Indian man due to alleged medical neglect in Canada, which has sparked international outrage and highlighted systemic failures. Headline 6 points to a failure in international security/justice as murder suspects reportedly fled across the India-Bangladesh border. While there are positive indicators regarding economic empowerment through traditional arts (Headline 8) and calls for responsible technological leadership (Headline 4), the immediate crises involving loss of life and failures in justice/healthcare constitute a net negative impact on overall human well-being.",
-    "createdAt": "2025-12-30T16:53:28.657Z",
-    "updatedAt": "2025-12-30T17:11:01.775Z"
-  },
-  {
     "id": "cmjsuictw00007kf5qh2slfo8",
     "date": "2025-12-29T00:00:00.000Z",
     "status": "Bad",
@@ -1272,5 +1101,176 @@
     "rationale": "The day is characterized by significant geopolitical instability and conflict, heavily outweighing positive or neutral developments. The most severe events are the escalation of conflict in Yemen, resulting in 7 deaths (Headline 1), and heightened military tensions between China and the US/Taiwan (Headline 5). Russia also continues to report on alleged attacks against its leadership (Headline 7), maintaining a high-tension environment. While there is positive news regarding potential long-term health breakthroughs (Headline 4) and regional development in Arunachal Pradesh (Headline 2), these are overshadowed by immediate threats to human life and international security. The cultural/lifestyle news (Headlines 3, 6, 10) is entirely neutral or trivial in the context of global well-being. Therefore, the net impact leans toward major setbacks due to active conflict and rising geopolitical risk.",
     "createdAt": "2026-01-03T09:01:02.567Z",
     "updatedAt": "2026-01-03T09:01:02.567Z"
+  },
+  {
+    "id": "cmjzl14am00007k62vr78iuf1",
+    "date": "2026-01-03T00:00:00.000Z",
+    "status": "Bad",
+    "score": 3.5,
+    "headlines": [
+      {
+        "id": "9c92ee69f12b2b596447c97bd1eeb7bd",
+        "url": "https://www.timesnownews.com/world/venezuela-president-nicolas-maduro-capture-us-forces-donald-trump-how-venezuelans-react-freedom-or-fear-global-reactions-videos-article-153392296",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153392296,width-1280,height-720,resizemode-75/153392296.jpg",
+        "title": "Joy Or Worry? WATCH How Venezuelans Reacted To President Nicolas Maduro’s Capture By US Forces",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "While there was widespread excitement, many Venezuelans abroad expressed concern about their country’s future.\nPhoto : Twitter\nVenezuelans living around the world celebrated on Saturday following the US-led capture of President Nicolas Maduro. His go... [2931 chars]",
+        "description": "Venezuelans around the world are celebrating after US-led forces captured President Nicolas Maduro. People in Chile, Peru, Spain, and other countries cheered in the streets, saying it feels like freedom. Some are hopeful for the future, while others remain worried about what will happen in Venezuela., World News, Times Now",
+        "publishedAt": "2026-01-03T20:08:45Z"
+      },
+      {
+        "id": "181bc6d7b93ca5281cd6e8c4204aa98e",
+        "url": "https://www.cbc.ca/news/world/u-s-venezuela-maduro-reactions-9.7032630",
+        "lang": "en",
+        "image": "https://i.cbc.ca/ais/4a0461b0-810a-4010-a589-6d5b23e307ab,1767446929472/full/max/0/default.jpg?im=Crop%2Crect%3D%2881%2C0%2C1125%2C632%29%3BResize%3D620",
+        "title": "World reacts to U.S. capture of Venezuelan President Nicolás Maduro",
+        "source": {
+          "id": "8e6a3c91c14a7267c52e13a72ed4cdd6",
+          "url": "https://www.cbc.ca",
+          "name": "CBC.ca",
+          "country": "ca"
+        },
+        "content": "Leaders around the world are swiftly responding to news that the U.S. attacked Venezuela overnight and captured President Nicolás Maduro and his wife, Cilia Flores.\nSome leaders responded diplomatically, saying they're monitoring the situation and ur... [4648 chars]",
+        "description": "Reactions from world leaders to news of U.S. strikes in Venezuela that led to the capture of President Nicolás Maduro and his wife, Cilia Flores.",
+        "publishedAt": "2026-01-03T16:11:10Z"
+      },
+      {
+        "id": "7b61c0caa3f6677611e4ad05cbb783b0",
+        "url": "https://www.manilatimes.net/2026/01/04/opinion/columns/humanitys-alignment-problem/2252247",
+        "lang": "en",
+        "image": "https://www.manilatimes.net/manilatimes/uploads/images/2026/01/03/886425.jpg",
+        "title": "Humanity’s alignment problem",
+        "source": {
+          "id": "7c666ee953f873d3057b310220f510df",
+          "url": "https://www.manilatimes.net",
+          "name": "The Manila Times",
+          "country": "ph"
+        },
+        "content": "NEW YORK — It’s lunchtime on top of the world again. Time magazine’s annual “Person of the Year” issue has revived the iconic Depression-era photograph of steelworkers casually lunching on a beam suspended over Manhattan. With New York City rising be... [6081 chars]",
+        "description": "NEW YORK — It’s lunchtime on top of the world again. Time magazine’s annual “Person of the Year” issue has revived the iconic Depression-era photograph of steelworkers casually lunching on a beam suspended over Manhattan. With New York City rising beneath them, the image portrays risk as normalized, even glamorized.",
+        "publishedAt": "2026-01-03T16:05:00Z"
+      },
+      {
+        "id": "1c8be6cf6ad85ec58804f4d10e4fe380",
+        "url": "https://timesofindia.indiatimes.com/sports/nhl/news/zayne-parekh-speaks-freely-as-calgary-flames-prospect-dominates-world-junior-championship-spotlight-on-the-canadian-stage/articleshow/126318490.cms",
+        "lang": "en",
+        "image": "https://static.toiimg.com/thumb/msid-126318481,width-1070,height-580,imgsize-239100,resizemode-75,overlay-toi_sw,pt-32,y_pad-500/photo.jpg",
+        "title": "Zayne Parekh speaks freely as Calgary Flames prospect dominates World Junior Championship spotlight on the Canadian stage",
+        "source": {
+          "id": "9a9a0fb79c70bbf499d39baca94921ae",
+          "url": "https://timesofindia.indiatimes.com",
+          "name": "Times of India",
+          "country": "in"
+        },
+        "content": "Canada's Tij Iginla (11) attacks the net defended by Czechia goaltender Michal Orsulak (30) during second-period IIHF World Junior Championship hockey game action in Minneapolis, Friday, Dec. 26, 2025. (Christopher Katsarov/The Canadian Press via AP)... [1857 chars]",
+        "description": "NHL News: The appearance of Zayne Parekh in the World Junior Championship has led him to become one of the most popular players in recent NHL news. As a prospec.",
+        "publishedAt": "2026-01-03T13:00:00Z"
+      },
+      {
+        "id": "4be2be15c7b8acf337f3f188d4f9e9d3",
+        "url": "https://timesofindia.indiatimes.com/technology/tech-news/openai-president-and-co-founder-greg-brockmans-long-note-on-ai-progress-in-2025-has-thanks-message-for-donald-trump-and-/articleshow/126319793.cms",
+        "lang": "en",
+        "image": "https://static.toiimg.com/thumb/msid-126320045,width-1070,height-580,imgsize-16012,resizemode-75,overlay-toi_sw,pt-32,y_pad-500/photo.jpg",
+        "title": "founder Greg Brockman's long note on AI progress in 2025 has 'thanks message' for Donald Trump and ...",
+        "source": {
+          "id": "9a9a0fb79c70bbf499d39baca94921ae",
+          "url": "https://timesofindia.indiatimes.com",
+          "name": "Times of India",
+          "country": "in"
+        },
+        "content": "OpenAI president and co-founder Greg Brockman has shared his detailed reflection on how artificial intelligence (AI) progressed in 2025. In a post on the microblogging site X (formerly Twitter), he thanked US President Donald Trump and his administra... [3373 chars]",
+        "description": "Tech News News: OpenAI president and co-founder Greg Brockman has shared his detailed reflection on how artificial intelligence (AI) progressed in 2025. In a post on .",
+        "publishedAt": "2026-01-03T12:00:00Z"
+      },
+      {
+        "id": "c8de3bee85a859ac92e541af25bf6950",
+        "url": "https://www.timesnownews.com/world/caracas-explosions-follow-us-claims-of-maduro-arrest-venezuela-denies-world-watches-closely-article-153390833",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153390833,width-1280,height-720,resizemode-75/153390833.jpg",
+        "title": "Caracas Explosions Follow US Claims of Maduro Arrest; Venezuela Denies, World Watches Closely",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "Multiple powerful explosions rocked Venezuela’s capital, Caracas, in the early hours of Saturday, January 3, 2026, plunging parts of the city into darkness and triggering panic, as the United States and Venezuela traded sharply conflicting accounts o... [4302 chars]",
+        "description": "Powerful explosions shook Caracas, Venezuela, leading to widespread panic and power outages. Reports indicate at least seven explosions occurred near military installations, with claims of a US-led operation to arrest President Nicolás Maduro fueling an international crisis., World News, Times Now",
+        "publishedAt": "2026-01-03T11:04:51Z"
+      },
+      {
+        "id": "8ce2658440b0e9e1a34065f92f43738c",
+        "url": "https://www.timesnownews.com/world/why-is-us-bombing-venezuela-trump-vs-maduro-explained-article-153390583",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153390583,width-1280,height-720,resizemode-75/153390583.jpg",
+        "title": "Why is US Bombing Venezuela? Trump vs Maduro Explained",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "The United States has launched large-scale military strikes inside Venezuela, sharply escalating a months-long confrontation between Washington and Caracas. Explosions lit up the Venezuelan capital and other regions in the early hours of January 3, a... [5343 chars]",
+        "description": "The U.S. has escalated tensions with Venezuela by launching extensive military strikes, targeting both civilian and military sites, following months of pressure on President Nicolás Maduro’s government. , World News, Times Now",
+        "publishedAt": "2026-01-03T10:27:19Z"
+      },
+      {
+        "id": "b71733c9f7bf32ac1caaff91ebd38bf5",
+        "url": "https://www.timesnownews.com/india/exclusive-amid-water-crisis-indore-rs-1074-crore-amrut-2-0-project-flagged-in-national-report-for-zero-progress-article-153389307",
+        "lang": "en",
+        "image": "https://images.timesnownews.com/thumb/msid-153389307,width-1280,height-720,resizemode-75/153389307.jpg",
+        "title": "EXCLUSIVE: Indore's Rs 1,074 crore AMRUT 2.0 Water Project Flagged In National Report For 'Zero Progress' Amid Crisis",
+        "source": {
+          "id": "d708b971b2f5b1049778dcf0e6f9ef3e",
+          "url": "https://www.timesnownews.com",
+          "name": "Times Now",
+          "country": "in"
+        },
+        "content": "Indore Municipal Corporation workers conduct a cleanliness drive after several people were affected due to consumption of contaminated water at Bhagirathpura area, in Indore, Madhya Pradesh, Wednesday, Dec. 31, 2025. (PTI Photo)\nIndore’s major AMRUT ... [2950 chars]",
+        "description": "The initiative includes expanding water intake, constructing a water treatment plant, and improving distribution systems. Its stalled status raises concerns about transparency and monitoring in urban infrastructure projects. , India News, Times Now",
+        "publishedAt": "2026-01-03T06:28:38Z"
+      },
+      {
+        "id": "f1c5969248e7af17f188432315843161",
+        "url": "https://www.financialexpress.com/shorts/life/entertainment/k-pop-band-bts-confirms-world-tour-2026-new-album-website-launches-this-spring-4096000/",
+        "lang": "en",
+        "image": "https://images.financialexpressdigital.com/2026/01/bts-comeback-2026.jpg?quality=100",
+        "title": "K-pop band BTS confirms world tour 2026: New album, website launches this Spring",
+        "source": {
+          "id": "63361c66f51ee0c82a5325ba1c7b8d06",
+          "url": "https://www.financialexpress.com",
+          "name": "The Financial Express",
+          "country": "in"
+        },
+        "content": "Life 3 hr ago\nThis is an AI assisted summary.\nBTS, the famous K-pop group, is making a comeback in 2026 after a four-year break for military service. BigHit Music confirmed the news on their new website, revealing a new logo symbolizing harmony and a... [20858 chars]",
+        "description": "BTS, the famous K-pop group, is making a comeback in 2026 after a four-year break for military service. BigHit Music confirmed the news on their new website, revealing a new logo symbolizing harmony and a post-struggle comeback. The group plans to release a new album and possibly tour the world, including a potential stop in […] | financialexpress.com",
+        "publishedAt": "2026-01-03T05:53:13Z"
+      },
+      {
+        "id": "55661895207823a8ad1c605d55343870",
+        "url": "https://www.bollywoodhungama.com/news/features/rahul-khanna-reveals-hasnt-seen-brother-akshaye-khannas-latest-blockbuster-dhurandhar-waiting-show-sure-looks-fantastic/",
+        "lang": "en",
+        "image": "https://stat4.bollywoodhungama.in/wp-content/uploads/2026/01/Rahul-Khanna-1.jpg",
+        "title": "Rahul Khanna reveals he hasn’t seen brother Akshaye Khanna’s latest blockbuster Dhurandhar: “Waiting for him to show it to me. I am sure he looks FANTASTIC” : Bollywood News",
+        "source": {
+          "id": "5667d1dee9db93320594683816f8dcd0",
+          "url": "https://www.bollywoodhungama.com",
+          "name": "Bollywood Hungama",
+          "country": "in"
+        },
+        "content": "Akshaye Khanna was truly the newsmaker in the month of December. He got a roaring response for his incredible performance in Aditya Dhar’s Dhurandhar. As Rehman Dakait, he rocked the show and his dance went viral. The Bahraini song, in fact, became a... [1925 chars]",
+        "description": "Rahul Khanna reveals he hasn’t seen brother Akshaye Khanna’s latest blockbuster Dhurandhar: “Waiting for him to show it to me. I am sure he looks FANTASTIC” Bollywood News: Latest Bollywood News, Bollywood News Today, Bollywood Celebrity News, Breaking News, Celeb News, Celebrities News, Bollywood News Hindi, Hindi Bollywood News at Bollywood Hungama.com.",
+        "publishedAt": "2026-01-03T05:14:50Z"
+      }
+    ],
+    "rationale": "The day is dominated by severe geopolitical instability stemming from the reported US-led military action resulting in the capture of Venezuelan President Nicolás Maduro. This event has triggered widespread celebration in some areas but has also caused explosions, panic, and power outages in Caracas, escalating the situation into an international crisis and conflict zone. This active military intervention and resulting civil disruption represent a major setback for global peace and human safety. This negative impact significantly outweighs the positive or neutral news regarding AI progress, sports achievements, and cultural comebacks. Furthermore, a significant infrastructure project in India is stalled, indicating governance failures impacting public welfare.",
+    "createdAt": "2026-01-04T10:21:54.814Z",
+    "updatedAt": "2026-01-04T10:21:54.814Z"
   }
 ]
