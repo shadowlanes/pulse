@@ -1,24 +1,13 @@
 import axios from "axios";
 import { Agent } from "@mastra/core/agent";
 import { prisma } from "../lib/prisma";
-import * as fs from "fs";
-import * as path from "path";
-import Handlebars from "handlebars";
 
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GNEWS_API_KEY = process.env.GNEWS_API_KEY;
 
 export class PulseService {
-  private static STATIC_DIR = path.join(process.cwd(), "..", "fe", "public", "pulse");
-  private static DATA_JSON_PATH = path.join(process.cwd(), "..", "fe", "public", "pulse-history.json");
-  private static TEMPLATE_PATH = path.join(process.cwd(), "..", "fe", "src", "templates", "pulse-report.hbs");
-
-  constructor() {
-    if (!fs.existsSync(PulseService.STATIC_DIR)) {
-      fs.mkdirSync(PulseService.STATIC_DIR, { recursive: true });
-    }
-  }
+  constructor() {}
 
   async extractTodayNews(): Promise<any[]> {
     if (!NEWS_API_KEY) {
@@ -145,103 +134,32 @@ export class PulseService {
     return pulse;
   }
 
-  async generateStaticPage(date: Date, status: "Good" | "Bad", headlines: any[], rationale: string) {
-    const year = date.getFullYear().toString();
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const dateStr = date.toISOString().split("T")[0];
-    const fileName = `${dateStr}.html`;
-    
-    const targetDir = path.join(PulseService.STATIC_DIR, year, month);
-    if (!fs.existsSync(targetDir)) {
-      fs.mkdirSync(targetDir, { recursive: true });
-    }
-    
-    const filePath = path.join(targetDir, fileName);
-
-    // Read and compile template
-    if (!fs.existsSync(PulseService.TEMPLATE_PATH)) {
-      throw new Error(`Template not found at ${PulseService.TEMPLATE_PATH}`);
-    }
-    
-    const templateSource = fs.readFileSync(PulseService.TEMPLATE_PATH, "utf-8");
-    const template = Handlebars.compile(templateSource);
-    
-    const htmlContent = template({
-      dateStr,
-      year,
-      status,
-      isGood: status === "Good",
-      rationale,
-      headlines
-    });
-
-    fs.writeFileSync(filePath, htmlContent);
-    return `/pulse/${year}/${month}/${fileName}`;
-  }
-
-  async generatePulseDataJson() {
-    try {
-      const today = new Date();
-      const last7Days = new Date(today);
-      last7Days.setDate(today.getDate() - 7);
-
-      const pulses = await prisma.pulse.findMany({
-        where: {
-          date: {
-            gte: last7Days,
-          },
-        },
-        orderBy: { date: "asc" },
-      });
-
-      fs.writeFileSync(PulseService.DATA_JSON_PATH, JSON.stringify(pulses, null, 2));
-      console.log(`Generated static JSON data at ${PulseService.DATA_JSON_PATH}`);
-      return pulses;
-    } catch (error) {
-      console.error("Error generating pulse data JSON:", error);
-      throw error;
-    }
-  }
-
   async runDailyCheck(date: Date = new Date()) {
-    // Set to 23:50 UTC or similar as per PRD if needed, but for manual triggers it's flexible
     const normalizedDate = new Date(date.toISOString().split("T")[0]);
-    
+
     const existing = await prisma.pulse.findUnique({
       where: { date: normalizedDate }
     });
 
     if (existing) {
-      console.log(`Pulse entry exists for ${normalizedDate.toISOString().split("T")[0]}. Re-generating static page...`);
-      const staticPath = await this.generateStaticPage(
-        normalizedDate, 
-        existing.status as "Good" | "Bad", 
-        existing.headlines as any[], 
-        existing.rationale
-      );
-      
-      await this.generatePulseDataJson();
-
-      return { 
-        status: existing.status, 
+      console.log(`Pulse entry exists for ${normalizedDate.toISOString().split("T")[0]}.`);
+      return {
+        status: existing.status,
         score: existing.score,
-        staticPath,
-        message: "Entry already exists, static page regenerated"
+        message: "Entry already exists"
       };
     }
 
     console.log(`Running Daily Pulse Check for ${normalizedDate.toISOString()}...`);
-    
+
     const headlines = await this.extractNews(normalizedDate);
-    console.log(`Extracted ${headlines.length} headlines...`);  
+    console.log(`Extracted ${headlines.length} headlines...`);
     const { status, score, rationale } = await this.analyzePulse(headlines);
-    console.log(`Analyzed pulse: ${status} (${score})`);  
+    console.log(`Analyzed pulse: ${status} (${score})`);
     await this.savePulse(normalizedDate, status, score, headlines, rationale);
-    console.log(`Saved pulse...`);  
-    const staticPath = await this.generateStaticPage(normalizedDate, status, headlines, rationale);
-    await this.generatePulseDataJson();
-    
-    console.log(`Pulse Check Complete: ${status} (${score}). Static page at ${staticPath}`);
-    return { status, score, staticPath };
+    console.log(`Saved pulse...`);
+
+    console.log(`Pulse Check Complete: ${status} (${score})`);
+    return { status, score };
   }
 }

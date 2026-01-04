@@ -135,6 +135,51 @@ router.get("/metrics", async (req, res) => {
 
 /**
  * @swagger
+ * /api/pulse/last-7-days:
+ *   get:
+ *     summary: Get complete pulse data for the last 7 days
+ *     responses:
+ *       200:
+ *         description: Array of pulse data with all fields (id, date, status, score, headlines, rationale, timestamps)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id: { type: string }
+ *                   date: { type: string, format: date-time }
+ *                   status: { type: string, enum: [Good, Bad] }
+ *                   score: { type: number }
+ *                   headlines: { type: array }
+ *                   rationale: { type: string }
+ *                   createdAt: { type: string, format: date-time }
+ *                   updatedAt: { type: string, format: date-time }
+ */
+router.get("/last-7-days", async (req, res) => {
+  try {
+    const today = new Date();
+    const last7Days = new Date(today);
+    last7Days.setDate(today.getDate() - 7);
+
+    const pulses = await prisma.pulse.findMany({
+      where: {
+        date: {
+          gte: last7Days,
+        },
+      },
+      orderBy: { date: "asc" },
+    });
+
+    res.json(pulses);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch last 7 days data" });
+  }
+});
+
+/**
+ * @swagger
  * /api/pulse/details/{date}:
  *   get:
  *     summary: Get full pulse details for a specific date
@@ -189,24 +234,6 @@ router.post("/trigger-check", async (req, res) => {
   try {
     const result = await pulseService.runDailyCheck(date ? new Date(date) : new Date());
     res.json(result);
-  } catch (error: any) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-/**
- * @swagger
- * /api/pulse/generate-json:
- *   post:
- *     summary: Manually generate static JSON data
- *     responses:
- *       200:
- *         description: JSON generation result
- */
-router.post("/generate-json", async (req, res) => {
-  try {
-    const result = await pulseService.generatePulseDataJson();
-    res.json({ message: "JSON generated successfully", count: result.length });
   } catch (error: any) {
     res.status(500).json({ error: error.message });
   }
