@@ -162,7 +162,7 @@ function App() {
                       </div>
 
                       <div
-                        className="mb-10 text-neutral-200 leading-relaxed text-xl font-medium"
+                        className="mb-10 text-neutral-500 leading-relaxed text-base font-normal"
                         style={{ fontFamily: "'Instrument Sans', sans-serif" }}
                       >
                         "{details.rationale}"
