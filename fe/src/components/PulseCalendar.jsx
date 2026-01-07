@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { getGradientColor, getGlowShadow } from "../lib/colorUtils";
 
 const PulseCalendar = ({ history, selectedDate, onSelect }) => {
     // history is already limited to last 7 days from App.jsx
@@ -18,14 +19,6 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
         return acc;
     }, {});
 
-    const getScoreColor = (score) => {
-        if (score === undefined) return "bg-white/5";
-        if (score >= 8.0) return "bg-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.4)]";
-        if (score >= 6.0) return "bg-sky-500 shadow-[0_0_15px_rgba(14,165,233,0.4)]";
-        if (score >= 4.0) return "bg-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.4)]";
-        if (score >= 2.0) return "bg-slate-500 shadow-[0_0_15px_rgba(100,116,139,0.4)]";
-        return "bg-rose-600 shadow-[0_0_15px_rgba(225,29,72,0.4)]";
-    };
 
     const getTint = (index) => {
         // Just a fun way to tint inactive squares based on their position if no data
@@ -52,10 +45,14 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                                 onClick={() => data && onSelect(data.date)}
                                 className={`
                                     w-full aspect-square rounded-lg transition-all duration-300
-                                    ${data ? getScoreColor(data.score) : getTint(dates.indexOf(dateStr))}
+                                    ${!data ? getTint(dates.indexOf(dateStr)) : ''}
                                     ${isSelected ? 'ring-2 ring-white ring-offset-4 ring-offset-black/50' : 'opacity-80 hover:opacity-100'}
                                     ${!data ? 'cursor-not-allowed' : 'cursor-pointer'}
                                 `}
+                                style={data ? {
+                                    backgroundColor: getGradientColor(data.score),
+                                    boxShadow: getGlowShadow(data.score)
+                                } : undefined}
                             >
                                 {isSelected && (
                                     <motion.div

@@ -1,16 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { getVibeLabel, getGradientColor } from "../lib/colorUtils";
 
 const PulseMetrics = ({ score }) => {
-    const getVibe = (s) => {
-        if (s >= 8.0) return { label: "Peak Humanity", color: "text-emerald-400" };
-        if (s >= 6.0) return { label: "Steady & Calm", color: "text-sky-400" };
-        if (s >= 4.0) return { label: "Mixed Bag", color: "text-amber-400" };
-        if (s >= 2.0) return { label: "Rough Patch", color: "text-slate-400" };
-        return { label: "Chaos Theory", color: "text-red-500" };
-    };
-
-    const vibe = getVibe(score);
+    const { label } = getVibeLabel(score);
+    const textColor = getGradientColor(score);
 
     return (
         <div className="flex flex-col items-center text-center">
@@ -34,13 +28,16 @@ const PulseMetrics = ({ score }) => {
 
                 <div className="flex flex-col items-center sm:items-start">
                     <motion.div
-                        key={vibe.label}
+                        key={label}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className={`text-6xl sm:text-7xl font-black tracking-tighter leading-none italic ${vibe.color}`}
-                        style={{ fontFamily: "'Outfit', sans-serif" }}
+                        className="text-6xl sm:text-7xl font-black tracking-tighter leading-none italic"
+                        style={{
+                            fontFamily: "'Outfit', sans-serif",
+                            color: textColor
+                        }}
                     >
-                        {vibe.label}
+                        {label}
                     </motion.div>
                     <div className="text-[10px] font-bold tracking-[0.2em] text-neutral-500 uppercase mt-2">
                         7-Day Rolling Average

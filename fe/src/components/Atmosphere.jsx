@@ -1,58 +1,20 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getAtmosphereConfig } from '../lib/colorUtils';
 
 const Atmosphere = ({ score }) => {
-    // score is 0-10
-    const getAtmosphereConfig = (s) => {
-        if (s >= 8.0) return {
-            id: 'peak',
-            color: 'from-emerald-900 via-emerald-950 to-black',
-            accent: 'text-emerald-400',
-            glow: 'bg-emerald-500/10',
-            label: 'Peak Humanity',
-            effect: 'dust'
-        };
-        if (s >= 6.0) return {
-            id: 'steady',
-            color: 'from-sky-900 via-sky-950 to-black',
-            accent: 'text-sky-400',
-            glow: 'bg-sky-500/10',
-            label: 'Steady & Calm',
-            effect: 'drifts'
-        };
-        if (s >= 4.0) return {
-            id: 'mixed',
-            color: 'from-amber-900 via-amber-950 to-black',
-            accent: 'text-amber-400',
-            glow: 'bg-amber-500/10',
-            label: 'Mixed Bag',
-            effect: 'pulse'
-        };
-        if (s >= 2.0) return {
-            id: 'rough',
-            color: 'from-slate-900 via-slate-950 to-black',
-            accent: 'text-slate-400',
-            glow: 'bg-slate-500/10',
-            label: 'Rough Patch',
-            effect: 'shadows'
-        };
-        return {
-            id: 'chaos',
-            color: 'from-rose-950 via-red-950 to-black',
-            accent: 'text-red-500',
-            glow: 'bg-red-500/20',
-            label: 'Chaos Theory',
-            effect: 'glitch'
-        };
-    };
-
     const config = getAtmosphereConfig(score);
 
     return (
-        <div className={`fixed inset-0 -z-10 bg-gradient-to-br ${config.color} transition-colors duration-1000 overflow-hidden`}>
+        <div
+            className="fixed inset-0 -z-10 transition-all duration-1000 overflow-hidden"
+            style={{
+                background: `linear-gradient(to bottom right, ${config.gradientStops.join(', ')})`
+            }}
+        >
             <AnimatePresence mode="wait">
                 <motion.div
-                    key={config.id}
+                    key={config.label}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -60,11 +22,11 @@ const Atmosphere = ({ score }) => {
                     className="absolute inset-0"
                 >
                     {/* Effect layers */}
-                    {config.effect === 'dust' && <GoldDust />}
-                    {config.effect === 'drifts' && <LightDrifts />}
-                    {config.effect === 'pulse' && <SlowPulse />}
-                    {config.effect === 'shadows' && <FallingShadows />}
-                    {config.effect === 'glitch' && <GlitchOverlay />}
+                    {config.effect === 'dust' && <GoldDust color={config.accentColor} />}
+                    {config.effect === 'drift' && <LightDrifts color={config.accentColor} />}
+                    {config.effect === 'pulse' && <SlowPulse color={config.accentColor} />}
+                    {config.effect === 'shadows' && <FallingShadows color={config.accentColor} />}
+                    {config.effect === 'glitch' && <GlitchOverlay color={config.accentColor} />}
                 </motion.div>
             </AnimatePresence>
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.8)_100%)]" />
@@ -72,12 +34,15 @@ const Atmosphere = ({ score }) => {
     );
 };
 
-const GoldDust = () => (
+const GoldDust = ({ color }) => (
     <div className="absolute inset-0">
         {[...Array(30)].map((_, i) => (
             <motion.div
                 key={i}
-                className="absolute w-1 h-1 bg-emerald-400/40 rounded-full"
+                className="absolute w-1 h-1 rounded-full"
+                style={{
+                    backgroundColor: color.replace('hsl', 'hsla').replace(')', ', 0.4)')
+                }}
                 initial={{
                     x: Math.random() * 100 + 'vw',
                     y: Math.random() * 100 + 'vh',
@@ -98,12 +63,15 @@ const GoldDust = () => (
     </div>
 );
 
-const LightDrifts = () => (
+const LightDrifts = ({ color }) => (
     <div className="absolute inset-0 flex flex-col justify-around">
         {[...Array(5)].map((_, i) => (
             <motion.div
                 key={i}
-                className="w-full h-px bg-gradient-to-r from-transparent via-sky-500/20 to-transparent"
+                className="w-full h-px"
+                style={{
+                    background: `linear-gradient(to right, transparent, ${color.replace('hsl', 'hsla').replace(')', ', 0.2)')}, transparent)`
+                }}
                 animate={{
                     x: ['-100%', '100%']
                 }}
@@ -118,9 +86,12 @@ const LightDrifts = () => (
     </div>
 );
 
-const SlowPulse = () => (
+const SlowPulse = ({ color }) => (
     <motion.div
-        className="absolute inset-0 bg-amber-500/5"
+        className="absolute inset-0"
+        style={{
+            backgroundColor: color.replace('hsl', 'hsla').replace(')', ', 0.05)')
+        }}
         animate={{
             opacity: [0, 0.2, 0]
         }}
@@ -132,12 +103,15 @@ const SlowPulse = () => (
     />
 );
 
-const FallingShadows = () => (
+const FallingShadows = ({ color }) => (
     <div className="absolute inset-0">
         {[...Array(10)].map((_, i) => (
             <motion.div
                 key={i}
-                className="absolute w-px h-64 bg-gradient-to-b from-transparent via-slate-500/10 to-transparent"
+                className="absolute w-px h-64"
+                style={{
+                    background: `linear-gradient(to bottom, transparent, ${color.replace('hsl', 'hsla').replace(')', ', 0.1)')}, transparent)`
+                }}
                 initial={{
                     x: Math.random() * 100 + 'vw',
                     y: -200
@@ -156,10 +130,13 @@ const FallingShadows = () => (
     </div>
 );
 
-const GlitchOverlay = () => (
+const GlitchOverlay = ({ color }) => (
     <div className="absolute inset-0 overflow-hidden">
         <motion.div
-            className="absolute inset-0 bg-red-500/5"
+            className="absolute inset-0"
+            style={{
+                backgroundColor: color.replace('hsl', 'hsla').replace(')', ', 0.05)')
+            }}
             animate={{
                 opacity: [0, 0.1, 0, 0.2, 0],
                 x: [0, -5, 5, -2, 0]
