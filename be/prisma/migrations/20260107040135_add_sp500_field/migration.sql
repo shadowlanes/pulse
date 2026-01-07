@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "pulse" ADD COLUMN     "sp500" DOUBLE PRECISION;

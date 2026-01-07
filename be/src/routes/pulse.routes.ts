@@ -140,7 +140,7 @@ router.get("/metrics", async (req, res) => {
  *     summary: Get complete pulse data for the last 7 days
  *     responses:
  *       200:
- *         description: Array of pulse data with all fields (id, date, status, score, headlines, rationale, timestamps)
+ *         description: Array of pulse data with all fields (id, date, status, score, headlines, rationale, sp500, timestamps)
  *         content:
  *           application/json:
  *             schema:
@@ -154,6 +154,7 @@ router.get("/metrics", async (req, res) => {
  *                   score: { type: number }
  *                   headlines: { type: array }
  *                   rationale: { type: string }
+ *                   sp500: { type: number, nullable: true }
  *                   createdAt: { type: string, format: date-time }
  *                   updatedAt: { type: string, format: date-time }
  */

@@ -5,6 +5,7 @@ import { prisma } from "../lib/prisma";
 const NEWS_API_KEY = process.env.NEWS_API_KEY;
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const GNEWS_API_KEY = process.env.GNEWS_API_KEY;
+const ALPHA_VANTAGE_API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
 
 export class PulseService {
   constructor() {}
@@ -73,6 +74,52 @@ export class PulseService {
     }
   }
 
+  async fetchSP500(date: Date): Promise<number | null> {
+    if (!ALPHA_VANTAGE_API_KEY) {
+      console.warn("ALPHA_VANTAGE_API_KEY is not defined, skipping S&P 500 fetch");
+      return null;
+    }
+
+    try {
+      // Using Alpha Vantage TIME_SERIES_DAILY for SPY (S&P 500 ETF)
+      const response = await axios.get("https://www.alphavantage.co/query", {
+        params: {
+          function: "TIME_SERIES_DAILY",
+          symbol: "SPY",
+          apikey: ALPHA_VANTAGE_API_KEY,
+          outputsize: "compact"
+        },
+      });
+
+      const timeSeries = response.data["Time Series (Daily)"];
+      if (!timeSeries) {
+        console.error("No time series data found in Alpha Vantage response");
+        return null;
+      }
+
+      const dateStr = date.toISOString().split("T")[0];
+      const dayData = timeSeries[dateStr];
+
+      if (dayData) {
+        // Return the closing price rounded to nearest integer
+        return Math.round(parseFloat(dayData["4. close"]));
+      } else {
+        // If exact date not found, try to find the most recent available date
+        const dates = Object.keys(timeSeries).sort().reverse();
+        const closestDate = dates.find(d => d <= dateStr);
+        if (closestDate) {
+          console.log(`S&P 500 data for ${dateStr} not found, using ${closestDate}`);
+          return Math.round(parseFloat(timeSeries[closestDate]["4. close"]));
+        }
+        console.error(`No S&P 500 data found for ${dateStr}`);
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching S&P 500 data:", error);
+      return null;
+    }
+  }
+
   async analyzePulse(headlines: any[]): Promise<{ status: "Good" | "Bad"; score: number; rationale: string }> {
     if (!GEMINI_API_KEY) {
       throw new Error("GEMINI_API_KEY is not defined");
@@ -125,11 +172,11 @@ export class PulseService {
     }
   }
 
-  async savePulse(date: Date, status: "Good" | "Bad", score: number, headlines: any[], rationale: string) {
+  async savePulse(date: Date, status: "Good" | "Bad", score: number, headlines: any[], rationale: string, sp500?: number | null) {
     const pulse = await prisma.pulse.upsert({
       where: { date },
-      update: { status, score, headlines, rationale },
-      create: { date, status, score, headlines, rationale },
+      update: { status, score, headlines, rationale, sp500 },
+      create: { date, status, score, headlines, rationale, sp500 },
     });
     return pulse;
   }
@@ -142,6 +189,18 @@ export class PulseService {
     });
 
     if (existing) {
+      // If S&P 500 data is missing, fetch and update it
+      if (existing.sp500 === null) {
+        console.log(`Updating S&P 500 data for ${normalizedDate.toISOString().split("T")[0]}`);
+        const sp500 = await this.fetchSP500(normalizedDate);
+        if (sp500 !== null) {
+          await prisma.pulse.update({
+            where: { date: normalizedDate },
+            data: { sp500 }
+          });
+          console.log(`Updated S&P 500 value: ${sp500}`);
+        }
+      }
       console.log(`Pulse entry exists for ${normalizedDate.toISOString().split("T")[0]}.`);
       return {
         status: existing.status,
@@ -152,11 +211,20 @@ export class PulseService {
 
     console.log(`Running Daily Pulse Check for ${normalizedDate.toISOString()}...`);
 
-    const headlines = await this.extractNews(normalizedDate);
+    // Fetch news headlines and S&P 500 data in parallel
+    const [headlines, sp500] = await Promise.all([
+      this.extractNews(normalizedDate),
+      this.fetchSP500(normalizedDate)
+    ]);
+
     console.log(`Extracted ${headlines.length} headlines...`);
+    if (sp500 !== null) {
+      console.log(`Fetched S&P 500 value: ${sp500}`);
+    }
+
     const { status, score, rationale } = await this.analyzePulse(headlines);
     console.log(`Analyzed pulse: ${status} (${score})`);
-    await this.savePulse(normalizedDate, status, score, headlines, rationale);
+    await this.savePulse(normalizedDate, status, score, headlines, rationale, sp500);
     console.log(`Saved pulse...`);
 
     console.log(`Pulse Check Complete: ${status} (${score})`);

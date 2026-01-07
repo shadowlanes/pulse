@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PulseCalendar from "./components/PulseCalendar";
 import PulseMetrics from "./components/PulseMetrics";
 import Atmosphere from "./components/Atmosphere";
+import MarketCorrelation from "./components/MarketCorrelation";
 import { motion, AnimatePresence } from "framer-motion";
 
 function App() {
@@ -105,6 +106,12 @@ function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-20">
           <PulseMetrics score={rollingAverage} />
+
+          {/* Market Correlation Widget */}
+          <div className="mt-12">
+            <MarketCorrelation history={history} />
+          </div>
+
           <div className="mt-12 flex flex-col md:flex-row gap-12 items-start">
             <div className="w-full md:w-1/3">
               <PulseCalendar
