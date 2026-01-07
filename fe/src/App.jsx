@@ -107,29 +107,34 @@ function App() {
         <div className="mb-20">
           <PulseMetrics score={rollingAverage} />
 
-          {/* Market Correlation Widget */}
-          <div className="mt-12">
-            <MarketCorrelation history={history} />
-          </div>
-
-          <div className="mt-12 flex flex-col md:flex-row gap-12 items-start">
-            <div className="w-full md:w-1/3">
+          {/* Week View and Market Correlation - Side by Side */}
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            {/* Week View */}
+            <div className="flex">
               <PulseCalendar
                 history={history}
                 selectedDate={selectedDate}
                 onSelect={(d) => setSelectedDate(d)}
               />
             </div>
-            <div className="w-full md:w-2/3">
+
+            {/* Market Correlation Widget */}
+            <div className="flex">
+              <MarketCorrelation history={history} />
+            </div>
+          </div>
+
+          {/* Selected Day Details - Only shown when a day is selected */}
+          {details && (
+            <div className="mt-12">
               <AnimatePresence mode="wait">
-                {details && (
-                  <motion.div
-                    key={selectedDate}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl relative"
-                  >
+                <motion.div
+                  key={selectedDate}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl relative"
+                >
                     {/* Sticky Score Context */}
                     <div className="sticky top-0 z-20 px-8 py-4 bg-black/40 backdrop-blur-md border-b border-white/10 rounded-t-2xl flex items-center justify-between">
                       <div className="flex items-center gap-3">
@@ -212,10 +217,9 @@ function App() {
                       </div>
                     </div>
                   </motion.div>
-                )}
               </AnimatePresence>
             </div>
-          </div>
+          )}
         </div>
 
         <footer className="mt-24 pt-12 border-t border-white/5 text-center text-neutral-600 text-[10px] font-bold tracking-widest uppercase">

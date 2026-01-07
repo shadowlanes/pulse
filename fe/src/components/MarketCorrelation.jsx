@@ -1,6 +1,13 @@
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { motion } from "framer-motion";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer
+} from "recharts";
 
 const getScoreColor = (score) => {
   if (score >= 8) return "rgb(52, 211, 153)"; // emerald-400
@@ -47,57 +54,42 @@ const MarketCorrelation = ({ history }) => {
 
   if (chartData.length === 0) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8"
-      >
-        <h3
-          className="text-2xl font-black tracking-tighter uppercase mb-4"
-          style={{ fontFamily: "'Outfit', sans-serif" }}
-        >
-          Market Correlation
-        </h3>
-        <p className="text-neutral-500 text-sm">
-          No S&P 500 data available yet. Data will appear once market information is collected.
-        </p>
-      </motion.div>
+      <div className="bg-black/20 backdrop-blur-xl border border-white/10 p-8 rounded-2xl w-full h-full flex flex-col">
+        <div className="mb-6">
+          <h2 className="text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">Impact</h2>
+        </div>
+        <div className="flex-1 flex items-center justify-center">
+          <p className="text-neutral-500 text-sm">
+            No S&P 500 data available yet. Data will appear once market information is collected.
+          </p>
+        </div>
+      </div>
     );
   }
 
-  // Normalize data for dual-axis visualization
-  const maxScore = Math.max(...chartData.map((d) => d.score));
-  const minScore = Math.min(...chartData.map((d) => d.score));
-  const maxSP500 = Math.max(...chartData.map((d) => d.sp500));
-  const minSP500 = Math.min(...chartData.map((d) => d.sp500));
+  // Calculate Y-axis domains with padding
+  const scores = chartData.map((d) => d.score);
+  const sp500Values = chartData.map((d) => d.sp500);
 
-  // Calculate nice Y-axis ranges
+  const minScore = Math.min(...scores);
+  const maxScore = Math.max(...scores);
   const scoreRange = maxScore - minScore;
-  const scorePadding = scoreRange * 0.1 || 1;
+  const scorePadding = scoreRange * 0.15 || 0.5;
+
+  const minSP500 = Math.min(...sp500Values);
+  const maxSP500 = Math.max(...sp500Values);
   const sp500Range = maxSP500 - minSP500;
-  const sp500Padding = sp500Range * 0.1 || 10;
+  const sp500Padding = sp500Range * 0.15 || 5;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-8"
-    >
-      <div className="flex items-center justify-between mb-6">
-        <h3
-          className="text-2xl font-black tracking-tighter uppercase"
-          style={{ fontFamily: "'Outfit', sans-serif" }}
-        >
-          Market Correlation
-        </h3>
-        <div className="text-[10px] font-bold text-neutral-500 tracking-widest uppercase">
-          Last {chartData.length} Days
-        </div>
+    <div className="bg-black/20 backdrop-blur-xl border border-white/10 p-8 rounded-2xl w-full h-full flex flex-col">
+      <div className="mb-6">
+        <h2 className="text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">Impact</h2>
       </div>
 
-      <div className="mb-6">
-        <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={chartData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+      <div className="flex-1 flex items-center min-h-0">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={chartData} margin={{ top: 20, right: 20, left: 20, bottom: 20 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
             <XAxis
               dataKey="date"
@@ -108,62 +100,36 @@ const MarketCorrelation = ({ history }) => {
             <YAxis
               yAxisId="left"
               domain={[minScore - scorePadding, maxScore + scorePadding]}
-              stroke="rgba(52, 211, 153, 0.8)"
-              style={{ fontSize: "10px", fontWeight: "bold" }}
-              tick={{ fill: "rgba(52, 211, 153, 0.8)" }}
-              label={{
-                value: "Pulse Score",
-                angle: -90,
-                position: "insideLeft",
-                style: { fill: "rgba(52, 211, 153, 0.8)", fontSize: "11px", fontWeight: "bold" },
-              }}
+              hide
             />
             <YAxis
               yAxisId="right"
-              orientation="right"
               domain={[minSP500 - sp500Padding, maxSP500 + sp500Padding]}
-              stroke="rgba(96, 165, 250, 0.8)"
-              style={{ fontSize: "10px", fontWeight: "bold" }}
-              tick={{ fill: "rgba(96, 165, 250, 0.8)" }}
-              label={{
-                value: "S&P 500",
-                angle: 90,
-                position: "insideRight",
-                style: { fill: "rgba(96, 165, 250, 0.8)", fontSize: "11px", fontWeight: "bold" },
-              }}
+              hide
             />
-            <Tooltip content={<CustomTooltip />} />
-            <Legend
-              wrapperStyle={{
-                paddingTop: "20px",
-                fontSize: "11px",
-                fontWeight: "bold",
-              }}
-            />
+            <Tooltip content={<CustomTooltip />} cursor={{ stroke: "rgba(255,255,255,0.1)" }} />
             <Line
               yAxisId="left"
               type="monotone"
               dataKey="score"
               stroke="rgb(52, 211, 153)"
-              strokeWidth={3}
-              dot={{ fill: "rgb(52, 211, 153)", r: 5 }}
-              activeDot={{ r: 7 }}
-              name="Pulse Score"
+              strokeWidth={2.5}
+              dot={false}
+              activeDot={{ r: 5, fill: "rgb(52, 211, 153)" }}
             />
             <Line
               yAxisId="right"
               type="monotone"
               dataKey="sp500"
               stroke="rgb(96, 165, 250)"
-              strokeWidth={3}
-              dot={{ fill: "rgb(96, 165, 250)", r: 5 }}
-              activeDot={{ r: 7 }}
-              name="S&P 500"
+              strokeWidth={2.5}
+              dot={false}
+              activeDot={{ r: 5, fill: "rgb(96, 165, 250)" }}
             />
           </LineChart>
         </ResponsiveContainer>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
