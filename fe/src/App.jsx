@@ -23,9 +23,15 @@ function App() {
         return res.json();
       })
       .then((data) => {
-        setHistory(data);
-        if (data.length > 0) {
-          const latest = data[data.length - 1];
+        // Filter out today's data to show only last 7 days before today
+        const todayStr = new Date().toISOString().split("T")[0];
+        const filteredData = data.filter(
+          (item) => !item.date.startsWith(todayStr)
+        );
+
+        setHistory(filteredData);
+        if (filteredData.length > 0) {
+          const latest = filteredData[filteredData.length - 1];
           setSelectedDate(latest.date);
           setDetails(latest);
         }
@@ -135,88 +141,88 @@ function App() {
                   exit={{ opacity: 0, y: -20 }}
                   className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl relative"
                 >
-                    {/* Sticky Score Context */}
-                    <div className="sticky top-0 z-20 px-8 py-4 bg-black/40 backdrop-blur-md border-b border-white/10 rounded-t-2xl flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="text-2xl font-black tracking-tighter"
-                          style={{ fontFamily: "'Outfit', sans-serif" }}
-                        >
-                          {details.score.toFixed(1)}
-                        </span>
-                        <span
-                          className={`text-xs font-bold uppercase tracking-widest ${
-                            details.status === "Good"
-                              ? "text-emerald-400"
-                              : "text-red-400"
-                          }`}
-                        >
-                          {details.status === "Good" ? "Steady" : "Arrythmia"}
-                        </span>
-                      </div>
-                      <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
-                        {selectedDate.split("T")[0]}
-                      </div>
-                    </div>
-
-                    <div className="p-8">
-                      <div className="flex items-center justify-between mb-8">
-                        <h3
-                          className="text-3xl font-black tracking-tighter uppercase"
-                          style={{ fontFamily: "'Outfit', sans-serif" }}
-                        >
-                          Daily Archive
-                        </h3>
-                        <div className="text-[10px] font-bold text-neutral-500 tracking-widest uppercase">
-                          Status:{" "}
-                          {details.status === "Good" ? "OPTIMAL" : "DISTRESSED"}
-                        </div>
-                      </div>
-
-                      <div
-                        className="mb-10 text-neutral-500 leading-relaxed text-base font-normal"
-                        style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                  {/* Sticky Score Context */}
+                  <div className="sticky top-0 z-20 px-8 py-4 bg-black/40 backdrop-blur-md border-b border-white/10 rounded-t-2xl flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className="text-2xl font-black tracking-tighter"
+                        style={{ fontFamily: "'Outfit', sans-serif" }}
                       >
-                        "{details.rationale}"
-                      </div>
+                        {details.score.toFixed(1)}
+                      </span>
+                      <span
+                        className={`text-xs font-bold uppercase tracking-widest ${
+                          details.status === "Good"
+                            ? "text-emerald-400"
+                            : "text-red-400"
+                        }`}
+                      >
+                        {details.status === "Good" ? "Steady" : "Arrythmia"}
+                      </span>
+                    </div>
+                    <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
+                      {selectedDate.split("T")[0]}
+                    </div>
+                  </div>
 
-                      <div className="space-y-4">
-                        <h4 className="text-[10px] font-black text-neutral-500 tracking-[0.2em] uppercase mb-4">
-                          Headline Ledger
-                        </h4>
-                        {details.headlines.map((h, i) => (
-                          <a
-                            key={i}
-                            href={h.url}
-                            target="_blank"
-                            className="block p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all hover:bg-white/[0.05]"
-                          >
-                            <div className="flex justify-between items-start mb-2">
-                              <div className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">
-                                {h.source.name}
-                              </div>
-                              <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
-                            </div>
-                            <div
-                              className="font-bold text-neutral-100 text-lg leading-snug"
-                              style={{ fontFamily: "'Outfit', sans-serif" }}
-                            >
-                              {h.title}
-                            </div>
-                            <p className="mt-2 text-sm text-neutral-400 line-clamp-2 leading-relaxed">
-                              {h.description}
-                            </p>
-                          </a>
-                        ))}
-                      </div>
-
-                      <div className="mt-12 pt-6 border-t border-white/5">
-                        <div className="text-[10px] text-neutral-600 font-bold uppercase tracking-widest">
-                          Archive ID: {details.id.slice(0, 8)}
-                        </div>
+                  <div className="p-8">
+                    <div className="flex items-center justify-between mb-8">
+                      <h3
+                        className="text-3xl font-black tracking-tighter uppercase"
+                        style={{ fontFamily: "'Outfit', sans-serif" }}
+                      >
+                        Daily Archive
+                      </h3>
+                      <div className="text-[10px] font-bold text-neutral-500 tracking-widest uppercase">
+                        Status:{" "}
+                        {details.status === "Good" ? "OPTIMAL" : "DISTRESSED"}
                       </div>
                     </div>
-                  </motion.div>
+
+                    <div
+                      className="mb-10 text-neutral-500 leading-relaxed text-base font-normal"
+                      style={{ fontFamily: "'Instrument Sans', sans-serif" }}
+                    >
+                      "{details.rationale}"
+                    </div>
+
+                    <div className="space-y-4">
+                      <h4 className="text-[10px] font-black text-neutral-500 tracking-[0.2em] uppercase mb-4">
+                        Headline Ledger
+                      </h4>
+                      {details.headlines.map((h, i) => (
+                        <a
+                          key={i}
+                          href={h.url}
+                          target="_blank"
+                          className="block p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all hover:bg-white/[0.05]"
+                        >
+                          <div className="flex justify-between items-start mb-2">
+                            <div className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">
+                              {h.source.name}
+                            </div>
+                            <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
+                          </div>
+                          <div
+                            className="font-bold text-neutral-100 text-lg leading-snug"
+                            style={{ fontFamily: "'Outfit', sans-serif" }}
+                          >
+                            {h.title}
+                          </div>
+                          <p className="mt-2 text-sm text-neutral-400 line-clamp-2 leading-relaxed">
+                            {h.description}
+                          </p>
+                        </a>
+                      ))}
+                    </div>
+
+                    <div className="mt-12 pt-6 border-t border-white/5">
+                      <div className="text-[10px] text-neutral-600 font-bold uppercase tracking-widest">
+                        Archive ID: {details.id.slice(0, 8)}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
               </AnimatePresence>
             </div>
           )}
