@@ -13,7 +13,7 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch last 7 days data from the API
+    // Fetch last 30 days data from the API
     const apiUrl = import.meta.env.VITE_API_URL;
     fetch(`${apiUrl}/api/pulse/last-7-days`)
       .then((res) => {
@@ -23,7 +23,7 @@ function App() {
         return res.json();
       })
       .then((data) => {
-        // Filter out today's data to show only last 7 days before today
+        // Filter out today's data to show only last 30 days before today
         const todayStr = new Date().toISOString().split("T")[0];
         const filteredData = data.filter(
           (item) => !item.date.startsWith(todayStr)
@@ -114,9 +114,9 @@ function App() {
           <PulseMetrics score={rollingAverage} />
 
           {/* Week View and Market Correlation - Side by Side */}
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch auto-rows-max lg:auto-rows-fr">
             {/* Week View */}
-            <div className="flex">
+            <div className="flex w-full">
               <PulseCalendar
                 history={history}
                 selectedDate={selectedDate}
@@ -125,7 +125,7 @@ function App() {
             </div>
 
             {/* Market Correlation Widget */}
-            <div className="flex">
+            <div className="flex w-full lg:col-span-2 min-h-96 lg:min-h-auto">
               <MarketCorrelation history={history} />
             </div>
           </div>

@@ -161,13 +161,13 @@ router.get("/metrics", async (req, res) => {
 router.get("/last-7-days", async (req, res) => {
   try {
     const today = new Date();
-    const last7Days = new Date(today);
-    last7Days.setDate(today.getDate() - 7);
+    const last30Days = new Date(today);
+    last30Days.setDate(today.getDate() - 30);
 
     const pulses = await prisma.pulse.findMany({
       where: {
         date: {
-          gte: last7Days,
+          gte: last30Days,
         },
       },
       orderBy: { date: "asc" },
