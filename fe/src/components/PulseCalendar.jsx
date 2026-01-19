@@ -40,9 +40,11 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
             const data = historyMap[dateStr];
             const isSelected = selectedDate && selectedDate.startsWith(dateStr);
             const dateObj = new Date(dateStr);
-            const dayName = dateObj.toLocaleDateString("en-US", { weekday: "short" });
+            const dayName = dateObj.toLocaleDateString("en-US", {
+              weekday: "short",
+            });
             const dayNum = dateObj.getDate();
-            const color = data ? getGradientColor(data.score) : '#333';
+            const color = data ? getGradientColor(data.score) : "#333";
 
             return (
               <motion.button
@@ -54,10 +56,11 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                 disabled={!data}
                 className={`
                   w-full flex items-center gap-4 p-4 rounded-sm border transition-all duration-300
-                  ${!data ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'}
-                  ${isSelected
-                    ? 'bg-white/10 border-cyan-400/60 shadow-lg shadow-cyan-400/20'
-                    : 'bg-white/[0.02] border-white/5 hover:border-cyan-400/30 hover:bg-white/[0.04]'
+                  ${!data ? "cursor-not-allowed opacity-30" : "cursor-pointer"}
+                  ${
+                    isSelected
+                      ? "bg-white/10 border-cyan-400/60 shadow-lg shadow-cyan-400/20"
+                      : "bg-white/[0.02] border-white/5 hover:border-cyan-400/30 hover:bg-white/[0.04]"
                   }
                 `}
               >
@@ -66,14 +69,19 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                   <div
                     className="w-12 h-12 rounded-full flex flex-col items-center justify-center border-2 transition-all"
                     style={{
-                      borderColor: isSelected ? color : color + '40',
-                      backgroundColor: isSelected ? color + '20' : 'transparent'
+                      borderColor: isSelected ? color : color + "40",
+                      backgroundColor: isSelected
+                        ? color + "20"
+                        : "transparent",
                     }}
                   >
                     <span className="text-[10px] font-mono text-neutral-500 leading-none">
                       {dayName.toUpperCase()}
                     </span>
-                    <span className="text-lg font-bold leading-none mt-0.5" style={{ color }}>
+                    <span
+                      className="text-lg font-bold leading-none mt-0.5"
+                      style={{ color }}
+                    >
                       {dayNum}
                     </span>
                   </div>
@@ -85,12 +93,12 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                       style={{ borderColor: color }}
                       animate={{
                         scale: [1, 1.2, 1],
-                        opacity: [0.5, 0, 0.5]
+                        opacity: [0.5, 0, 0.5],
                       }}
                       transition={{
                         duration: 2,
                         repeat: Infinity,
-                        ease: "easeInOut"
+                        ease: "easeInOut",
                       }}
                     />
                   )}
@@ -105,7 +113,10 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                       </span>
                       <span
                         className="text-lg font-bold font-mono tracking-tight"
-                        style={{ color, fontFamily: 'JetBrains Mono, monospace' }}
+                        style={{
+                          color,
+                          fontFamily: "JetBrains Mono, monospace",
+                        }}
                       >
                         {data.score.toFixed(1)}
                       </span>
@@ -118,7 +129,10 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                         style={{ backgroundColor: color }}
                         initial={{ width: 0 }}
                         animate={{ width: `${(data.score / 10) * 100}%` }}
-                        transition={{ duration: 0.6, delay: index * 0.05 + 0.2 }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.05 + 0.2,
+                        }}
                       />
                     </div>
                   </div>
