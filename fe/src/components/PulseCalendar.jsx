@@ -1,10 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { getGradientColor, getGlowShadow } from "../lib/colorUtils";
+import { getGradientColor } from "../lib/colorUtils";
 
 const PulseCalendar = ({ history, selectedDate, onSelect }) => {
-  // history is already limited to last 7 days from App.jsx
-
   // Generate last 7 days before today for the grid
   const dates = [];
   for (let i = 7; i >= 1; i--) {
@@ -19,92 +17,146 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
     return acc;
   }, {});
 
-  const getTint = (index) => {
-    // Just a fun way to tint inactive squares based on their position if no data
-    const tints = [
-      "bg-emerald-500/10",
-      "bg-sky-500/10",
-      "bg-amber-500/10",
-      "bg-slate-500/10",
-      "bg-rose-600/10",
-    ];
-    return tints[index % tints.length];
-  };
-
   return (
-    <div className="bg-black/20 backdrop-blur-xl border border-white/10 p-8 rounded-2xl">
-      <div className="mb-6">
-        <h2 className="text-xs font-bold tracking-[0.2em] text-neutral-500 uppercase">
-          Week View
-        </h2>
+    <div className="h-full bg-gradient-to-br from-black/60 via-black/40 to-black/60 backdrop-blur-xl border border-cyan-400/20 rounded-sm overflow-hidden">
+      {/* Header */}
+      <div className="border-b border-cyan-400/20 px-6 py-4 bg-black/40">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xs font-mono font-medium tracking-[0.3em] text-cyan-400/70 uppercase">
+            Timeline
+          </h2>
+          <div className="flex gap-1">
+            <div className="w-1 h-1 rounded-full bg-cyan-400/50"></div>
+            <div className="w-1 h-1 rounded-full bg-cyan-400/30"></div>
+            <div className="w-1 h-1 rounded-full bg-cyan-400/10"></div>
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-7 gap-4">
-        {dates.map((dateStr) => {
-          const data = historyMap[dateStr];
-          const isSelected = selectedDate && selectedDate.startsWith(dateStr);
+      {/* Calendar Content */}
+      <div className="p-6">
+        <div className="space-y-3">
+          {dates.map((dateStr, index) => {
+            const data = historyMap[dateStr];
+            const isSelected = selectedDate && selectedDate.startsWith(dateStr);
+            const dateObj = new Date(dateStr);
+            const dayName = dateObj.toLocaleDateString("en-US", { weekday: "short" });
+            const dayNum = dateObj.getDate();
+            const color = data ? getGradientColor(data.score) : '#333';
 
-          return (
-            <div key={dateStr} className="flex flex-col items-center gap-3">
+            return (
               <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.95 }}
+                key={dateStr}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05 }}
                 onClick={() => data && onSelect(data.date)}
+                disabled={!data}
                 className={`
-                                    w-full aspect-square rounded-lg transition-all duration-300
-                                    ${
-                                      !data
-                                        ? getTint(dates.indexOf(dateStr))
-                                        : ""
-                                    }
-                                    ${
-                                      isSelected
-                                        ? "ring-2 ring-white ring-offset-4 ring-offset-black/50"
-                                        : "opacity-80 hover:opacity-100"
-                                    }
-                                    ${
-                                      !data
-                                        ? "cursor-not-allowed"
-                                        : "cursor-pointer"
-                                    }
-                                `}
-                style={
-                  data
-                    ? {
-                        backgroundColor: getGradientColor(data.score),
-                        boxShadow: getGlowShadow(data.score),
-                      }
-                    : undefined
-                }
+                  w-full flex items-center gap-4 p-4 rounded-sm border transition-all duration-300
+                  ${!data ? 'cursor-not-allowed opacity-30' : 'cursor-pointer'}
+                  ${isSelected
+                    ? 'bg-white/10 border-cyan-400/60 shadow-lg shadow-cyan-400/20'
+                    : 'bg-white/[0.02] border-white/5 hover:border-cyan-400/30 hover:bg-white/[0.04]'
+                  }
+                `}
               >
+                {/* Date Circle */}
+                <div className="relative flex-shrink-0">
+                  <div
+                    className="w-12 h-12 rounded-full flex flex-col items-center justify-center border-2 transition-all"
+                    style={{
+                      borderColor: isSelected ? color : color + '40',
+                      backgroundColor: isSelected ? color + '20' : 'transparent'
+                    }}
+                  >
+                    <span className="text-[10px] font-mono text-neutral-500 leading-none">
+                      {dayName.toUpperCase()}
+                    </span>
+                    <span className="text-lg font-bold leading-none mt-0.5" style={{ color }}>
+                      {dayNum}
+                    </span>
+                  </div>
+
+                  {/* Pulse indicator for active item */}
+                  {isSelected && (
+                    <motion.div
+                      className="absolute inset-0 rounded-full border-2"
+                      style={{ borderColor: color }}
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0, 0.5]
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                  )}
+                </div>
+
+                {/* Score Bar */}
+                {data ? (
+                  <div className="flex-1 flex flex-col gap-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-mono text-neutral-400">
+                        SCORE
+                      </span>
+                      <span
+                        className="text-lg font-bold font-mono tracking-tight"
+                        style={{ color, fontFamily: 'JetBrains Mono, monospace' }}
+                      >
+                        {data.score.toFixed(1)}
+                      </span>
+                    </div>
+
+                    {/* Visual bar */}
+                    <div className="relative h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <motion.div
+                        className="absolute inset-y-0 left-0 rounded-full"
+                        style={{ backgroundColor: color }}
+                        initial={{ width: 0 }}
+                        animate={{ width: `${(data.score / 10) * 100}%` }}
+                        transition={{ duration: 0.6, delay: index * 0.05 + 0.2 }}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="flex-1 flex items-center">
+                    <span className="text-xs font-mono text-neutral-700 tracking-wider">
+                      NO DATA
+                    </span>
+                  </div>
+                )}
+
+                {/* Selection Indicator */}
                 {isSelected && (
-                  <motion.div
-                    layoutId="active"
-                    className="absolute inset-0 rounded-lg border-2 border-white pointer-events-none"
-                  />
+                  <div className="flex-shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+                  </div>
                 )}
               </motion.button>
-              <span className="text-[10px] font-bold text-neutral-600 uppercase">
-                {new Date(dateStr).toLocaleDateString("en-US", {
-                  weekday: "short",
-                })}
-              </span>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
 
-      <div className="mt-8 pt-6 border-t border-white/5">
-        <div className="flex justify-between items-center text-[8px] font-bold text-neutral-500 tracking-widest uppercase">
-          <span>Chaos</span>
-          <div className="flex gap-1 px-4">
-            <div className="w-2 h-2 rounded-full bg-rose-600"></div>
-            <div className="w-2 h-2 rounded-full bg-slate-500"></div>
-            <div className="w-2 h-2 rounded-full bg-amber-500"></div>
-            <div className="w-2 h-2 rounded-full bg-sky-500"></div>
-            <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+        {/* Legend */}
+        <div className="mt-6 pt-6 border-t border-white/5">
+          <div className="flex justify-between items-center">
+            <span className="text-[9px] font-mono text-neutral-600 tracking-wider">
+              0.0
+            </span>
+            <div className="flex-1 mx-3 h-1.5 rounded-full bg-gradient-to-r from-rose-600 via-amber-500 to-emerald-500 opacity-40"></div>
+            <span className="text-[9px] font-mono text-neutral-600 tracking-wider">
+              10.0
+            </span>
           </div>
-          <span>Peak</span>
+          <div className="text-center mt-2">
+            <span className="text-[8px] font-mono text-neutral-700 tracking-widest uppercase">
+              Humanity Index Scale
+            </span>
+          </div>
         </div>
       </div>
     </div>

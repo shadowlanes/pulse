@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "tailwindcss-animate";
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @theme {
     --color-border: hsl(var(--border));
@@ -36,26 +37,33 @@
 
 @layer base {
     :root {
-        --background: 222 47% 11%;
-        --foreground: 210 40% 98%;
-        --card: 222 47% 11%;
-        --card-foreground: 210 40% 98%;
-        --popover: 222 47% 11%;
-        --popover-foreground: 210 40% 98%;
-        --primary: 217 91% 60%;
-        --primary-foreground: 222 47% 11%;
-        --secondary: 217 33% 17%;
-        --secondary-foreground: 210 40% 98%;
-        --muted: 223 47% 16%;
-        --muted-foreground: 215 20% 65%;
-        --accent: 217 33% 17%;
-        --accent-foreground: 210 40% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 217 33% 17%;
-        --input: 217 33% 17%;
-        --ring: 224 71% 4%;
-        --radius: 0.5rem;
+        --background: 0 0% 2%;
+        --foreground: 0 0% 98%;
+        --card: 0 0% 5%;
+        --card-foreground: 0 0% 98%;
+        --popover: 0 0% 5%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 180 100% 50%;
+        --primary-foreground: 0 0% 2%;
+        --secondary: 330 100% 60%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 60%;
+        --accent: 75 100% 50%;
+        --accent-foreground: 0 0% 2%;
+        --destructive: 0 100% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 0 0% 15%;
+        --input: 0 0% 15%;
+        --ring: 180 100% 50%;
+        --radius: 0.25rem;
+
+        /* Custom vitals theme */
+        --electric-cyan: 180 100% 50%;
+        --electric-magenta: 330 100% 60%;
+        --electric-lime: 75 100% 50%;
+        --deep-black: 0 0% 2%;
+        --rich-black: 0 0% 5%;
     }
 }
 
@@ -65,11 +73,94 @@
     }
 
     body {
-        @apply bg-background text-foreground;
-        font-family: 'Instrument Sans', sans-serif;
+        @apply bg-background text-foreground antialiased;
+        font-family: 'Manrope', sans-serif;
+        background: #050505;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'Syne', sans-serif;
+        font-weight: 700;
     }
+}
+
+/* Pulse animation for heartbeat effect */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10% { transform: scale(1.1); }
+    20% { transform: scale(1); }
+    30% { transform: scale(1.15); }
+    40% { transform: scale(1); }
+}
+
+@keyframes ecg-pulse {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.3; filter: blur(20px); }
+    50% { opacity: 0.6; filter: blur(30px); }
+}
+
+.heartbeat {
+    animation: heartbeat 2s ease-in-out infinite;
+}
+
+.ecg-line {
+    animation: ecg-pulse 2s linear infinite;
+}
+
+.glow-pulse {
+    animation: glow-pulse 3s ease-in-out infinite;
+}
+
+/* Art Deco geometric patterns */
+.deco-border {
+    position: relative;
+}
+
+.deco-border::before,
+.deco-border::after {
+    content: '';
+    position: absolute;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        hsl(var(--electric-cyan)) 50%,
+        transparent 100%);
+    height: 2px;
+}
+
+.deco-border::before {
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.deco-border::after {
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Neon glow effects */
+.neon-cyan {
+    text-shadow:
+        0 0 10px hsl(var(--electric-cyan) / 0.5),
+        0 0 20px hsl(var(--electric-cyan) / 0.3),
+        0 0 30px hsl(var(--electric-cyan) / 0.2);
+}
+
+.neon-magenta {
+    text-shadow:
+        0 0 10px hsl(var(--electric-magenta) / 0.5),
+        0 0 20px hsl(var(--electric-magenta) / 0.3),
+        0 0 30px hsl(var(--electric-magenta) / 0.2);
+}
+
+.neon-lime {
+    text-shadow:
+        0 0 10px hsl(var(--electric-lime) / 0.5),
+        0 0 20px hsl(var(--electric-lime) / 0.3),
+        0 0 30px hsl(var(--electric-lime) / 0.2);
 }

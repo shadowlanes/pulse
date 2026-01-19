@@ -60,11 +60,41 @@ function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-neutral-50">
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
         <div className="text-center">
-          <div className="w-3 h-3 rounded-full bg-primary animate-pulse mx-auto mb-4"></div>
-          <p className="text-sm font-bold tracking-widest text-neutral-500 uppercase">
-            Loading Pulse Data...
+          {/* Animated pulse circles */}
+          <div className="relative w-20 h-20 mx-auto mb-8">
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-cyan-400"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [1, 0, 1]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-magenta-400"
+              animate={{
+                scale: [1, 1.5, 1],
+                opacity: [1, 0, 1]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-3 h-3 rounded-full bg-cyan-400 animate-pulse"></div>
+            </div>
+          </div>
+          <p className="text-xs font-mono tracking-[0.3em] text-cyan-400/70 uppercase">
+            Initializing Vitals Monitor
           </p>
         </div>
       </div>
@@ -73,20 +103,27 @@ function App() {
 
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center text-neutral-50 bg-black">
-        <div className="text-center max-w-md px-4">
-          <div className="w-3 h-3 rounded-full bg-red-500 mx-auto mb-4"></div>
-          <h2 className="text-xl font-black tracking-tighter mb-2">
-            Connection Error
+      <div className="min-h-screen bg-[#050505] flex items-center justify-center">
+        <div className="text-center max-w-md px-6">
+          <div className="relative w-16 h-16 mx-auto mb-6">
+            <div className="absolute inset-0 rounded-full border-2 border-red-500/30"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-8 h-8 flex items-center justify-center">
+                <span className="text-3xl text-red-500">!</span>
+              </div>
+            </div>
+          </div>
+          <h2 className="text-2xl font-bold tracking-tight mb-3 text-red-400" style={{ fontFamily: 'Syne, sans-serif' }}>
+            Connection Failed
           </h2>
-          <p className="text-sm text-neutral-400 mb-6">
-            Failed to fetch pulse data from API: {error}
+          <p className="text-sm text-neutral-500 mb-8 font-mono">
+            {error}
           </p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full text-xs font-bold tracking-widest transition-all"
+            className="px-8 py-3 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 hover:border-red-500/50 rounded-sm text-xs font-mono font-bold tracking-wider text-red-400 transition-all duration-300"
           >
-            RETRY
+            RETRY CONNECTION
           </button>
         </div>
       </div>
@@ -94,145 +131,191 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen text-neutral-50 selection:bg-primary/30 relative">
+    <div className="min-h-screen text-neutral-50 selection:bg-cyan-400/30 relative overflow-x-hidden">
       <Atmosphere score={rollingAverage} />
 
-      <nav className="border-b border-white/5 bg-black/20 backdrop-blur-md sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
-            <h1 className="text-xl font-black tracking-tighter">PULSE</h1>
-          </div>
-          <div className="text-[10px] font-bold tracking-widest text-neutral-500 uppercase">
-            Current Climate: {rollingAverage.toFixed(1)}
+      {/* Art Deco Header */}
+      <nav className="border-b border-cyan-400/20 bg-black/60 backdrop-blur-xl sticky top-0 z-50 deco-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-4">
+              <div className="relative">
+                <div className="w-3 h-3 rounded-full bg-cyan-400 heartbeat"></div>
+                <div className="absolute inset-0 w-3 h-3 rounded-full bg-cyan-400 opacity-40 blur-md glow-pulse"></div>
+              </div>
+              <h1 className="text-3xl font-bold tracking-tight neon-cyan" style={{ fontFamily: 'Syne, sans-serif' }}>
+                PULSE
+              </h1>
+            </div>
+            <div className="hidden sm:flex items-center gap-3 bg-black/40 px-4 py-2 rounded-sm border border-cyan-400/30">
+              <span className="text-[10px] font-mono font-medium tracking-wider text-cyan-400/70">
+                VITALS
+              </span>
+              <span className="text-lg font-bold font-mono text-cyan-400" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                {rollingAverage.toFixed(1)}
+              </span>
+            </div>
           </div>
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Hero Score Section */}
         <div className="mb-20">
           <PulseMetrics score={rollingAverage} />
+        </div>
 
-          {/* Week View and Market Correlation - Side by Side */}
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch auto-rows-max lg:auto-rows-fr">
-            {/* Week View */}
-            <div className="flex w-full">
-              <PulseCalendar
-                history={history}
-                selectedDate={selectedDate}
-                onSelect={(d) => setSelectedDate(d)}
-              />
-            </div>
-
-            {/* Market Correlation Widget */}
-            <div className="flex w-full lg:col-span-2 min-h-96 lg:min-h-auto">
-              <MarketCorrelation history={history} />
-            </div>
+        {/* Asymmetric Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-12">
+          {/* Calendar - Left Column */}
+          <div className="lg:col-span-5">
+            <PulseCalendar
+              history={history}
+              selectedDate={selectedDate}
+              onSelect={(d) => setSelectedDate(d)}
+            />
           </div>
 
-          {/* Selected Day Details - Only shown when a day is selected */}
-          {details && (
-            <div className="mt-12">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedDate}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  className="bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl relative"
-                >
-                  {/* Sticky Score Context */}
-                  <div className="sticky top-0 z-20 px-8 py-4 bg-black/40 backdrop-blur-md border-b border-white/10 rounded-t-2xl flex items-center justify-between">
+          {/* Market Chart - Right Column */}
+          <div className="lg:col-span-7">
+            <MarketCorrelation history={history} />
+          </div>
+        </div>
+
+        {/* Detail Panel */}
+        {details && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedDate}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -30 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
+            >
+              {/* Decorative corner elements */}
+              <div className="absolute -top-2 -left-2 w-6 h-6 border-l-2 border-t-2 border-cyan-400/50"></div>
+              <div className="absolute -top-2 -right-2 w-6 h-6 border-r-2 border-t-2 border-magenta-400/50"></div>
+              <div className="absolute -bottom-2 -left-2 w-6 h-6 border-l-2 border-b-2 border-magenta-400/50"></div>
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 border-r-2 border-b-2 border-cyan-400/50"></div>
+
+              <div className="bg-gradient-to-br from-black/80 via-black/60 to-black/80 backdrop-blur-2xl border border-white/10 rounded-sm overflow-hidden">
+                {/* Header Bar */}
+                <div className="sticky top-20 z-20 px-8 py-5 bg-black/80 backdrop-blur-xl border-b border-cyan-400/20 flex items-center justify-between">
+                  <div className="flex items-center gap-6">
                     <div className="flex items-center gap-3">
+                      <span className="text-sm font-mono text-cyan-400/70 tracking-wider">SCORE</span>
                       <span
-                        className="text-2xl font-black tracking-tighter"
-                        style={{ fontFamily: "'Outfit', sans-serif" }}
+                        className="text-4xl font-bold tracking-tight text-cyan-400"
+                        style={{ fontFamily: 'JetBrains Mono, monospace' }}
                       >
                         {details.score.toFixed(1)}
                       </span>
-                      <span
-                        className={`text-xs font-bold uppercase tracking-widest ${
-                          details.status === "Good"
-                            ? "text-emerald-400"
-                            : "text-red-400"
-                        }`}
-                      >
-                        {details.status === "Good" ? "Steady" : "Arrythmia"}
-                      </span>
                     </div>
-                    <div className="text-[10px] font-bold text-neutral-500 uppercase tracking-widest">
-                      {selectedDate.split("T")[0]}
+                    <div className="h-8 w-px bg-white/10"></div>
+                    <span
+                      className={`text-xs font-bold uppercase tracking-[0.2em] ${
+                        details.status === "Good"
+                          ? "text-lime-400 neon-lime"
+                          : "text-magenta-400 neon-magenta"
+                      }`}
+                    >
+                      {details.status === "Good" ? "● STABLE" : "● UNSTABLE"}
+                    </span>
+                  </div>
+                  <div className="text-xs font-mono text-neutral-500 tracking-wider">
+                    {new Date(selectedDate).toLocaleDateString("en-US", {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    }).toUpperCase()}
+                  </div>
+                </div>
+
+                <div className="p-8 lg:p-12">
+                  {/* Analysis Section */}
+                  <div className="mb-12">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
+                      <h3 className="text-xs font-bold tracking-[0.3em] text-cyan-400/70 uppercase">
+                        AI Analysis
+                      </h3>
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent"></div>
                     </div>
+                    <blockquote className="text-xl leading-relaxed text-neutral-300 italic border-l-4 border-cyan-400/30 pl-6 py-2">
+                      {details.rationale}
+                    </blockquote>
                   </div>
 
-                  <div className="p-8">
-                    <div className="flex items-center justify-between mb-8">
-                      <h3
-                        className="text-3xl font-black tracking-tighter uppercase"
-                        style={{ fontFamily: "'Outfit', sans-serif" }}
-                      >
-                        Daily Archive
-                      </h3>
-                      <div className="text-[10px] font-bold text-neutral-500 tracking-widest uppercase">
-                        Status:{" "}
-                        {details.status === "Good" ? "OPTIMAL" : "DISTRESSED"}
-                      </div>
-                    </div>
-
-                    <div
-                      className="mb-10 text-neutral-500 leading-relaxed text-base font-normal"
-                      style={{ fontFamily: "'Instrument Sans', sans-serif" }}
-                    >
-                      "{details.rationale}"
-                    </div>
-
-                    <div className="space-y-4">
-                      <h4 className="text-[10px] font-black text-neutral-500 tracking-[0.2em] uppercase mb-4">
-                        Headline Ledger
+                  {/* Headlines Grid */}
+                  <div>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-magenta-400/50 to-transparent"></div>
+                      <h4 className="text-xs font-bold tracking-[0.3em] text-magenta-400/70 uppercase">
+                        Source Material ({details.headlines.length})
                       </h4>
+                      <div className="h-px flex-1 bg-gradient-to-r from-transparent via-magenta-400/50 to-transparent"></div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       {details.headlines.map((h, i) => (
-                        <a
+                        <motion.a
                           key={i}
                           href={h.url}
                           target="_blank"
-                          className="block p-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/20 transition-all hover:bg-white/[0.05]"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: i * 0.03 }}
+                          className="group relative p-6 rounded-sm bg-white/[0.02] border border-white/5 hover:border-cyan-400/40 transition-all duration-300 hover:bg-white/[0.04]"
                         >
-                          <div className="flex justify-between items-start mb-2">
-                            <div className="text-[10px] text-neutral-500 font-bold uppercase tracking-widest">
+                          {/* Index number */}
+                          <div className="absolute top-3 right-3 text-[10px] font-mono font-bold text-white/10 group-hover:text-cyan-400/30 transition-colors">
+                            {String(i + 1).padStart(2, '0')}
+                          </div>
+
+                          <div className="mb-3">
+                            <span className="text-[9px] font-mono font-medium text-cyan-400/60 tracking-wider uppercase">
                               {h.source.name}
-                            </div>
-                            <div className="w-1.5 h-1.5 rounded-full bg-white/10"></div>
+                            </span>
                           </div>
-                          <div
-                            className="font-bold text-neutral-100 text-lg leading-snug"
-                            style={{ fontFamily: "'Outfit', sans-serif" }}
-                          >
+                          <h5 className="font-semibold text-base leading-snug text-neutral-100 mb-3 group-hover:text-cyan-400 transition-colors" style={{ fontFamily: 'Syne, sans-serif' }}>
                             {h.title}
-                          </div>
-                          <p className="mt-2 text-sm text-neutral-400 line-clamp-2 leading-relaxed">
+                          </h5>
+                          <p className="text-sm text-neutral-500 line-clamp-2 leading-relaxed">
                             {h.description}
                           </p>
-                        </a>
+
+                          {/* Hover indicator */}
+                          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-cyan-400 via-magenta-400 to-cyan-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        </motion.a>
                       ))}
                     </div>
+                  </div>
 
-                    <div className="mt-12 pt-6 border-t border-white/5">
-                      <div className="text-[10px] text-neutral-600 font-bold uppercase tracking-widest">
-                        Archive ID: {details.id.slice(0, 8)}
-                      </div>
+                  {/* Footer */}
+                  <div className="mt-12 pt-6 border-t border-white/5 flex justify-between items-center">
+                    <div className="text-[10px] font-mono text-neutral-700 tracking-wider">
+                      ARCHIVE_ID: {details.id.slice(0, 16).toUpperCase()}
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-400/30"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-magenta-400/30"></div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-lime-400/30"></div>
                     </div>
                   </div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          )}
-        </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        )}
 
-        <footer className="mt-24 pt-12 border-t border-white/5 text-center text-neutral-600 text-[10px] font-bold tracking-widest uppercase">
-          <p>
-            &copy; {new Date().getFullYear()} Pulse. A historical archive for
-            humanity.
-          </p>
+        {/* Footer */}
+        <footer className="mt-32 pt-12 border-t border-white/5">
+          <div className="flex justify-center items-center gap-4 text-[10px] font-mono text-neutral-700 tracking-wider">
+            <div className="w-2 h-2 border border-cyan-400/30"></div>
+            <p>&copy; {new Date().getFullYear()} PULSE VITALS MONITOR</p>
+            <div className="w-2 h-2 border border-magenta-400/30"></div>
+          </div>
         </footer>
       </main>
     </div>
