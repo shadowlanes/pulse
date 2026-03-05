@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 import { getGradientColor } from "../lib/colorUtils";
 
 const PulseCalendar = ({ history, selectedDate, onSelect }) => {
-  // Generate last 7 days before today for the grid
+  // Generate last 14 days before today for the grid
   const dates = [];
-  for (let i = 7; i >= 1; i--) {
+  for (let i = 14; i >= 1; i--) {
     const d = new Date();
     d.setDate(d.getDate() - i);
     dates.push(d.toISOString().split("T")[0]);
@@ -34,8 +34,8 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
       </div>
 
       {/* Calendar Content */}
-      <div className="p-6">
-        <div className="space-y-3">
+      <div className="p-4 overflow-y-auto" style={{ maxHeight: "calc(100vh - 260px)" }}>
+        <div className="space-y-2">
           {dates.map((dateStr, index) => {
             const data = historyMap[dateStr];
             const isSelected = selectedDate && selectedDate.startsWith(dateStr);
@@ -55,7 +55,7 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                 onClick={() => data && onSelect(data.date)}
                 disabled={!data}
                 className={`
-                  w-full flex items-center gap-4 p-4 rounded-sm border transition-all duration-300
+                  w-full flex items-center gap-4 p-3 rounded-sm border transition-all duration-300
                   ${!data ? "cursor-not-allowed opacity-30" : "cursor-pointer"}
                   ${
                     isSelected
@@ -67,7 +67,7 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                 {/* Date Circle */}
                 <div className="relative flex-shrink-0">
                   <div
-                    className="w-12 h-12 rounded-full flex flex-col items-center justify-center border-2 transition-all"
+                    className="w-10 h-10 rounded-full flex flex-col items-center justify-center border-2 transition-all"
                     style={{
                       borderColor: isSelected ? color : color + "40",
                       backgroundColor: isSelected
@@ -79,7 +79,7 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                       {dayName.toUpperCase()}
                     </span>
                     <span
-                      className="text-lg font-bold leading-none mt-0.5"
+                      className="text-base font-bold leading-none mt-0.5"
                       style={{ color }}
                     >
                       {dayNum}
@@ -112,7 +112,7 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
                         SCORE
                       </span>
                       <span
-                        className="text-lg font-bold font-mono tracking-tight"
+                        className="text-base font-bold font-mono tracking-tight"
                         style={{
                           color,
                           fontFamily: "JetBrains Mono, monospace",
@@ -156,7 +156,7 @@ const PulseCalendar = ({ history, selectedDate, onSelect }) => {
         </div>
 
         {/* Legend */}
-        <div className="mt-6 pt-6 border-t border-white/5">
+        <div className="mt-4 pt-4 border-t border-white/5">
           <div className="flex justify-between items-center">
             <span className="text-[9px] font-mono text-neutral-600 tracking-wider">
               0.0
