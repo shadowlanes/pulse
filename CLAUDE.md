@@ -2,6 +2,11 @@
 
 A full-stack application that analyzes global news headlines daily using AI to generate a "pulse score" representing humanity's overall well-being. Shows the last 7 days of data with beautiful visualizations.
 
+## Git Conventions
+
+- Use [Conventional Commits](https://www.conventionalcommits.org/) format for all commit messages (e.g. `feat:`, `fix:`, `refactor:`, `docs:`, `chore:`)
+- Do NOT add `Co-Authored-By` lines to commits
+
 ## Architecture Overview
 
 ### Tech Stack
