@@ -5,6 +5,57 @@ import Atmosphere from "./components/Atmosphere";
 import MarketCorrelation from "./components/MarketCorrelation";
 import { motion, AnimatePresence } from "framer-motion";
 
+function parseRationale(text, headlines) {
+  // Replace patterns like "(Headlines 2, 3, 6, 14, 16)" or "(Headline 5)" or standalone "Headline 5"
+  // with superscript linked numbers
+  const parts = [];
+  // Match: optional opening paren, "Headline(s)" + comma-separated numbers, optional closing paren
+  const regex = /\(?\bHeadlines?\s+([\d]+(?:\s*,\s*\d+)*)\)?/gi;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Push text before the match
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    // Parse the headline numbers
+    const nums = match[1].split(/\s*,\s*/).map(Number);
+    nums.forEach((num, i) => {
+      const idx = num - 1;
+      const h = headlines[idx];
+      if (h) {
+        parts.push(
+          <a
+            key={`${match.index}-${num}`}
+            href={h.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={h.title}
+            className="inline-flex items-center no-underline"
+          >
+            <sup className="text-[10px] font-mono font-bold text-cyan-400/70 hover:text-cyan-400 transition-colors cursor-pointer ml-[1px] mr-[1px] not-italic">
+              [{num}]
+            </sup>
+          </a>
+        );
+      } else {
+        parts.push(<sup key={`${match.index}-${num}`} className="text-[10px] font-mono text-white/30 ml-[1px] mr-[1px] not-italic">[{num}]</sup>);
+      }
+    });
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  // Push remaining text
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+}
+
 function App() {
   const [history, setHistory] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -231,7 +282,7 @@ function App() {
                     <div className="mb-8">
                       <p className="text-[9px] font-mono text-cyan-400/50 tracking-[0.3em] uppercase mb-3">AI Analysis</p>
                       <blockquote className="text-base leading-relaxed text-neutral-300 italic border-l-2 border-cyan-400/30 pl-4 py-1">
-                        {details.rationale}
+                        {parseRationale(details.rationale, details.headlines)}
                       </blockquote>
                     </div>
 
