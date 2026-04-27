@@ -54,6 +54,9 @@ async function generateMockData() {
     const rationale = `Mock rationale: The market pulse for ${date.toDateString()} is ${status} with a score of ${score}. This is based on simulated economic indicators and news sentiment analysis.`;
 
     const sp500 = Math.round((4000 + Math.random() * 1000) * 100) / 100; // 4000-5000
+    const gold = Math.round((1800 + Math.random() * 600) * 100) / 100; // 1800-2400
+    const qqq = Math.round((350 + Math.random() * 150) * 100) / 100; // 350-500
+    const bitcoin = Math.round((40000 + Math.random() * 40000) * 100) / 100; // 40000-80000
 
     mockData.push({
       date,
@@ -61,7 +64,10 @@ async function generateMockData() {
       score,
       headlines,
       rationale,
-      sp500
+      sp500,
+      gold,
+      qqq,
+      bitcoin
     });
   }
 

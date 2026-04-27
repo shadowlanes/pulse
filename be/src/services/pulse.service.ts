@@ -74,50 +74,73 @@ export class PulseService {
     }
   }
 
-  async fetchSP500(date: Date): Promise<number | null> {
+  async fetchAlphaVantageDailySeries(symbol: string): Promise<Record<string, { close: number }> | null> {
     if (!ALPHA_VANTAGE_API_KEY) {
-      console.warn("ALPHA_VANTAGE_API_KEY is not defined, skipping S&P 500 fetch");
+      console.warn(`ALPHA_VANTAGE_API_KEY is not defined, skipping ${symbol} fetch`);
       return null;
     }
 
     try {
-      // Using Alpha Vantage TIME_SERIES_DAILY for SPY (S&P 500 ETF)
+      const isCrypto = symbol === "BTC";
       const response = await axios.get("https://www.alphavantage.co/query", {
-        params: {
-          function: "TIME_SERIES_DAILY",
-          symbol: "SPY",
-          apikey: ALPHA_VANTAGE_API_KEY,
-          outputsize: "compact"
-        },
+        params: isCrypto
+          ? {
+              function: "DIGITAL_CURRENCY_DAILY",
+              symbol: "BTC",
+              market: "USD",
+              apikey: ALPHA_VANTAGE_API_KEY,
+            }
+          : {
+              function: "TIME_SERIES_DAILY",
+              symbol,
+              apikey: ALPHA_VANTAGE_API_KEY,
+              outputsize: "compact",
+            },
       });
 
-      const timeSeries = response.data["Time Series (Daily)"];
+      const seriesKey = isCrypto ? "Time Series (Digital Currency Daily)" : "Time Series (Daily)";
+      const timeSeries = response.data[seriesKey];
       if (!timeSeries) {
-        console.error("No time series data found in Alpha Vantage response");
+        console.error(`No time series data for ${symbol}:`, response.data?.Note || response.data?.Information || "");
         return null;
       }
 
-      const dateStr = date.toISOString().split("T")[0];
-      const dayData = timeSeries[dateStr];
-
-      if (dayData) {
-        // Return the closing price rounded to nearest integer
-        return Math.round(parseFloat(dayData["4. close"]));
-      } else {
-        // If exact date not found, try to find the most recent available date
-        const dates = Object.keys(timeSeries).sort().reverse();
-        const closestDate = dates.find(d => d <= dateStr);
-        if (closestDate) {
-          console.log(`S&P 500 data for ${dateStr} not found, using ${closestDate}`);
-          return Math.round(parseFloat(timeSeries[closestDate]["4. close"]));
-        }
-        console.error(`No S&P 500 data found for ${dateStr}`);
-        return null;
+      const out: Record<string, { close: number }> = {};
+      for (const [d, v] of Object.entries<any>(timeSeries)) {
+        const closeRaw = isCrypto ? (v["4a. close (USD)"] ?? v["4. close"]) : v["4. close"];
+        const close = parseFloat(closeRaw);
+        if (!isNaN(close)) out[d] = { close };
       }
+      return out;
     } catch (error) {
-      console.error("Error fetching S&P 500 data:", error);
+      console.error(`Error fetching ${symbol} data:`, error);
       return null;
     }
+  }
+
+  private pickClose(series: Record<string, { close: number }> | null, date: Date): number | null {
+    if (!series) return null;
+    const dateStr = date.toISOString().split("T")[0];
+    if (series[dateStr]) return Math.round(series[dateStr].close);
+    const dates = Object.keys(series).sort().reverse();
+    const closest = dates.find(d => d <= dateStr);
+    return closest ? Math.round(series[closest].close) : null;
+  }
+
+  async fetchSP500(date: Date): Promise<number | null> {
+    return this.pickClose(await this.fetchAlphaVantageDailySeries("SPY"), date);
+  }
+
+  async fetchGold(date: Date): Promise<number | null> {
+    return this.pickClose(await this.fetchAlphaVantageDailySeries("GLD"), date);
+  }
+
+  async fetchQQQ(date: Date): Promise<number | null> {
+    return this.pickClose(await this.fetchAlphaVantageDailySeries("QQQ"), date);
+  }
+
+  async fetchBitcoin(date: Date): Promise<number | null> {
+    return this.pickClose(await this.fetchAlphaVantageDailySeries("BTC"), date);
   }
 
   async analyzePulse(headlines: any[]): Promise<{ status: "Good" | "Bad"; score: number; rationale: string }> {
@@ -184,11 +207,19 @@ export class PulseService {
     }
   }
 
-  async savePulse(date: Date, status: "Good" | "Bad", score: number, headlines: any[], rationale: string, sp500?: number | null) {
+  async savePulse(
+    date: Date,
+    status: "Good" | "Bad",
+    score: number,
+    headlines: any[],
+    rationale: string,
+    market: { sp500?: number | null; gold?: number | null; qqq?: number | null; bitcoin?: number | null } = {}
+  ) {
+    const { sp500 = null, gold = null, qqq = null, bitcoin = null } = market;
     const pulse = await prisma.pulse.upsert({
       where: { date },
-      update: { status, score, headlines, rationale, sp500 },
-      create: { date, status, score, headlines, rationale, sp500 },
+      update: { status, score, headlines, rationale, sp500, gold, qqq, bitcoin },
+      create: { date, status, score, headlines, rationale, sp500, gold, qqq, bitcoin },
     });
     return pulse;
   }
@@ -201,18 +232,18 @@ export class PulseService {
     });
 
     if (existing) {
-      // If S&P 500 data is missing, fetch and update it
-      if (existing.sp500 === null) {
-        console.log(`Updating S&P 500 data for ${normalizedDate.toISOString().split("T")[0]}`);
-        const sp500 = await this.fetchSP500(normalizedDate);
-        if (sp500 !== null) {
-          await prisma.pulse.update({
-            where: { date: normalizedDate },
-            data: { sp500 }
-          });
-          console.log(`Updated S&P 500 value: ${sp500}`);
-        }
+      const gaps: Record<string, number | null> = {};
+      if (existing.sp500 === null) gaps.sp500 = await this.fetchSP500(normalizedDate);
+      if (existing.gold === null) gaps.gold = await this.fetchGold(normalizedDate);
+      if (existing.qqq === null) gaps.qqq = await this.fetchQQQ(normalizedDate);
+      if (existing.bitcoin === null) gaps.bitcoin = await this.fetchBitcoin(normalizedDate);
+
+      const updates = Object.fromEntries(Object.entries(gaps).filter(([, v]) => v !== null));
+      if (Object.keys(updates).length > 0) {
+        await prisma.pulse.update({ where: { date: normalizedDate }, data: updates });
+        console.log(`Filled missing market data for ${normalizedDate.toISOString().split("T")[0]}:`, updates);
       }
+
       console.log(`Pulse entry exists for ${normalizedDate.toISOString().split("T")[0]}.`);
       return {
         status: existing.status,
@@ -223,20 +254,20 @@ export class PulseService {
 
     console.log(`Running Daily Pulse Check for ${normalizedDate.toISOString()}...`);
 
-    // Fetch news headlines and S&P 500 data in parallel
-    const [headlines, sp500] = await Promise.all([
+    const [headlines, sp500, gold, qqq, bitcoin] = await Promise.all([
       this.extractNews(normalizedDate),
-      this.fetchSP500(normalizedDate)
+      this.fetchSP500(normalizedDate),
+      this.fetchGold(normalizedDate),
+      this.fetchQQQ(normalizedDate),
+      this.fetchBitcoin(normalizedDate),
     ]);
 
     console.log(`Extracted ${headlines.length} headlines...`);
-    if (sp500 !== null) {
-      console.log(`Fetched S&P 500 value: ${sp500}`);
-    }
+    console.log(`Market values: sp500=${sp500} gold=${gold} qqq=${qqq} bitcoin=${bitcoin}`);
 
     const { status, score, rationale } = await this.analyzePulse(headlines);
     console.log(`Analyzed pulse: ${status} (${score})`);
-    await this.savePulse(normalizedDate, status, score, headlines, rationale, sp500);
+    await this.savePulse(normalizedDate, status, score, headlines, rationale, { sp500, gold, qqq, bitcoin });
     console.log(`Saved pulse...`);
 
     console.log(`Pulse Check Complete: ${status} (${score})`);

@@ -155,6 +155,9 @@ router.get("/metrics", async (req, res) => {
  *                   headlines: { type: array }
  *                   rationale: { type: string }
  *                   sp500: { type: number, nullable: true }
+ *                   gold: { type: number, nullable: true }
+ *                   qqq: { type: number, nullable: true }
+ *                   bitcoin: { type: number, nullable: true }
  *                   createdAt: { type: string, format: date-time }
  *                   updatedAt: { type: string, format: date-time }
  */

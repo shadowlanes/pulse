@@ -14,7 +14,10 @@ model Pulse {
   score     Float    @default(5.0)
   headlines Json     // Array of headlines
   rationale String   @db.Text
-  sp500     Float?   // S&P 500 index value for the day
+  sp500     Float?   // S&P 500 index value (SPY ETF close)
+  gold      Float?   // Gold price (GLD ETF close)
+  qqq       Float?   // Nasdaq-100 index (QQQ ETF close)
+  bitcoin   Float?   // Bitcoin price (BTC-USD close)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 

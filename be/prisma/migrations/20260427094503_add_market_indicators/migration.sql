@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "pulse" ADD COLUMN     "bitcoin" DOUBLE PRECISION,
+ADD COLUMN     "gold" DOUBLE PRECISION,
+ADD COLUMN     "qqq" DOUBLE PRECISION;
