@@ -43,6 +43,7 @@ async function backfillMarket() {
   console.log(`Backfill: ${rows.length} rows have missing market data. Fetching series...`);
 
   const seriesByField: Partial<Record<keyof typeof FIELD_TO_SYMBOL, Record<string, { close: number }>>> = {};
+  const failedFields: string[] = [];
   for (const field of Object.keys(FIELD_TO_SYMBOL) as (keyof typeof FIELD_TO_SYMBOL)[]) {
     const needed = rows.some(r => r[field] === null);
     if (!needed) continue;
@@ -51,7 +52,8 @@ async function backfillMarket() {
       seriesByField[field] = series;
       console.log(`  ${field} (${FIELD_TO_SYMBOL[field]}): ${Object.keys(series).length} days fetched`);
     } else {
-      console.warn(`  ${field} (${FIELD_TO_SYMBOL[field]}): no data — skipping`);
+      console.error(`  ${field} (${FIELD_TO_SYMBOL[field]}): fetch failed (see error above)`);
+      failedFields.push(`${field}/${FIELD_TO_SYMBOL[field]}`);
     }
   }
 
@@ -74,6 +76,13 @@ async function backfillMarket() {
   }
 
   console.log(`Backfill complete: updated ${updatedCount} rows.`);
+  if (failedFields.length > 0) {
+    console.warn(
+      `WARNING: backfill incomplete — failed to fetch: ${failedFields.join(", ")}. ` +
+        `Likely Alpha Vantage rate/quota limit (free tier: 25 calls/day). ` +
+        `Continuing anyway; the daily cron and next backfill run will fill the gaps.`
+    );
+  }
 }
 
 backfillMarket()

@@ -101,7 +101,9 @@ export class PulseService {
       const seriesKey = isCrypto ? "Time Series (Digital Currency Daily)" : "Time Series (Daily)";
       const timeSeries = response.data[seriesKey];
       if (!timeSeries) {
-        console.error(`No time series data for ${symbol}:`, response.data?.Note || response.data?.Information || "");
+        const apiMsg = response.data?.Note || response.data?.Information || JSON.stringify(response.data).slice(0, 200);
+        const isThrottled = /rate limit|standard api|premium|thank you for using/i.test(apiMsg);
+        console.error(`Alpha Vantage returned no time series for ${symbol}${isThrottled ? " (rate-limited)" : ""}: ${apiMsg}`);
         return null;
       }
 
