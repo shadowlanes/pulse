@@ -56,17 +56,24 @@ function parseRationale(text, headlines) {
   return parts.length > 0 ? parts : text;
 }
 
+const RANGE_OPTIONS = [
+  { value: 7, label: "7D" },
+  { value: 30, label: "30D" },
+  { value: 90, label: "90D" },
+];
+
 function App() {
   const [history, setHistory] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [rangeDays, setRangeDays] = useState(30);
 
   useEffect(() => {
-    // Fetch last 30 days data from the API
+    setLoading(true);
     const apiUrl = import.meta.env.VITE_API_URL;
-    fetch(`${apiUrl}/api/pulse/last-7-days`)
+    fetch(`${apiUrl}/api/pulse/last-7-days?days=${rangeDays}`)
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);
@@ -74,7 +81,7 @@ function App() {
         return res.json();
       })
       .then((data) => {
-        // Filter out today's data to show only last 30 days before today
+        // Filter out today's data
         const todayStr = new Date().toISOString().split("T")[0];
         const filteredData = data.filter(
           (item) => !item.date.startsWith(todayStr)
@@ -85,6 +92,9 @@ function App() {
           const latest = filteredData[filteredData.length - 1];
           setSelectedDate(latest.date);
           setDetails(latest);
+        } else {
+          setSelectedDate(null);
+          setDetails(null);
         }
         setLoading(false);
         setError(null);
@@ -94,7 +104,7 @@ function App() {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [rangeDays]);
 
   useEffect(() => {
     if (!selectedDate || !history.length) return;
@@ -216,6 +226,28 @@ function App() {
           <PulseMetrics score={rollingAverage} />
         </div>
 
+        {/* Range Filter */}
+        <div className="mb-6 flex justify-end">
+          <div className="inline-flex items-center gap-1 bg-black/40 border border-cyan-400/20 rounded-sm p-1">
+            <span className="text-[9px] font-mono text-white/30 tracking-[0.2em] uppercase px-2">
+              Range
+            </span>
+            {RANGE_OPTIONS.map((opt) => (
+              <button
+                key={opt.value}
+                onClick={() => setRangeDays(opt.value)}
+                className={`px-3 py-1.5 text-[10px] font-mono font-bold tracking-wider rounded-sm transition-all duration-200 ${
+                  rangeDays === opt.value
+                    ? "bg-cyan-400/20 text-cyan-400 border border-cyan-400/40"
+                    : "text-white/40 hover:text-white/70 border border-transparent"
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Full-width Market Impact Chart */}
         <div className="mb-8">
           <MarketCorrelation history={history} />
@@ -229,6 +261,7 @@ function App() {
               history={history}
               selectedDate={selectedDate}
               onSelect={(d) => setSelectedDate(d)}
+              days={rangeDays}
             />
           </div>
 

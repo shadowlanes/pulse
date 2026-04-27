@@ -1,12 +1,12 @@
 import { prisma } from "./lib/prisma";
 
 async function generateMockData() {
-  console.log("Generating mock data for the last 60 days...");
+  console.log("Generating mock data for the last 90 days...");
 
   const today = new Date();
   const mockData = [];
 
-  for (let i = 59; i >= 0; i--) {
+  for (let i = 89; i >= 0; i--) {
     const date = new Date(today);
     date.setDate(today.getDate() - i);
     date.setHours(0, 0, 0, 0); // Set to start of day

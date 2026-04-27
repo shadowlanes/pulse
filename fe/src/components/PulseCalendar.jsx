@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { getGradientColor } from "../lib/colorUtils";
 
-const PulseCalendar = ({ history, selectedDate, onSelect }) => {
-  // Generate last 14 days before today for the grid
+const PulseCalendar = ({ history, selectedDate, onSelect, days = 30 }) => {
+  // Generate the last N days before today for the grid
   const dates = [];
-  for (let i = 14; i >= 1; i--) {
+  for (let i = days; i >= 1; i--) {
     const d = new Date();
     d.setDate(d.getDate() - i);
     dates.push(d.toISOString().split("T")[0]);

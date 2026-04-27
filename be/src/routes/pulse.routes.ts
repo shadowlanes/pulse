@@ -160,14 +160,18 @@ router.get("/metrics", async (req, res) => {
  */
 router.get("/last-7-days", async (req, res) => {
   try {
+    const allowedDays = [7, 30, 90];
+    const requestedDays = parseInt(req.query.days as string, 10);
+    const days = allowedDays.includes(requestedDays) ? requestedDays : 30;
+
     const today = new Date();
-    const last30Days = new Date(today);
-    last30Days.setDate(today.getDate() - 30);
+    const startDate = new Date(today);
+    startDate.setDate(today.getDate() - days);
 
     const pulses = await prisma.pulse.findMany({
       where: {
         date: {
-          gte: last30Days,
+          gte: startDate,
         },
       },
       orderBy: { date: "asc" },
@@ -175,7 +179,7 @@ router.get("/last-7-days", async (req, res) => {
 
     res.json(pulses);
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch last 7 days data" });
+    res.status(500).json({ error: "Failed to fetch pulse history" });
   }
 });
 
