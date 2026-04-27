@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PulseCalendar from "./components/PulseCalendar";
 import PulseMetrics from "./components/PulseMetrics";
 import Atmosphere from "./components/Atmosphere";
@@ -67,11 +67,17 @@ function App() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState(null);
   const [rangeDays, setRangeDays] = useState(30);
+  const isInitialLoad = useRef(true);
 
   useEffect(() => {
-    setLoading(true);
+    if (isInitialLoad.current) {
+      setLoading(true);
+    } else {
+      setRefreshing(true);
+    }
     const apiUrl = import.meta.env.VITE_API_URL;
     fetch(`${apiUrl}/api/pulse/last-7-days?days=${rangeDays}`)
       .then((res) => {
@@ -88,21 +94,23 @@ function App() {
         );
 
         setHistory(filteredData);
-        if (filteredData.length > 0) {
-          const latest = filteredData[filteredData.length - 1];
-          setSelectedDate(latest.date);
-          setDetails(latest);
-        } else {
-          setSelectedDate(null);
-          setDetails(null);
+        if (isInitialLoad.current) {
+          if (filteredData.length > 0) {
+            const latest = filteredData[filteredData.length - 1];
+            setSelectedDate(latest.date);
+            setDetails(latest);
+          }
+          isInitialLoad.current = false;
         }
         setLoading(false);
+        setRefreshing(false);
         setError(null);
       })
       .catch((err) => {
         console.error("Failed to fetch pulse data from API:", err);
         setError(err.message);
         setLoading(false);
+        setRefreshing(false);
       });
   }, [rangeDays]);
 
@@ -229,8 +237,11 @@ function App() {
         {/* Range Filter */}
         <div className="mb-6 flex justify-end">
           <div className="inline-flex items-center gap-1 bg-black/40 border border-cyan-400/20 rounded-sm p-1">
-            <span className="text-[9px] font-mono text-white/30 tracking-[0.2em] uppercase px-2">
+            <span className="text-[9px] font-mono text-white/30 tracking-[0.2em] uppercase px-2 flex items-center gap-2">
               Range
+              {refreshing && (
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              )}
             </span>
             {RANGE_OPTIONS.map((opt) => (
               <button
